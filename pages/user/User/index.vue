@@ -114,7 +114,7 @@
       </view>
       <view class="by">
         <view>
-          <text class="by-text">www.yixiang.co提供技术支持</text>
+          <text class="by-text">妙享公司提供技术支持</text>
         </view>
       </view>
       <!-- <SwitchWindow

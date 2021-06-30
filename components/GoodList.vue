@@ -7,16 +7,15 @@
 				<image :src="`${$VUE_APP_RESOURCES_URL}/images/two.png`" class="numPic" v-if="isSort === true && index === 1" />
 				<image :src="`${$VUE_APP_RESOURCES_URL}/images/three.png`" class="numPic" v-if="isSort === true && index === 2" />
 			</view>
-			<view class="underline">
-				<view class="text">
-					<view class="line1">{{ item.storeName }}</view>
-					<view class="money font-color-red">
-						￥
+			<view class="underline1">
+				<view class="line1">{{ item.storeName }}</view>
+				<view class="text mt30 x-bc">	
+					<view class="money font-color-money">
 						<text class="num">{{ item.price }}</text>
 					</view>
 					<view class="vip-money acea-row row-middle">
-						<view class="vip">￥{{ item.otPrice || 0 }}</view>
-						<text class="num">已售{{ item.sales }}{{ item.unitName }}</text>
+						<!-- <view class="vip">{{ item.otPrice || 0 }}</view> -->
+						<text class="num">剩余{{ item.sales }}{{ item.unitName }}</text>
 					</view>
 				</view>
 			</view> 
@@ -47,3 +46,22 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+	.item{
+		margin-bottom: 30rpx;
+		padding-left: 0;
+	}
+	.money{
+		&:after {
+			content: 'UVX';
+			font-size: 15rpx;
+			color: #999999;
+		}
+	}
+	.underline1{
+		// padding: 0 0.3 * 100rpx 0 0;
+	}
+	.image{
+		background-color: #999999;
+	}
+</style>

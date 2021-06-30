@@ -4,15 +4,20 @@
 		<view v-if="showClose === true || showClose === 'true'" class="uni-noticebar-close" @click="close">
 			<uni-icons type="closeempty" :color="color" size="12" />
 		</view>
-		<view v-if="showIcon === true || showIcon === 'true'" class="uni-noticebar-icon">
+		<!-- <view v-if="showIcon === true || showIcon === 'true'" class="uni-noticebar-icon">
 			<uni-icons type="sound" :color="color" size="14" />
-		</view>
+		</view> -->
+		<image src="../../static/index/notice.png" class="noticeImg" mode=""></image>
+		
 		<!-- #endif -->
 		<!-- #ifndef MP-ALIPAY -->
 		<uni-icons v-if="showClose === true || showClose === 'true'" class="uni-noticebar-close" type="closeempty" :color="color"
 		 size="12" @click="close" />
-		<uni-icons v-if="showIcon === true || showIcon === 'true'" class="uni-noticebar-icon" type="sound" :color="color"
-		 size="14" />
+		 <image src="../../static/index/notice.png" class="noticeImg" mode=""></image>
+		 <text class="divider-line mx20" > | </text>
+		<!-- <uni-icons v-if="showIcon === true || showIcon === 'true'" class="uni-noticebar-icon" type="sound" :color="color"
+		 size="14" /> -->
+		 
 		<!-- #endif -->
 		<view ref="textBox" class="uni-noticebar__content-wrapper" :class="{'uni-noticebar__content-wrapper--scrollable':scrollable, 'uni-noticebar__content-wrapper--single':!scrollable && (single || moreText)}">
 			<view :id="elIdBox" class="uni-noticebar__content" :class="{'uni-noticebar__content--scrollable':scrollable, 'uni-noticebar__content--single':!scrollable && (single || moreText)}">
@@ -79,7 +84,7 @@
 			},
 			color: {
 				type: String,
-				default: '#de8c17'
+				default: '#fff'
 			},
 			moreColor: {
 				type: String,
@@ -391,5 +396,12 @@
 		100% {
 			transform: translate3d(-100%, 0, 0);
 		}
+	}
+	.noticeImg{
+		width: 150rpx;
+		height: 30rpx;
+	}
+	.divider-line{
+		color: #B7B9CE;
 	}
 </style>

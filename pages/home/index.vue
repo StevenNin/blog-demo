@@ -1,14 +1,21 @@
 <template>
   <view class="index">
     <view v-for="(item, index) in homeData" :key="index">
-      <view class="head_box" v-if="item.type == 'header'" :style="{ background: bgcolor }" :class="{ active: bgcolor }">
-        <cu-custom :isBack="true" :bgColor="bgcolor">
+      <view class="head_box" v-if="item.type == 'header'" :style="{ background: bgcolor1 }" :class="{ active: bgcolor1 }">
+        <cu-custom :isBack="true" :bgColor="bgcolor1" >
           <block slot="backText">
-            <text class="nav-title shopro-selector-rect">{{ item.componentContent.title }}</text>
+            <text class="nav-title shopro-selector-rect">{{ i18n.title}}</text>
           </block>
+		  <block slot="right">
+			  <image src="../../static/languageTog.png" @click="languagechange" class="toggleImg"></image>
+			  <!-- 语言切换 S -->
+			  <language v-show="islanguageShow" @languagechange='languagechange'></language>
+			  <!-- 语言切换 E -->
+		  </block>
         </cu-custom>
       </view>
-      <view class="header header-search acea-row row-center-wrapper" v-if="item.type == 'search'" :style="{ background: bgcolor }">
+	  
+      <view class="header header-search acea-row row-center-wrapper" v-if="item.type == 'search'" :style="{ background: bgcolor2 }">
         <view @click="goGoodSearch()" class="search acea-row row-middle">
           <text class="iconfont icon-xiazai5"></text>
           搜索商品
@@ -20,20 +27,26 @@
         <!-- #endif -->
       </view>
       <Banner v-if="item.type == 'banner'" :detail="item.componentContent.bannerData" @getbgcolor="getbgcolor"></Banner>
-      <uni-notice-bar v-if="item.type == 'noticeBar'" scrollable="true" @click="goRoll(item.componentContent.roll[0])" single="true" :speed="10" showIcon="true" :text="item.componentContent.roll[0].info"></uni-notice-bar>
+      <uni-notice-bar v-if="item.type == 'noticeBar'" scrollable="true" @click="goRoll(item.componentContent.roll[0])" single="true" :backgroundColor="bgcolor2" :speed="10" showIcon="true" :text="rolls[0].info"></uni-notice-bar>
       <view class="content_box home_content_box" v-if="item.type == 'menu' && item.componentContent.menus">
         <!-- 菜单 -->
-        <Menu :list="item.componentContent.menus"></Menu>
+        <Menu :list="menus"></Menu>
       </view>
       <!-- 滚动新闻 -->
       <!-- 广告 -->
-      <Adv v-if="item.type == 'adv' && item.componentContent.detail" :detail="item.componentContent.detail" />
+      <!-- <Adv v-if="item.type == 'adv' && item.componentContent.detail" :detail="item.componentContent.detail" /> -->
+	  <!-- 广告图片 -->
+	  <view v-if="item.type == 'adv'" class="advertiseImg">
+		  <image  src="../../static/index/advertise.png" mode="widthFix"></image>
+	  </view>
       <!-- 热门榜单 -->
-      <HotCommodity v-if="item.type == 'hotCommodity'" :detail="likeInfo"></HotCommodity>
+      <!-- <HotCommodity v-if="item.type == 'hotCommodity'" :detail="likeInfo"></HotCommodity> -->
+	  <HotSale v-if="item.type == 'hotCommodity'" :benefit="likeInfo"></HotSale>
       <!-- 超值拼团 -->
-      <Groupon v-if="item.type == 'groupon'" :detail="combinationList" />
+      <!-- <Groupon v-if="item.type == 'groupon'" :detail="combinationList" /> -->
       <!-- 首发新品->秒杀 -->
-      <FirstNewProduct v-if="item.type == 'firstNewProduct'" :detail="firstList"></FirstNewProduct>
+	  
+      <!-- <FirstNewProduct v-if="item.type == 'firstNewProduct'" :detail="firstList"></FirstNewProduct> -->
       <!-- 精品推荐 -->
       <ProductsRecommended v-if="item.type == 'productsRecommended'" :detail="bastList"></ProductsRecommended>
       <!-- 促销单品 -->
@@ -42,7 +55,7 @@
       <!-- #ifdef MP-WEIXIN -->
       <Live v-if="item.type == 'live'" :detail="live"></Live>
       <!-- #endif -->
-      <!-- 为您推荐 -->
+      <!-- 超值热卖 -->
       <PromotionGood v-if="item.type == 'promotionGood'" :benefit="benefit"></PromotionGood>
       <Coupon-window :coupon-list="couponList" v-if="showCoupon" @checked="couponClose" @close="couponClose"> </Coupon-window>
     </view>
@@ -60,10 +73,11 @@ import Groupon from '@/components/sh-groupon.vue'
 
 import Banner from './components/Banner'
 import HotCommodity from './components/HotCommodity'
+import HotSale from './components/HotSale'
 import FirstNewProduct from './components/FirstNewProduct'
 import ProductsRecommended from './components/ProductsRecommended'
 import Live from './components/Live'
-
+import language from '@/components/language'
 import { getHomeData, getShare, getCanvas } from '@/api/public'
 import cookie from '@/utils/store/cookie'
 import { isWeixin, handleUrlParam } from '@/utils/index'
@@ -86,20 +100,24 @@ export default {
     Groupon,
     Banner,
     HotCommodity,
+	HotSale,
     FirstNewProduct,
     ProductsRecommended,
     Live,
+	language
   },
   props: {},
   data: function() {
     return {
       homeData: [],
+	  islanguageShow: false,
       CustomBar: this.CustomBar,
       StatusBar: this.StatusBar,
       formatMenus: [],
       categoryCurrent: 0,
       menuNum: 4,
-      bgcolor: '',
+      bgcolor1: '#784dbb',
+	  bgcolor2: 'transparent',
       bgColor: '',
       swiperCurrent: 0, //轮播下标
       webviewId: 0,
@@ -107,6 +125,7 @@ export default {
       logoUrl: '',
       banner: [],
       menus: [],
+	  rolls: [],
       combinationList: [],
       roll: [],
       activity: [],
@@ -181,6 +200,10 @@ export default {
     }
   },
   computed: {
+	// 多语言
+	i18n() {
+		return this.$t('index')
+	},
     singNew() {
       return this.roll.length > 0 ? this.roll[0] : '你还没添加通知哦！'
     },
@@ -206,8 +229,10 @@ export default {
         this.homeData = JSON.parse(error.data.json)
         console.log(this.homeData)
         console.log(222)
+		console.log(this,'多语言')
       })
     getHomeData().then(res => {
+		console.log(res,'333333333333')
       that.logoUrl = res.data.logoUrl
       res.data.banner.map(item => (item.bgcolor = item.color || ''))
       that.$set(that, 'info', res.data.info)
@@ -219,6 +244,8 @@ export default {
       that.$set(that, 'benefit', res.data.benefit)
       that.$set(that, 'couponList', res.data.couponList)
       that.$set(that, 'combinationList', res.data.combinationList)
+	  that.$set(that, 'menus', res.data.menus)
+	  that.$set(that, 'rolls', res.data.roll)
       uni.hideLoading()
       that.setOpenShare()
       // that.doColorThief()
@@ -331,6 +358,13 @@ export default {
     getbgcolor(e) {
       this.bgcolor = e
     },
+	
+	// 新增功能
+	
+	// 语言切换栏隐藏
+	languagechange() {
+		this.islanguageShow = !this.islanguageShow
+	}
   },
   created: async function() {
     // await this.doColorThief();
@@ -339,60 +373,15 @@ export default {
 </script>
 <style scoped lang="less">
 .content_box {
-  background: #f6f6f6;
+  background: transparent;
 }
 
 .index {
-  background-color: #f6f6f6;
-}
-
-.swiper-item {
-  height: 100%;
-}
-
-.fixed-header {
-  position: fixed;
-  z-index: 99;
-  // #ifdef H5
-  top: 88rpx;
-  // #endif
-
-  // #ifndef H5
-  top: 0;
-  // #endif
-  left: 0;
-  right: 0;
-  background: #fff;
-  box-shadow: 0 0 20rpx -10rpx #aaa;
-
-  & + .fixed-header-box {
-    height: 98rpx;
-  }
-}
-
-.head_box {
-  width: 750rpx;
-  // background: #fff;
-  transition: all linear 0.3s;
-
-  /deep/.cuIcon-back {
-    display: none;
-  }
-
-  .nav-title {
-    font-size: 38rpx;
-    font-family: PingFang SC;
-    font-weight: 500;
-    color: #fff;
-  }
-}
-
-.cu-bar.fixed {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1024;
-  // box-shadow: 0 1upx 6upx rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  background-image: url(../../static/index-bg.png);
+  background-repeat: no-repeat;
+  background-size:100% 100%;
+  padding-bottom: 100rpx;
 }
 
 .cu-bar {
@@ -432,7 +421,20 @@ export default {
 }
 
 .nav-title {
-  margin-left: 20rpx;
   line-height: 40px;
+}
+
+.toggleImg{
+	position: fixed;
+	right: 2%;
+	top: 1%;
+	width: 40rpx;
+	height: 40rpx;
+}
+.advertiseImg{
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	text-align: center;
 }
 </style>

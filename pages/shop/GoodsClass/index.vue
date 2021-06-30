@@ -3,7 +3,7 @@
     <div class="index">
       <view class="header acea-row row-center-wrapper">
         <view @click="goGoodSearch()" class="search acea-row row-middle">
-          <text class="iconfont icon-xiazai5"></text>搜索商品
+          <text class="iconfont icon-xiazai5"></text>
         </view>
       </view>
     </div>

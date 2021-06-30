@@ -1,5 +1,5 @@
 {
-    "name" : "yshopmall",
+    "name" : "shopmall",
     "appid" : "__UNI__C7A519E",
     "description" : "",
     "versionName" : "1.0.1",
@@ -162,7 +162,7 @@
         "usingComponents" : true
     },
     "h5" : {
-        "title" : "yshop",
+        "title" : "shop",
         "devServer" : {
             "disableHostCheck" : true
         },
@@ -176,6 +176,7 @@
                 }
             }
         },
-        "domain" : "h5.yixiang.co"
+        "domain" : "www.miaoshare.com",
+        "template" : ""
     }
 }

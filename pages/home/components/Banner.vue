@@ -1,9 +1,9 @@
 <template>
-	<view class="banner-swiper-box">
+	<view class="banner-swiper-box mx20 mb10">
 		<canvas canvas-id="colorThief" class="hide-canvas"></canvas>
 		<swiper class="banner-carousel Shop-selector-rect" circular @change="swiperChange" :autoplay="true">
 			<swiper-item v-for="(item, index) in detail" :key="index" class="carousel-item">
-				<image class="swiper-image " :src="item.pic" @click="goRoll(item)" mode="widthFix" lazy-load>
+				<image class="swiper-image "  :src="item.pic" @click="goRoll(item)" mode="widthFix"  lazy-load>
 				</image>
 			</swiper-item>
 		</swiper>
@@ -22,6 +22,32 @@
 			return {
 				swiperCurrent: 0, //轮播下标
 				webviewId: 0,
+				detail1: [
+					{	
+						bgcolor: "#c40414",
+						name: "0",
+						pic: "../../../static/index/bar.png",
+						sort: 0 ,
+						status: 1 ,
+						url: "/"
+					},
+					{
+						bgcolor: "#c40414",
+						name: "0",
+						pic: "../../../static/index/ba2r.png",
+						sort: 0 ,
+						status: 1 ,
+						url: "/"
+					},
+					{
+						bgcolor: "#c40414",
+						name: "0",
+						pic: "../../../static/index/bar3.png",
+						sort: 0 ,
+						status: 1 ,
+						url: "/"
+					},
+				]
 			};
 		},
 		props: {
@@ -32,6 +58,7 @@
 		},
 		created: async function() {
 			await this.doColorThief();
+			console.log('類',this.detail)
 		},
 		computed: {},
 		methods: {
@@ -72,19 +99,22 @@
 <style lang="less">
 	// 轮播
 	.banner-swiper-box {
+		// box-sizing: border-box;
 		background: #fff;
+		border-radius: 20rpx;
 	}
 
 	.banner-swiper-box,
 	.banner-carousel {
-		width: 750rpx;
+		// width: 680rpx;
 		height: 350upx;
 		position: relative;
 
 		.carousel-item {
+			box-sizing: border-box;
 			width: 100%;
 			height: 100%;
-			// padding: 0 28upx;
+			padding: 2%;
 			overflow: hidden;
 		}
 

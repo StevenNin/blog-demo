@@ -1,9 +1,15 @@
 {
   "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	{
+	  "path": "pages/launch/index",
+	  "style": {
+	    "navigationBarTitleText": "首页"
+	  }
+	},
     {
       "path": "pages/Loading/index",
       "style": {
-        "navigationBarTitleText": "yshop商城"
+        "navigationBarTitleText": "荣耀星球商城"
       }
     },
     {
@@ -30,16 +36,11 @@
         "navigationBarTitleText": "重置密码"
       }
     },
-    {
-      "path": "pages/launch/index",
-      "style": {
-        "navigationBarTitleText": "首页"
-      }
-    },
+
     {
       "path": "pages/home/index",
       "style": {
-        "navigationBarTitleText": "yshop商城",
+        "navigationBarTitleText": "荣耀星球商城",
         "navigationBarTextStyle": "white",
         "navigationStyle": "custom"
       }
@@ -71,7 +72,7 @@
     {
       "path": "pages/shop/GoodsList/index",
       "style": {
-        "navigationBarTitleText": "商品列表"
+        "navigationBarTitleText": "全部商品"
       }
     },
     {
@@ -431,7 +432,7 @@
   },
   "globalStyle": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Yshop",
+    "navigationBarTitleText": "荣耀星球",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8",
     "navigationStyle": "default"

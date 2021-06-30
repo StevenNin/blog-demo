@@ -1,5 +1,10 @@
 import Vue from 'vue'
 import App from './App'
+import i18n from './static/lang/index' 
+import en from './api/lang_en.js'
+import zh from './api/lang_zh.js'
+import idn from './api/lang_idn.js'
+
 
 // import router from "./router";
 import store from './store'
@@ -18,14 +23,19 @@ Vue.prototype.$validator = function(rule) {
   return new schema(rule)
 }
 
+
 Vue.config.productionTip = false
 App.mpType = 'app'
 Vue.prototype.$store = store
+
+
+Vue.prototype._i18n = i18n;
 
 const app = new Vue({
   ...App,
   store,
 })
+
 
 Object.defineProperty(Vue.prototype, '$yrouter', {
   get() {

@@ -2,9 +2,10 @@
   <view class="evaluate-list" ref="container">
     <view class="header">
       <view class="generalComment acea-row row-between-wrapper">
-        <view class="acea-row row-middle font-color-red">
-          <text class="evaluate">评分</text>
-          <view class="start" :class="'star' + replyData.replyStar"></view>
+        <view class="acea-row row-middle ">
+          <text class="evaTitle evaluate">综合评分</text>
+          <!-- <view class="start" :class="'star' + replyData.replyStar"></view> -->
+		  <uni-rate :readonly="true" size="10" :value=" replyData.replyChance/20 || 4.5 "  />
         </view>
         <view>
           <text class="font-color-red">{{ replyData.replyChance || 0 }}%</text>
@@ -19,8 +20,8 @@
           @click="changeType(navListIndex)"
         >
           <view
-            class="item"
-            :class="currentActive === navListIndex ? 'bg-color-red' : ''"
+            class="item" 
+            :class="currentActive === navListIndex ? 'bg-color-purple' : ''"
             v-if="item.num"
           >
 		  <text>{{ item.evaluate }}({{ item.num }})</text>
@@ -111,5 +112,21 @@ export default {
 .noCommodity {
   height: 8*100rpx;
   background-color: #fff;
+}
+
+.evaTitle {
+	position: relative;
+	margin-left: 20rpx;
+	&:before {
+		position: absolute;
+		top:6rpx;
+		right: 120rpx;
+		content: '';
+		height: 28rpx;
+		width: 10rpx;
+		border-radius: 20rpx;
+		background-color: #593ce4;
+		margin-right: 5rpx;
+	}
 }
 </style>

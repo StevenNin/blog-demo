@@ -54,7 +54,8 @@ export default {
 			}
 		}
 	},
-	created() {},
+	created() {
+		},
 	methods: {
 		// 数据分层
 		sortData(oArr, length) {
@@ -69,6 +70,7 @@ export default {
 				}
 				minArr.push(c);
 			});
+			console.log(this.list,'111111111111111111111111')
 
 			return arr;
 		},
@@ -101,15 +103,15 @@ export default {
 
 .menu-category-box {
 	padding: 30rpx 30rpx 0 30rpx;
-	background: #fff;
+	background: transparent;
 	box-sizing: border-box;
 }
 .menu-category-box,
 .menu-swiper-box {
 	position: relative;
-	background: #fff;
+	background: transparent;
 	.menu-swiper-item {
-		background: #fff;
+		background: transparent;
 		height: 100%;
 		width: 100%;
 	}

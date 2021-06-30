@@ -7,30 +7,32 @@
       <!-- 商品信息描述 -->
       <view class="wrapper">
         <view class="share acea-row row-between row-bottom">
-          <view class="money font-color-red" v-if="!isIntegral">
-            <text>￥</text>
-            <text class="num">{{ attr.productSelect.price || storeInfo.price }}</text>
-            <text class="vip-money" v-if="storeInfo.vipPrice && storeInfo.vipPrice > 0">￥{{ attr.productSelect.vipPrice || storeInfo.vipPrice }}</text>
-            <image :src="`${$VUE_APP_RESOURCES_URL}/images/vip.png`" class="image" v-if="storeInfo.vipPrice && storeInfo.vipPrice > 0" />
-          </view>
-          <view class="money font-color-red" v-if="isIntegral">
+        <view class="introduce">{{ storeInfo.storeName }}</view>
+          
+		  <!-- 积分和分享 -->
+         <!-- <view class="money font-color-red" v-if="isIntegral">
             <text class="num">{{ attr.productSelect.integral || storeInfo.integral }}积分</text>
           </view>
-          <view class="iconfont icon-fenxiang" @click="listenerActionSheet"></view>
+          <view class="iconfont icon-fenxiang" @click="listenerActionSheet"></view> -->
         </view>
-        <view class="introduce">{{ storeInfo.storeName }}</view>
         <view class="label acea-row row-between-wrapper">
-          <text v-if="!isIntegral">原价:￥{{ storeInfo.otPrice }}</text>
+          <!-- <text v-if="!isIntegral">原价:￥{{ storeInfo.otPrice }}</text> -->
+		  <view class="money" v-if="!isIntegral">
+		    <text class="num itemPrice font-color-money">{{ attr.productSelect.price || storeInfo.price }}</text>
+		    <text>uvx</text>
+		    <!-- <text class="vip-money" v-if="storeInfo.vipPrice && storeInfo.vipPrice > 0">￥{{ attr.productSelect.vipPrice || storeInfo.vipPrice }}</text>
+		    <image :src="`${$VUE_APP_RESOURCES_URL}/images/vip.png`" class="image" v-if="storeInfo.vipPrice && storeInfo.vipPrice > 0" /> -->
+		  </view>
           <text>库存:{{ storeInfo.stock }}{{ storeInfo.unitName }}</text>
           <text>销量:{{ storeInfo.sales }}{{ storeInfo.unitName }}</text>
         </view>
-        <view class="coupon acea-row row-between-wrapper" @click="couponTap" v-if="couponList.length">
+        <!-- <view class="coupon acea-row row-between-wrapper" @click="couponTap" v-if="couponList.length">
           <text class="hide line1">
             <text>优惠券：</text>
             <text class="activity" v-for="(item, couponListEq) in couponList" :key="couponListEq">满{{ item.useMinPrice }}减{{ item.couponPrice }}</text>
           </text>
           <view class="iconfont icon-jiantou"></view>
-        </view>
+        </view> -->
       </view>
 
       <!-- 运费 -->
@@ -50,16 +52,17 @@
         <view class="iconfont icon-jiantou"></view>
       </view>
 
-      <!-- 门店信息 -->
+      <!-- 联系我们 -->
       <view class="store-info" v-if="systemStore">
         <view class="title acea-row row-between-wrapper">
-          <view>门店信息</view>
-          <text @click="goStoreList()" class="praise">
+          <view>联系我们</view>
+		  <a class="iconfont icon-dadianhua01 font-color-red phone" @click="telPhone(systemStore.phone)"></a>
+          <!-- <text @click="goStoreList()" class="praise">
             更多
             <text class="iconfont icon-jiantou"></text>
-          </text>
+          </text> -->
         </view>
-        <view class="info acea-row row-between-wrapper">
+        <!-- <view class="info acea-row row-between-wrapper">
           <view class="picTxt acea-row row-between-wrapper">
             <view class="pictrue">
               <image :src="systemStore.image" />
@@ -76,7 +79,7 @@
               <view class="addressTxt corlor-yshop">距离{{ systemStore.distance }}千米</view>
             </view>
           </view>
-        </view>
+        </view> -->
       </view>
 
       <!-- 用户评价 -->
@@ -172,7 +175,7 @@
       </view>
 
       <!-- 优惠券 -->
-      <CouponPop v-on:changeFun="changeFun" :coupon="coupon"></CouponPop>
+      <!-- <CouponPop v-on:changeFun="changeFun" :coupon="coupon"></CouponPop> -->
       <!-- 商品规格弹窗 -->
       <ProductWindow :isIntegral="isIntegral" v-on:changeFun="changeFun" :attr="attr" :cartNum="cart_num"></ProductWindow>
       <!-- 分享海报 -->
@@ -993,5 +996,10 @@ export default {
 .noscroll {
   height: 100%;
   overflow: hidden;
+}
+
+.itemPrice {
+	font-size: 0.34 * 100rpx;
+	font-weight: bold;
 }
 </style>

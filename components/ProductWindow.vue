@@ -8,8 +8,8 @@
         <view class="text">
           <view class="line1">{{ attr.productSelect.store_name }}</view>
           <view class="money font-color-red" v-if="!isIntegral">
-            ￥
             <text class="num">{{ attr.productSelect.price }}</text>
+            uvx
             <text class="stock">库存: {{ attr.productSelect.stock }}</text>
           </view>
           <view class="money font-color-red" v-if="isIntegral">
@@ -39,7 +39,8 @@
         </view>
       </view>
       <view class="cart">
-        <view class="title">数量</view>
+        <view class="title">数量
+		</view>
         <view class="carnum acea-row row-left">
           <view
             class="item reduce"

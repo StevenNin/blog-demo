@@ -359,7 +359,7 @@ page {
 .evaluateWtapper .evaluateItem .time {
   font-size: 0.24 * 100rpx;
   color: #82848f;
-  padding: 0 0.3 * 100rpx;
+  // padding: 0 0.3 * 100rpx;
 }
 
 .evaluateWtapper .evaluateItem .evaluate-infor {
@@ -672,11 +672,12 @@ page {
 .product-window .cart .title {
   font-size: 0.3 * 100rpx;
   color: #999;
+  float: left;
 }
 
 .product-window .cart .carnum {
+  float: right;
   height: 0.54 * 100rpx;
-  margin-top: 0.24 * 100rpx;
 }
 
 .product-window .cart .carnum .item {
@@ -795,6 +796,9 @@ page {
 .orderGoods {
   background-color: #fff;
   margin-top: 0.12 * 100rpx;
+  box-sizing: border-box;
+  margin: 30rpx;
+  border-radius: 20rpx;
 }
 
 .orderGoods .total {
@@ -828,14 +832,14 @@ page {
 }
 
 .goodWrapper .item .text {
-  width: 5.37 * 100rpx;
+  width: 4.77 * 100rpx;
   position: relative;
 }
 
 .goodWrapper .item .text .name {
   font-size: 0.28 * 100rpx;
   color: #282828;
-  width: 4.53 * 100rpx;
+  width: 3.93 * 100rpx;
 }
 
 .goodWrapper .item .text .num {
@@ -1831,15 +1835,21 @@ page {
   padding-right: 0.23 * 100rpx;
   position: fixed;
   left: 0;
-  top: 0;
+  top: 0.86 * 100rpx;
   z-index: 5;
   box-sizing: border-box;
+  
 }
+
+/* #ifndef H5 */
+.productList .search {
+}
+/* #endif */
 
 .productList .search .input {
   flex: 1;
   height: 0.6 * 100rpx;
-  background-color: #fff;
+  background-color: #F0F1F3;
   border-radius: 0.5 * 100rpx;
   padding: 0 0.2 * 100rpx;
   margin-right: 0.23 * 100rpx;
@@ -1878,7 +1888,7 @@ page {
   width: 100%;
   font-size: 0.28 * 100rpx;
   background-color: #fff;
-  top: 0.86 * 100rpx;
+  top: 2 * 0.86 * 100rpx;
   z-index: 5;
 }
 
@@ -1961,7 +1971,7 @@ page {
 }
 
 .productList .list .item .text .money.on {
-  margin-top: 0.4 * 100rpx;
+  margin-top: 0.8 * 100rpx;
 }
 
 .productList .list .item .text .money .num {
@@ -2751,21 +2761,24 @@ page {
 }
 
 .product-con .footer .bnt > view {
-  width: 2.22 * 100rpx;
+  width: 2 * 100rpx;
   text-align: center;
   line-height: 0.76 * 100rpx;
+  &:first-child{
+	  margin-right: 22rpx;
+  }
 }
 
 .product-con .footer .bnt .joinCart {
-  border-radius: 0.5 * 100rpx 0 0 0.5 * 100rpx;
-  background-image: linear-gradient(to right, #fea10f 0%, #fea10f 100%);
-  background-image: -moz-linear-gradient(to right, #eb3729 0%, #eb3729 100%);
+  border-radius: 0.5 * 100rpx ;
+  background-image: linear-gradient(to right, #593ce4 0%, #6546f6 100%);
+  background-image: -moz-linear-gradient(to right,  #593ce4 0%, #6546f6 100%);
 }
 
 .product-con .footer .bnt .buy {
-  border-radius: 0 0.5 * 100rpx 0.5 * 100rpx 0;
-  background-image: linear-gradient(to right, #eb3729 0%, #eb3729 100%);
-  background-image: -moz-linear-gradient(to right, #eb3729 0%, #eb3729 100%);
+  border-radius:  0.5 * 100rpx;
+  background-image: linear-gradient(to right, #ff8733 0%, #ff4600 100%);
+  background-image: -moz-linear-gradient(to right, #ff8733 0%, #ff4600 100%);
 }
 
 .product-con .footer .bnt.seckill-bnt {
@@ -2829,6 +2842,8 @@ page {
 .order-submission .wrapper {
   background-color: #fff;
   margin-top: 0.13 * 100rpx;
+  margin: 30rpx;
+  border-radius: 30rpx;
 }
 
 .order-submission .wrapper .item {
@@ -2841,7 +2856,7 @@ page {
 .order-submission .wrapper .item .discount {
   font-size: 0.3 * 100rpx;
   color: #999;
-  width: 5 * 100rpx;
+  width: 4.4 * 100rpx;
   text-align: right;
 }
 
@@ -2868,7 +2883,7 @@ page {
 .order-submission .wrapper .item textarea {
   box-sizing: border-box;
   background-color: #f9f9f9;
-  width: 100%;
+  width: 92%;
   height: 1.4 * 100rpx;
   border-radius: 0.03 * 100rpx;
   margin-top: 0.3 * 100rpx;
@@ -5515,6 +5530,7 @@ page {
 }
 
 .evaluate-list .nav .item {
+  box-sizing: border-box;
   font-size: 0.24 * 100rpx;
   color: #282828;
   border-radius: 0.06 * 100rpx;
@@ -5525,8 +5541,8 @@ page {
   margin: 0 0.17 * 100rpx 0.17 * 100rpx 0;
 }
 
-.evaluate-list .nav .item.bg-color-red {
-  color: #fff;
+.evaluate-list .nav .item.bg-color-purple {
+  color: #593CE4;
 }
 
 /*商品评价*/

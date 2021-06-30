@@ -135,8 +135,8 @@
       return {
         navList: ["账号登录"],
         current: 0,
-        account: "",
-        password: "",
+        account: "18523865511",
+        password: "123456",
         captcha: "",
         inviteCode: "",
         formItem: 1,

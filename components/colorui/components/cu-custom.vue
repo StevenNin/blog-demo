@@ -67,4 +67,7 @@
 	z-index: 99;
 	
 }
+.cu-custom{
+	text-align: center;
+}
 </style>

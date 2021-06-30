@@ -12,8 +12,8 @@
             <view class="num">x {{ cart.cartNum }}</view>
           </view>
           <view class="attr line1" v-if="cart.productInfo.attrInfo">{{ cart.productInfo.attrInfo.sku }}</view>
-          <view class="money font-color-red" v-if="isIntegral">{{ cart.costPrice }}积分</view>
-          <view class="money font-color-red" v-else>￥{{ cart.truePrice }}</view>
+          <!-- <view class="money font-color-red" v-if="isIntegral">{{ cart.costPrice }}积分</view> -->
+          <view class="money font-color-money" >{{ cart.truePrice }}uvx</view>
           <view class="evaluate" v-if="evaluate == 3 && cart.isReply == 0" @click="routerGo(cart)">评价</view>
         </view>
       </view>

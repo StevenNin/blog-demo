@@ -1,10 +1,10 @@
 <template>
   <view class="order-submission">
     <view class="allAddress" :style="systemStore ? '' : 'padding-top: 0.2*100rpx'">
-      <view class="nav acea-row">
+      <!-- <view class="nav acea-row">
         <view class="item font-color-red" :class="shipping_type === 0 ? 'on' : 'on2'" @click="addressType(0)" v-if="systemStore"></view>
         <view class="item font-color-red" :class="shipping_type === 1 ? 'on' : 'on2'" @click="addressType(1)" v-if="systemStore && !isIntegral"></view>
-      </view>
+      </view> -->
       <view class="address acea-row row-between-wrapper" v-if="shipping_type === 0" @click="addressTap">
         <view class="addressCon" v-if="addressInfo.realName">
           <view class="name">
@@ -38,26 +38,26 @@
         </div>
         <div class="iconfont icon-jiantou"></div>
       </div>
-      <view class="line">
+      <!-- <view class="line">
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/line.jpg`" />
-      </view>
+      </view> -->
     </view>
     <OrderGoods :evaluate="0" :isIntegral="isIntegral" :cartInfo="orderGroupInfo.cartInfo"></OrderGoods>
     <view class="wrapper">
-      <view class="item acea-row row-between-wrapper" @click="couponTap" v-if="deduction === false && !isIntegral">
+      <!-- <view class="item acea-row row-between-wrapper" @click="couponTap" v-if="deduction === false && !isIntegral">
         <view>优惠券</view>
         <view class="discount">
           {{ usableCoupon.couponTitle || '请选择' }}
           <text class="iconfont icon-jiantou"></text>
         </view>
-      </view>
-      <view class="item acea-row row-between-wrapper" v-if="!isIntegral && deduction === false && enableIntegral === true">
+      </view> -->
+      <!-- <view class="item acea-row row-between-wrapper" v-if="!isIntegral && deduction === false && enableIntegral === true">
         <view>积分抵扣</view>
         <view class="discount">
           <view class="select-btn">
-            <view class="checkbox-wrapper">
+            <view class="checkbox-wrapper"> -->
               <!-- <input type="checkbox" v-model="useIntegral" @click="changeUseIntegral"/> -->
-              <checkbox-group @change="changeUseIntegral">
+              <!-- <checkbox-group @change="changeUseIntegral">
                 <label class="well-check">
                   <text class="integral">
                     当前积分
@@ -69,7 +69,7 @@
             </view>
           </view>
         </view>
-      </view>
+      </view> -->
       <view class="item acea-row row-between-wrapper" v-if="shipping_type === 0">
         <view>快递费用</view>
         <view class="discount">
@@ -124,14 +124,16 @@
         <view class="money" v-if="!isIntegral">￥{{ orderPrice.totalPrice }}</view>
         <view class="money" v-if="isIntegral">{{ orderPrice.payIntegral }}积分</view>
       </view>
+	  <view class="item acea-row row-between-wrapper" >
+	    <view>满减优惠：</view>
+	    <view class="money">-{{ orderPrice.couponPrice }}</view>
+	  </view>
       <view class="item acea-row row-between-wrapper" v-if="orderPrice.payPostage > 0 && !isIntegral">
         <view>运费：</view>
         <view class="money">￥{{ orderPrice.payPostage }}</view>
       </view>
-      <view class="item acea-row row-between-wrapper" v-if="orderPrice.couponPrice > 0 && !isIntegral">
-        <view>优惠券抵扣：</view>
-        <view class="money">-￥{{ orderPrice.couponPrice }}</view>
-      </view>
+      <!-- <view class="item acea-row row-between-wrapper" v-if="orderPrice.couponPrice > 0 && !isIntegral"> -->
+	  
       <view class="item acea-row row-between-wrapper" v-if="orderPrice.deductionPrice > 0 && !isIntegral">
         <view>积分抵扣：</view>
         <view class="money">-￥{{ orderPrice.deductionPrice }}</view>
@@ -163,10 +165,7 @@
 
 .order-submission .allAddress {
   width: 100%;
-  background-image: linear-gradient(to bottom, #eb3729 0%, #eb3729 100%);
-  background-image: -webkit-linear-gradient(to bottom, #eb3729 0%, #eb3729 100%);
-  background-image: -moz-linear-gradient(to bottom, #eb3729 0%, #eb3729 100%);
-  padding-top: 1 * 100rpx;
+  padding-top: 0.3 * 100rpx;
 }
 
 .order-submission .allAddress .nav {
@@ -237,6 +236,7 @@
   height: 1.5 * 100rpx;
   margin: 0 auto;
   box-sizing: border-box;
+  border-radius: 20rpx;
 }
 
 .order-submission .allAddress .line {

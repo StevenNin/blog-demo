@@ -1,9 +1,10 @@
 <template>
     <view class="group-goods pa20 mx20 mb10" v-if="detail.length>0">
         <view class="title-box x-bc" @tap="$yrouter.push({ path: '/pages/shop/HotNewGoods/index',query:{type:2} })">
-            <text class="title">热门榜单</text>
+            <!-- <text class="title">热门榜单</text> -->
+			<image class="hotSaleImg" src="../../../static/index/hotSaleImg.png" mode="widthFix"></image>
             <view class="group-people x-f">
-                <text class="tip">更多</text>
+                <text class="tip">进去逛逛></text>
                 <text class="cuIcon-right"></text>
             </view>
         </view>
@@ -31,22 +32,19 @@
                     </view>
                 </swiper-item>
             </swiper>
-            <view class="swiper-dots" v-if="goodsList.length > 1">
+			
+            <!-- <view class="swiper-dots" v-if="goodsList.length > 1">
                 <text :class="swiperCurrent === index ? 'dot-active' : 'dot'" v-for="(dot, index) in goodsList.length"
                     :key="index"></text>
-            </view>
+            </view> -->
         </view>
     </view>
 </template>
 
 <script>
-    import shActivityGoods from '@/components/sh-activity-goods.vue';
 
     export default {
         name: "HotCommodity",
-        components: {
-            shActivityGoods
-        },
         data() {
             return {
                 goodsList: [],
@@ -99,7 +97,9 @@
         position: relative;
         z-index: 9;
     }
-
+	.hotSaleImg{
+		width: 170rpx;
+	}
     .swiper-box,
     .carousel {
         width: 700rpx;
@@ -149,7 +149,7 @@
 
     // 今日必拼+限时抢购
     .group-goods {
-        background: #fff;
+        background: transparent;
         border-radius: 20rpx;
         overflow: hidden;
 

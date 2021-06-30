@@ -1,16 +1,17 @@
 <template>
   <view class="productList" ref="container">
     <form @submit.prevent="submitForm">
-      <view class="search bg-color-red acea-row row-between-wrapper">
+      <view class="search bg-color-white acea-row row-between-wrapper">
         <view class="input acea-row row-between-wrapper">
           <input placeholder="搜索商品信息" v-model="where.keyword" />
           <text class="iconfont icon-sousuo" @click="submitForm"></text>
         </view>
-        <view class="iconfont" :class="Switch === true ? 'icon-pailie' : 'icon-tupianpailie'" @click="switchTap"></view>
+        <!-- <view class="iconfont" :class="Switch === true ? 'icon-pailie' : 'icon-tupianpailie'" @click="switchTap"></view> -->
       </view>
     </form>
+	
     <view class="nav acea-row row-middle">
-      <view class="item" :class="title ? 'font-color-red' : ''" @click="set_where(0)">{{ title ? title : '默认' }}</view>
+      <view class="item" :class="title ? 'font-color-red' : ''" @click="set_where(0)">{{ title ? title : '' }}</view>
       <view class="item" @click="set_where(1)">
         价格
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/horn.png`" v-if="price === 0" />
@@ -33,13 +34,13 @@
         </view>
         <view class="text" :class="Switch === true ? '' : 'on'">
           <view class="name line1">{{ item.storeName }}</view>
-          <view class="money font-color-red" :class="Switch === true ? '' : 'on'">
-            ￥
-            <text class="num">{{ item.price }}</text>
-          </view>
-          <view class="vip acea-row row-between-wrapper" :class="Switch === true ? '' : 'on'">
-            <view class="vip-money">￥{{ item.otPrice }}</view>
-            <view>已售{{ item.sales }}件</view>
+          
+          <view class="vip acea-row row-between-base" :class="Switch === true ? '' : 'on'">
+			  <view class="money font-color-money" :class="Switch === true ? '' : 'on'">
+			    <text class="num">{{ item.price }}</text>
+			  </view>
+            <!-- <view class="vip-money">￥{{ item.otPrice }}</view> -->
+            <view>剩余{{ item.sales }}件</view>
           </view>
         </view>
       </view>
@@ -56,7 +57,7 @@
           </view>
           <view class="vip acea-row row-between-wrapper" :class="Switch === true ? '' : 'on'">
             <!-- <view class="vip-money">￥{{ item.otPrice }}</view> -->
-            <view>已售{{ item.sales }}件</view>
+            <view>剩余{{ item.sales }}件</view>
           </view>
         </view>
       </view>
@@ -91,7 +92,7 @@ export default {
     return {
       hostProduct: [],
       productList: [],
-      Switch: true,
+      Switch: false,
       where: {
         page: 1,
         limit: 8,
@@ -101,7 +102,7 @@ export default {
         priceOrder: '',
         salesOrder: '',
       },
-      title: title && id ? title : '',
+      title: title && id ? title : '全部商品',
       loadTitle: '',
       loading: false,
       loadend: false,
@@ -250,9 +251,17 @@ export default {
       let that = this
       switch (index) {
         case 0:
-          return that.$yrouter.push({
-            path: '/pages/shop/GoodsClass/index',
-          })
+			if(that.$yrouter.currentRoute.query.id&&that.$yrouter.currentRoute.query.title) {
+				const id = that.$yrouter.currentRoute.query.id
+				const title = that.$yrouter.currentRoute.query.title
+				return that.$yrouter.push({
+				  path: `/pages/shop/GoodsList/index?id=${id}&title=${title}`,
+				})
+			}else {
+				return that.$yrouter.push({
+				  path: `/pages/shop/GoodsList/index`,
+				})
+			}
         case 1:
           if (that.price === 0) that.price = 1
           else if (that.price === 1) that.price = 2
@@ -304,9 +313,24 @@ export default {
   },
 }
 </script>
-<style scoped lang="less">
+<style scoped lang="scss">
 .noCommodity {
   border-top: 3px solid #f5f5f5;
   padding-bottom: 1px;
 }
+.productList {
+	
+}
+.num {
+	&:after {
+		content: 'UVX';
+		font-size: 15rpx;
+		color: #999999;
+	}
+}
+/* #ifndef H5 */
+.productList .search {
+}
+/* #endif */
+
 </style>
