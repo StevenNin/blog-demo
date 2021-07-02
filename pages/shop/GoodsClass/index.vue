@@ -97,6 +97,7 @@ export default {
     loadCategoryData() {
       getCategory().then(res => {
         this.category = res.data;
+		console.log(res.data,'111111111111111')
         this.$nextTick(() => {
           if (this.$yroute.query.id) {
             this.activeCateId(this.$yroute.query.id);

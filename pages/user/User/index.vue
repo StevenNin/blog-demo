@@ -19,15 +19,15 @@
               <text class="iconfont icon-bianji1"></text>
             </view>
             <!-- #ifdef MP-WEIXIN -->
-            <button open-type="getPhoneNumber" @getphonenumber="getPhoneNumber" class="binding" v-else>
+            <!-- <button open-type="getPhoneNumber" @getphonenumber="getPhoneNumber" class="binding" v-else>
               <text>绑定手机号</text>
-            </button>
+            </button> -->
             <!-- #endif -->
 
             <!-- #ifndef MP-WEIXIN -->
-            <button class="binding" @click="goBindPhone()" v-else>
+            <!-- <button class="binding" @click="goBindPhone()" v-else>
               <text>绑定手机号</text>
-            </button>
+            </button> -->
             <!-- #endif -->
           </view>
         </view>

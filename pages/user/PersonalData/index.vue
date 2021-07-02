@@ -12,11 +12,11 @@
             </view>
             <view class="text">
               <view class="name line1">{{ userInfo.nickname }}</view>
-              <view class="phone">
+              <!-- <view class="phone">
                 绑定手机号：
                 <text v-if="userInfo.phone">{{ userInfo.phone }}</text>
                 <text v-else>未绑定</text>
-              </view>
+              </view> -->
             </view>
           </view>
         </view>
@@ -40,7 +40,7 @@
         <view>手机号</view>
         <view class="input">
           <input type="text" v-if="userInfo.phone" v-model="userInfo.phone" />
-          <input type="text" v-else value="未绑定" disabled class="id" />
+          <input type="text" v-else value="无"  class="id" />
         </view>
       </view>
       <!-- 

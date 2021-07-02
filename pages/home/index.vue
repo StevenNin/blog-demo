@@ -26,7 +26,7 @@
         </view>
         <!-- #endif -->
       </view>
-      <Banner v-if="item.type == 'banner'" :detail="item.componentContent.bannerData" @getbgcolor="getbgcolor"></Banner>
+      <Banner v-if="item.type == 'banner'" :detail="bannerData" @getbgcolor="getbgcolor"></Banner>
       <uni-notice-bar v-if="item.type == 'noticeBar'" scrollable="true" @click="goRoll(item.componentContent.roll[0])" single="true" :backgroundColor="bgcolor2" :speed="10" showIcon="true" :text="rolls[0].info"></uni-notice-bar>
       <view class="content_box home_content_box" v-if="item.type == 'menu' && item.componentContent.menus">
         <!-- 菜单 -->
@@ -126,6 +126,7 @@ export default {
       banner: [],
       menus: [],
 	  rolls: [],
+	  bannerData: [],
       combinationList: [],
       roll: [],
       activity: [],
@@ -246,6 +247,7 @@ export default {
       that.$set(that, 'combinationList', res.data.combinationList)
 	  that.$set(that, 'menus', res.data.menus)
 	  that.$set(that, 'rolls', res.data.roll)
+	  that.$set(that, 'bannerData', res.data.banner)
       uni.hideLoading()
       that.setOpenShare()
       // that.doColorThief()

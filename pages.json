@@ -1,17 +1,17 @@
 {
   "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-	{
-	  "path": "pages/launch/index",
-	  "style": {
-	    "navigationBarTitleText": "首页"
-	  }
-	},
     {
       "path": "pages/Loading/index",
       "style": {
         "navigationBarTitleText": "荣耀星球商城"
       }
     },
+	{
+	  "path": "pages/launch/index",
+	  "style": {
+	    "navigationBarTitleText": "首页"
+	  }
+	},
     {
       "path": "pages/authorization/index",
       "style": {

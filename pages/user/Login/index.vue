@@ -47,10 +47,10 @@
       </view>
       <view class="logon" @click="loginMobile" :hidden="current !== 1">登录</view>
       <view class="logon" @click="submit" :hidden="current === 1">登录</view>
-      <view class="tip">
+      <!-- <view class="tip">
         没有账号?
         <text @click="formItem = 2" class="font-color-red">立即注册</text>
-      </view>
+      </view> -->
     </view>
     <view class="whiteBg" v-else>
       <view class="title acea-row row-between-wrapper">
@@ -95,11 +95,11 @@
         <!-- #endif -->
 
       </view>
-      <view class="logon" @click="register">注册</view>
+      <!-- <view class="logon" @click="register">注册</view>
       <view class="tip">
         已有账号?
         <text @click="formItem = 1" class="font-color-red">立即登录</text>
-      </view>
+      </view> -->
     </view>
   </view>
 </template>
@@ -135,14 +135,20 @@
       return {
         navList: ["账号登录"],
         current: 0,
-        account: "18523865511",
-        password: "123456",
+        account: "dy13",
+        password: "qqww1234",
+		// account: "",
+		// password: "",
         captcha: "",
         inviteCode: "",
         formItem: 1,
         type: "login"
       };
     },
+	
+    mounted() {
+		
+	},
     methods: {
       async loginMobile() {
         var that = this;
@@ -294,7 +300,7 @@
           await this.$validator({
             account: [
               required(required.message("账号")),
-              attrs.range([5, 16], attrs.range.message("账号")),
+              attrs.range([0, 16], attrs.range.message("账号")),
               alpha_num(alpha_num.message("账号"))
             ],
             password: [

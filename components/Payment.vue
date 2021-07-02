@@ -86,7 +86,9 @@ export default {
   data: function() {
     return {};
   },
-  mounted: function() {},
+  mounted: function() {
+	  console.log(this.balance,'1111111111')
+  },
   methods: {
     checked: function(type) {
       this.$emit("checked", type);

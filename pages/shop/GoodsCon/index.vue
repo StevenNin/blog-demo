@@ -407,7 +407,8 @@ export default {
     //产品详情接口；
     productCon: function() {
       let that = this
-      let from = this.location
+      // let from = this.location
+	  let from = {longitude:'106.554419', latitude:'29.561853'}
       if (this.$deviceType == 'app') {
         from.from = 'app'
       }
@@ -417,6 +418,8 @@ export default {
       })
       getProductDetail(that.id, from)
         .then(res => {
+			
+			// debugger
           res.data.storeInfo.description = res.data.storeInfo.description.replace(/\<img/gi, '<img style="max-width:100%;height:auto;"')
           that.$set(that, 'storeInfo', res.data.storeInfo)
           // 给 attr 赋值，将请求回来的规格赋值给 attr
