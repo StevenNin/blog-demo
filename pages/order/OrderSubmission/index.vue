@@ -12,7 +12,7 @@
             <text class="phone">{{ addressInfo.phone }}</text>
           </view>
           <view>
-            <text class="default font-color-red" v-if="addressInfo.isDefault">[默认]</text>
+            <text class="default font-color-orange" v-if="addressInfo.isDefault">[默认]</text>
             {{ addressInfo.province }}{{ addressInfo.city }}{{ addressInfo.district }}{{ addressInfo.detail }}
           </view>
         </view>
@@ -95,10 +95,14 @@
         <textarea v-model="mark"></textarea>
       </view>
     </view>
-    <view class="wrapper">
-      <view class="item">
-        <view>支付方式</view>
-        <view class="list">
+    <view @click="paymentType" class="wrapper acea-row row-between-wrapper">
+      <view  class="item">
+			支付方式 
+	  </view>
+	  <view>{{payType}}</view>
+	  <view class="iconfont icon-jiantou"></view>
+        <!-- <view > -->
+        <!-- <view class="list">
           <view class="payItem acea-row row-middle" v-if="!isIntegral" :class="active === 'weixin' ? 'on' : ''" @click="payItem('weixin')" v-show="isWeixin">
             <view class="name acea-row row-center-wrapper"> <view class="iconfont icon-weixin2" :class="active === 'weixin' ? 'bounceIn' : ''"></view>微信支付 </view>
             <view class="tip">微信快捷支付</view>
@@ -115,10 +119,10 @@
             <view class="name acea-row row-center-wrapper"> <view class="iconfont icon-icon-test" :class="active === 'integral' ? 'bounceIn' : ''"></view>积分支付 </view>
             <view class="tip">可用积分：{{ userInfo.integral || 0 }}</view>
           </view>
-        </view>
-      </view>
+        </view> -->
+      <!-- </view> -->
     </view>
-    <view class="moneyList">
+    <view class="wrapper">
       <view class="item acea-row row-between-wrapper" v-if="orderPrice.totalPrice !== undefined">
         <view>商品总价：</view>
         <view class="money" v-if="!isIntegral">￥{{ orderPrice.totalPrice }}</view>
@@ -146,10 +150,11 @@
         <text class="font-color-red" v-if="!isIntegral">￥{{ orderPrice.payPrice }}</text>
         <text class="font-color-red" v-if="isIntegral">{{ orderPrice.payIntegral }}积分</text>
       </view>
-      <view class="settlement" @click="createOrder">立即结算</view>
+      <view class="settlement bg-transform-purple" @click="createOrder">立即结算</view>
     </view>
     <CouponListWindow v-on:couponchange="changecoupon($event)" v-model="showCoupon" :price="orderPrice.totalPrice" :checked="usableCoupon.id" @checked="changeCoupon" :cartid="cartid"></CouponListWindow>
     <AddressWindow @checked="changeAddress" @redirect="addressRedirect" v-model="showAddress" :checked="addressInfo.id" ref="mychild"></AddressWindow>
+	<Payment v-model="payTypeSelectShow" :types="payTypes" @checked="toPay" :balance="userInfo.nowMoney"></Payment>
   </view>
 </template>
 <style scoped lang="less">
@@ -252,11 +257,13 @@
 import OrderGoods from '@/components/OrderGoods'
 import CouponListWindow from '@/components/CouponListWindow'
 import AddressWindow from '@/components/AddressWindow'
-import { postOrderConfirm, postOrderComputed, createOrder } from '@/api/order'
+import { postOrderConfirm, postOrderComputed, createOrder,getCurrencyList } from '@/api/order'
 import { mapGetters } from 'vuex'
 import { handleOrderPayResults, subscribeMessage } from '@/libs/order'
 import { weappPay } from '@/libs/wechat'
+import Payment from "@/components/Payment";
 import { isWeixin, handleErrorMessage } from '@/utils'
+
 
 const NAME = 'OrderSubmission',
   _isWeixin = isWeixin()
@@ -266,10 +273,16 @@ export default {
     OrderGoods,
     CouponListWindow,
     AddressWindow,
+	Payment
   },
   props: {},
   data: function() {
     return {
+	  payType: '默认uvx',
+	  payTypeId: '',
+	  payTypeSelectShow : false,
+	  payTypes: ['Vidy','Vidyx','Usdt'],
+	  // userInfo: {nowMoney:0},
       offlinePayStatus: 2,
       from: this.$deviceType,
       deduction: true,
@@ -328,8 +341,15 @@ export default {
       that.cartid = that.$yroute.query.id
       console.log(that.cartid)
     }
+	that.getPaymentList()
   },
   methods: {
+	getPaymentList() {
+		getCurrencyList().then(res=>{
+			console.log(res.data,'5555555进来2')
+			this.payTypes = res.data
+		})
+	},
     showStoreList() {
       this.$store.commit('get_to', 'orders')
       this.$yrouter.push({
@@ -416,6 +436,13 @@ export default {
         this.$refs.mychild.getAddressList()
       }
     },
+	paymentType: function() {
+		this.payTypeSelectShow = true
+	},
+	toPay(i) {
+		this.payType = i.coinName
+		this.payTypeId = i.id
+	},
     addressRedirect() {
       this.addressLoaded = false
       this.showAddress = false
@@ -539,3 +566,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+	.font-color-orange {
+		color: #FF6304;
+	}
+</style>

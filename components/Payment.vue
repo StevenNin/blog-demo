@@ -4,6 +4,22 @@
       <view class="title acea-row row-center-wrapper">
         选择付款方式<text class="iconfont icon-guanbi" @click="close"></text>
       </view>
+	  <view
+		v-for="(i,index) in types"
+		:key ='index'
+	    class="item acea-row row-between-wrapper"
+	    @click="checked(i)"
+	  >
+	    <view class="left acea-row row-between-wrapper">
+	      <!-- <view class="iconfont icon-weixinzhifu"></view> -->
+	      <view class="text">
+	        <view class="name">{{i.coinName}}</view>
+	        <!-- <view class="info">使用微信快捷支付</view> -->
+	      </view>
+	    </view>
+	    <view class="iconfont icon-xiangyou"></view>
+	  </view>
+	  
       <view
         class="item acea-row row-between-wrapper"
         v-if="types.indexOf('weixin') !== -1"

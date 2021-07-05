@@ -12,7 +12,8 @@ import schema from 'async-validator'
 import dialog from './utils/dialog'
 import cookie from '@/utils/store/cookie'
 import cuCustom from '@/components/colorui/components/cu-custom.vue'
-
+import codeInput from '@/components/codeInput/index.vue'
+Vue.component("codeInput", codeInput);
 import { parseRoute, _router, parseQuery } from '@/utils'
 import { VUE_APP_RESOURCES_URL, VUE_APP_API_URL } from '@/config'
 Vue.component('cu-custom', cuCustom)

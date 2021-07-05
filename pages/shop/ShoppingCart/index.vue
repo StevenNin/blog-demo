@@ -122,7 +122,7 @@
         </view>
         <view class="money acea-row row-middle" v-if="footerswitch === false">
           <text class="font-color-red">￥{{ countmoney }}</text>
-          <view class="placeOrder bg-color-red" @click="placeOrder">立即下单</view>
+          <view class="placeOrder bg-transform-purple" @click="placeOrder">立即下单</view>
         </view>
         <view class="button acea-row row-middle" v-else>
           <!-- <view class="bnt cart-color" @click="collectAll">收藏</view> -->

@@ -8,9 +8,9 @@
         <view class="text acea-row row-column-between">
           <view class="infor line1">{{ item.storeName }}</view>
           <view class="acea-row row-between-wrapper">
-            <view class="money font-color-red" v-if="isIntegral == 1">{{ item.costPrice }}积分</view>
-            <view class="money font-color-red" v-else>￥{{ item.price }}</view>
-            <view class="delete" @tap.stop="delCollection(collectProductListIndex)">删除</view>
+            <!-- <view class="money font-color-red" v-if="isIntegral == 1">{{ item.costPrice }}积分</view> -->
+            <view class="money font-color-money" >{{ item.price }}<text class="font-color-priceUnit" >uvx</text></view>
+            <view class="delete bg-transform-purple" @tap.stop="delCollection(collectProductListIndex)">删除</view>
           </view>
         </view>
       </view>

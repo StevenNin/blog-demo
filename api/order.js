@@ -148,3 +148,10 @@ export function orderVerific(verifyCode, isConfirm) {
 export function getSubscribeTemplate() {
 	return request.get("/order/getSubscribeTemplate");
 }
+
+/*
+* 获取币种字典
+*/
+export function getCurrencyList() {
+	return request.get("/getCurrencyList");
+}

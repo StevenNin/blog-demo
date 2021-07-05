@@ -6,7 +6,7 @@
     <view class="tui-goods__content" :class="{ 'tui-full__content': isList }">
       <view class="tui-goods__title">{{ item.title || '' }}</view>
       <view class="progress cart-color">
-        <view class="bg-red" :style="{ width: loading ? item.percent + '%' : '' }"></view>
+        <!-- <view class="bg-red" :style="{ width: loading ? item.percent + '%' : '' }"></view> -->
         <view class="piece font-color-red" v-text="'仅剩' + item.stock + '件'"></view>
       </view>
       <view class="tui-tag__box"><tui-tag plain size="24rpx" type="red" padding="8rpx 12rpx">限时价</tui-tag></view>

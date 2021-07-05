@@ -1,7 +1,7 @@
 <template>
   <view class="user">
     <view v-if="$store.getters.token || userInfo.uid">
-      <view class="header bg-color-red acea-row row-between-wrapper">
+      <view class="header headerbg-color-purple acea-row row-between-wrapper">
         <view class="picTxt acea-row row-between-wrapper">
           <view class="pictrue">
             <image :src="userInfo.avatar" />

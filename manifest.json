@@ -167,7 +167,8 @@
             "disableHostCheck" : true
         },
         "router" : {
-            "mode" : "history"
+            "mode" : "history",
+            "base" : "./"
         },
         "sdkConfigs" : {
             "maps" : {

@@ -1,7 +1,7 @@
 <template>
   <view class="order-details">
     <!-- 给header上与data上加on为退款订单-->
-    <view class="header bg-color-red acea-row row-middle" :class="refundOrder ? 'on' : ''">
+    <view class="header headerbg-color-purple acea-row row-middle" :class="refundOrder ? 'on' : ''">
       <view class="data" :class="refundOrder ? 'on' : ''">
         <view class="state">{{ orderInfo._status._msg }}</view>
         <view>{{ orderInfo.createTime }}</view>
@@ -97,7 +97,7 @@
         <view class="name">
           {{ orderInfo.realName }}
           <text class="phone">{{ orderInfo.userPhone }}</text>
-          <text @click="telPhone(orderInfo.userPhone)" class="iconfont icon-tonghua font-color-red"></text>
+          <!-- <text @click="telPhone(orderInfo.userPhone)" class="iconfont icon-tonghua font-color-red"></text> -->
         </view>
         <view>{{ orderInfo.userAddress }}</view>
       </view>
@@ -227,7 +227,7 @@
     <view class="footer acea-row row-right row-middle" v-if="!refundOrder && offlineStatus">
       <template v-if="status.type == 0">
         <view class="bnt cancel" @click="cancelOrder">取消订单</view>
-        <view class="bnt bg-color-red" @click="pay = true">立即付款</view>
+        <view class="bnt bg-transform-purple" @click="toPay">立即付款</view>
       </template>
       <template v-if="status.type == 1">
         <view class="bnt cancel" @click="goGoodsReturn(orderInfo)">申请退款</view>
@@ -252,7 +252,9 @@
         <view class="bnt bg-color-red" @click="goGroupRule(orderInfo)">查看拼团</view>
       </template>
     </view>
-    <Payment v-model="pay" :types="payType" @checked="toPay" :balance="userInfo.nowMoney"></Payment>
+    <!-- <Payment v-model="pay" :types="payType" @checked="toPay" :balance="userInfo.nowMoney"></Payment> -->
+	<codeInput v-if="keyboard" @keyTyped='keyTyped' @getBack='getBack'></codeInput>
+	 <!-- <jpCoded v-if="keyboard" style="height: 80rpx;margin-left: 125rpx;" :width="500" :codes="codes" @tokey="toOpen" @inputVal="inputVal"></jpCoded> -->
     <view class="geoPage" v-if="mapShow">
       <iframe width="100%" height="100%" frameborder="0" scrolling="no"
         :src="'https://apis.map.qq.com/uri/v1/geocoder?coord=' + system_store.latitude + ',' +system_store.longitude +'&referer=' +mapKey"></iframe>
@@ -261,6 +263,7 @@
 </template>
 
 <script>
+	import jpCoded from "@/components/jp-coded/index.vue";
   import OrderGoods from "@/components/OrderGoods";
   import {
     orderDetail
@@ -288,9 +291,11 @@
     components: {
       OrderGoods,
       Payment,
+	  jpCoded
     },
     data: function () {
       return {
+		  keyboard: false,
         offlinePayStatus: 2,
         orderTypeName: "普通订单",
         orderTypeNameStatus: true,
@@ -325,6 +330,39 @@
     },
     methods: {
       copyClipboard,
+	  toOpen() {
+		  this.$refs.jpKeyboard.toOpen()
+	  },
+	  inputPwd(e) {
+		  if(this.codes2.length<6){
+			  this.codes2 += e
+		  }
+	  },
+	  backspace() {
+		  this.codes2 = this.codes2.substring(0, this.codes2.length - 1)
+	  },
+	  inputVal(e){
+		  console.log(e);
+	  },
+	  
+	  // 输入完成
+	        keyTyped(title) {
+	          uni.showToast({
+	            icon: "none",
+	            position: "bottom",
+	            title: title.toString(),
+	          });
+	          this.getBack();
+	        },
+	  
+	  
+	  // 关闭弹窗
+	        getBack() {
+	          this.keyboard = false;
+	          this.isbnt = !this.isbnt;
+	        },
+
+
       goGoodsReturn(orderInfo) {
         this.$yrouter.push({
           path: "/pages/order/GoodsReturn/index",
@@ -492,10 +530,13 @@
             });
           });
       },
-      async toPay(type) {
+      async toPay() {
+		  this.keyboard  = true
         var that = this;
-        console.log(type, "支付方式");
-        await payOrderHandle(this.orderInfo.orderId, type, that.from);
+        // console.log(type, "支付方式");
+        // await payOrderHandle(this.orderInfo.orderId, type, that.from);
+		
+		console.log('this.orderInfo.orderId:',this.orderInfo.orderId,'that.from:', that.from,'支付方式:',type)
         that.getDetail();
       },
     },
