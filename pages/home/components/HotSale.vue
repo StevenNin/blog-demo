@@ -6,7 +6,7 @@
 				<view class="title-text">为你推荐</view>
 			</view>
 		</view> -->
-		<view class="title-box x-bc" @tap="$yrouter.push({ path: '/pages/shop/HotNewGoods/index',query:{type:2} })">
+		<view v-if="showTitle" class="title-box x-bc" @tap="$yrouter.push({ path: '/pages/shop/HotNewGoods/index',query:{type:2} })">
 		    <!-- <text class="title">热门榜单</text> -->
 			<image class="hotSaleImg" src="../../../static/index/hotSaleImg.png" mode="widthFix"></image>
 		    <view class="group-people x-f">
@@ -46,7 +46,7 @@
 <script>
 	export default {
 		name: 'PromotionGood',
-		props: ['benefit'],
+		props: ['benefit','showTitle'],
 		data: function () {
 			return {};
 		},
@@ -106,7 +106,7 @@
 
 		.img-box {
 			width: 345rpx;
-			height: 345rpx;
+			height: 230rpx;
 			overflow: hidden;
 			position: relative;
 
@@ -120,8 +120,8 @@
 			}
 
 			.img {
-				width: 345rpx;
-				height: 345rpx;
+				width: 100%;
+				height: 100%;
 				background-color: #ccc;
 			}
 		}
@@ -138,9 +138,9 @@
 		}
 
 		.title {
-			font-size: 24rpx;
+			font-size: 32rpx;
 			font-family: PingFang SC;
-			font-weight: 500;
+			font-weight: bold;
 			line-height: 36rpx;
 			// height: 72rpx;
 			margin: 20rpx 20rpx 10rpx;
@@ -161,9 +161,9 @@
 			}
 
 			.current {
-				font-size: 30rpx;
-				font-weight: 500;
-				color: rgba(225, 33, 43, 1);
+				font-size: 32rpx;
+				font-weight: bold;
+				color: #FF6304;
 				line-height: 30rpx;
 				// margin-bottom: 20rpx;
 
@@ -171,6 +171,8 @@
 					content: 'UVX';
 					font-size: 15rpx;
 					color: #999999;
+					font-weight: 400;
+					
 				}
 			}
 

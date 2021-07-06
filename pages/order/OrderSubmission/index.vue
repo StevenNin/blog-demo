@@ -278,7 +278,10 @@ export default {
   props: {},
   data: function() {
     return {
-	  payType: '默认uvx',
+	  coinName: '',
+	  coinId: null,
+	  price:null,
+	  payType: '默认UNIT vidy ',
 	  payTypeId: '',
 	  payTypeSelectShow : false,
 	  payTypes: ['Vidy','Vidyx','Usdt'],
@@ -348,6 +351,13 @@ export default {
 		getCurrencyList().then(res=>{
 			console.log(res.data,'5555555进来2')
 			this.payTypes = res.data
+			this.payTypes.map(i =>{
+				if(i.id == 13){
+					this.coinId = i.id
+					this.coinName = i.coinName
+					this.price = i.price
+				}
+			})
 		})
 	},
     showStoreList() {
@@ -441,7 +451,10 @@ export default {
 	},
 	toPay(i) {
 		this.payType = i.coinName
-		this.payTypeId = i.id
+		// this.payTypeId = i.id
+		this.coinId = i.id
+		this.coinName = i.coinName
+		this.price = i.price
 	},
     addressRedirect() {
       this.addressLoaded = false
@@ -545,6 +558,9 @@ export default {
         useIntegral: this.useIntegral ? 1 : 0,
         couponId: this.usableCoupon.id || 0,
         payType: this.active,
+		coinId : this.coinId,
+		coinName: this.coinName,
+		price: this.price,
         pinkId: this.pinkId,
         seckillId: this.orderGroupInfo.seckill_id,
         combinationId: this.orderGroupInfo.combination_id,

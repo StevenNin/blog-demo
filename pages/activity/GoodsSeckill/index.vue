@@ -18,8 +18,8 @@
 		</view>
 		<view class="tui-body">
 			<block v-for="(item, index) in timeList" :key="index">
-				<view class="tui-status__box" v-if="active == index">
-					<view class="tui-full__width" v-if="item.status == 0">
+				<view class="tui-status__box acea-row row-between-base" v-if="active == index">
+					<!-- <view class="tui-full__width" v-if="item.status == 0">
 						<tui-divider gradual width="80%" backgroundColor="#fff" :height="34">
 							<view class="tui-divider__status">
 								<image :src="`${$VUE_APP_RESOURCES_URL}/images/img_seckill.png`" mode="widthFix">
@@ -28,21 +28,21 @@
 								<text>{{ item.state }}</text>
 							</view>
 						</tui-divider>
-					</view>
-					<view class="tui-full__width" v-if="item.status == 2">
-						<tui-divider gradual width="80%" backgroundColor="#fff" :height="34">
-							<view class="tui-divider__status">
-								<image :src="`${$VUE_APP_RESOURCES_URL}/images/img_seckill.png`" mode="widthFix">
-								</image>
-								<text class="tui-color__red">{{ item.time }}</text>
-								<text>{{ item.state }}</text>
-							</view>
-						</tui-divider>
-					</view>
-					<view class="tui-countdown__box" v-if="item.status == 1 || item.status == 2">
+					</view> -->
+					<view class="tui-countdown__box" >
 						<text>距离{{ item.status == 1 ? '结束还剩' : '开始还有' }}</text>
 						<count-down :isDay="true" :tipText="''" :dayText="' 天 '" :hourText="' 时 '"
 							:minuteText="' 分 '" :secondText="' 秒'" :datatime="item.stop"></count-down>
+					</view>
+					<view class="">
+						<view>
+							<view class="tui-divider__status">
+								<!-- <image :src="`${$VUE_APP_RESOURCES_URL}/images/img_seckill.png`" mode="widthFix">
+								</image> -->
+								<text class="tui-color__red">{{ item.time }}</text>
+								<text>{{ item.state }}</text>
+							</view>
+						</view>
 					</view>
 				</view>
 			</block>
@@ -50,16 +50,16 @@
 			<view class="tui-list__goods">
 				<view class="tui-goods__left">
 					<block v-for="(item, index) in seckillList" :key="index">
-						<t-goods-item v-if="index % 2 == 0" :item="item" :timeList="timeList" :active="active"
+						<t-goods-item  :item="item" :timeList="timeList" :active="active"
 							:isList="false" @goDetail="goDetail"></t-goods-item>
 					</block>
 				</view>
-				<view class="tui-goods__right">
+				<!-- <view class="tui-goods__right">
 					<block v-for="(item, index) in seckillList" :key="index">
 						<t-goods-item v-if="index % 2 !== 0" :item="item" :timeList="timeList" :active="active"
 							:isList="false" @goDetail="goDetail"></t-goods-item>
 					</block>
-				</view>
+				</view> -->
 			</view>
 		</view>
 	</view>
@@ -287,29 +287,46 @@
 		min-width: 150rpx;
 	}
 
-	.tui-time {
-		font-size: 32rpx;
-		line-height: 32rpx;
+	.tui-time__item {
+		font-size: 38rpx;
+		line-height: 38rpx;
 		font-weight: bold;
-	}
-
-	.tui-status {
-		font-size: 24rpx;
-		line-height: 24rpx;
-		font-weight: 500;
-		padding-top: 16rpx;
-	}
-
-	.tui-time__active {
-		position: relative;
+		color: #333;	
 		z-index: 5;
+		position: relative;
 		&::after {
-			z-index: -1;
+			z-index: -4;
 			content: '';
 			position: absolute;
 			height: 100upx;
 			width: 100upx;
 			border-radius: 10upx;
+			background-color: #FFFFFF;
+			// background-image: linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
+			// background-image: -moz-linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
+		}
+	}
+
+	.tui-status {
+		font-size: 22rpx;
+		line-height: 24rpx;
+		font-weight: 500;
+		padding-top: 16rpx;
+		color: #999999;
+		margin-bottom: 0.1*100rpx;
+	}
+
+	.tui-time__item.tui-time__active{
+		position: relative;
+		z-index: 6;
+		&::after {
+			z-index: -4;
+			content: '';
+			position: absolute;
+			height: 100upx;
+			width: 100upx;
+			border-radius: 10upx;
+			background-color: #FFFFFF;
 			background-image: linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
 			background-image: -moz-linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
 		}
@@ -323,7 +340,8 @@
 
 	.tui-time__active .tui-status {
 		color: #fff;
-		font-size: 28rpx;
+		z-index: 5;
+		font-size: 22rpx;
 		line-height: 28rpx;
 		font-weight: bold;
 	}
@@ -332,12 +350,12 @@
 		width: 100%;
 		height: 80rpx;
 		// background: #fff;
-		border-radius: 20rpx;
+		// border-radius: 20rpx;
 		// box-shadow: 0 3rpx 20rpx rgba(183, 183, 183, 0.1);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
+		// display: flex;
+		// align-items: center;
+		// justify-content: center;
+		// flex-direction: column;
 	}
 
 	.tui-full__width {
@@ -360,7 +378,7 @@
 	}
 
 	.tui-color__red {
-		color: #eb0909;
+		color: #FF6304;
 		padding-right: 6rpx;
 		font-size: 32rpx;
 		font-weight: 500;
@@ -383,17 +401,17 @@
 	/*======商品列表 start=======*/
 	.tui-list__goods {
 		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
+		// display: flex;
+		// justify-content: space-between;
+		// flex-wrap: wrap;
 		margin-top: 20rpx;
 		padding-bottom: 30rpx;
 	}
 
-	.tui-goods__left,
-	.tui-goods__right {
-		width: 49%;
-	}
+	// .tui-goods__left,
+	// .tui-goods__right {
+	// 	width: 49%;
+	// }
 
 	.tui-full__width {
 		width: 100% !important;
@@ -404,6 +422,8 @@
 	.tui-goods__item {
 		width: 100%;
 		padding: 20rpx 20rpx 36rpx;
+		display: flex;
+		align-items: center;
 		box-sizing: border-box;
 		border-radius: 12rpx;
 		background-color: #fff;

@@ -218,12 +218,12 @@
 	}
 
 	.tui-red-outline {
-		color: #ff201f !important;
+		color: #FF6304 !important;
 		background-color: none;
 	}
 
 	.tui-red-outline::after {
-		border: 1px solid #ff201f !important;
+		border: 1px solid #FF6304 !important;
 	}
 
 	.tui-warning-outline {

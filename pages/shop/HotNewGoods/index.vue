@@ -1,23 +1,27 @@
 <template>
   <view class="quality-recommend">
     <view class="title acea-row row-center-wrapper">
-      <view class="line"></view>
+      <!-- <view class="line"></view> -->
       <view class="name">
         <text class="iconfont" :class="icon"></text>{{ name }}
       </view>
-      <view class="line"></view>
+      <!-- <view class="line"></view> -->
     </view>
-    <GoodList :good-list="goodsList" :is-sort="false"></GoodList>
+	
+    <!-- <GoodList :good-list="goodsList" :is-sort="false"></GoodList> -->
+	<HotSale  :benefit="goodsList"></HotSale>
   </view>
 </template>
 <script>
 
 import GoodList from "@/components/GoodList";
 import { getGroomList } from "@/api/store";
+import HotSale from '../../home/components/HotSale.vue'
 export default {
   name: "HotNewGoods",
   components: {
-    GoodList
+    GoodList,
+	HotSale
   },
   props: {},
   data: function() {
@@ -82,3 +86,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+	.title {
+		margin-bottom: 50rpx;
+	}
+</style>

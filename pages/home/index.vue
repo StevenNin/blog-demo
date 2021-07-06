@@ -41,16 +41,16 @@
 	  </view>
       <!-- 热门榜单 -->
       <!-- <HotCommodity v-if="item.type == 'hotCommodity'" :detail="likeInfo"></HotCommodity> -->
-	  <HotSale v-if="item.type == 'hotCommodity'" :benefit="likeInfo"></HotSale>
+	  <HotSale v-if="item.type == 'hotCommodity'" :showTitle="true" :benefit="likeInfo"></HotSale>
       <!-- 超值拼团 -->
       <!-- <Groupon v-if="item.type == 'groupon'" :detail="combinationList" /> -->
       <!-- 首发新品->秒杀 -->
 	  
       <!-- <FirstNewProduct v-if="item.type == 'firstNewProduct'" :detail="firstList"></FirstNewProduct> -->
       <!-- 精品推荐 -->
-      <ProductsRecommended v-if="item.type == 'productsRecommended'" :detail="bastList"></ProductsRecommended>
+      <!-- <ProductsRecommended v-if="item.type == 'productsRecommended'" :detail="bastList"></ProductsRecommended> -->
       <!-- 促销单品 -->
-      <PromoteProduct v-if="item.type == 'promoteProduct'" :detail="benefit"></PromoteProduct>
+      <!-- <PromoteProduct v-if="item.type == 'promoteProduct'" :detail="benefit"></PromoteProduct> -->
       <!-- 直播 -->
       <!-- #ifdef MP-WEIXIN -->
       <Live v-if="item.type == 'live'" :detail="live"></Live>

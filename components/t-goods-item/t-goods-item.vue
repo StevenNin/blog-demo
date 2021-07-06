@@ -7,14 +7,14 @@
       <view class="tui-goods__title">{{ item.title || '' }}</view>
       <view class="progress cart-color">
         <!-- <view class="bg-red" :style="{ width: loading ? item.percent + '%' : '' }"></view> -->
-        <view class="piece font-color-red" v-text="'仅剩' + item.stock + '件'"></view>
+        <view class="piece" v-text="'仅剩' + item.stock + '件'"></view>
       </view>
       <view class="tui-tag__box"><tui-tag plain size="24rpx" type="red" padding="8rpx 12rpx">限时价</tui-tag></view>
       <view class="tui-box__bottom">
         <view class="tui-price__box">
           <view class="tui-price">
-            <view class="tui-price__small">￥</view>
-            <view class="tui-price__large">{{ item.price || '' }}</view>
+            <view class="tui-price__large font-color-money">{{ item.price || '' }}</view>
+            <view class="tui-price__small">uvx</view>
             <!-- <view class="tui-price__small">.{{ decimalPrice }}</view> -->
           </view>
           <!-- <view class="tui-price__original">￥{{ item.factory || '0.00' }}</view> -->
@@ -24,7 +24,7 @@
             {{ status | getBtnText(item.subscribe) }}
           </tui-button> -->
           <view class="grab bg-color-red" v-if="timeList[active].status === 1 && item.stock > 0" @click="goDetail">马上抢</view>
-          <view class="grab" v-if="timeList[active].status === 1 && item.stock <= 0">已售磬</view>
+          <view class="grab" v-if="timeList[active].status === 1 && item.stock <= 0">已抢光</view>
           <view class="grab bg-color-red" v-if="timeList[active].status === 2">即将开始</view>
           <view class="grab bg-color-red" v-if="timeList[active].status === 0">已结束</view>
         </view>
@@ -122,8 +122,9 @@ export default {
   top: 8rpx;
 }
 .tui-image__box {
-  width: 100%;
-  height: 300rpx;
+  width: 260rpx;
+  height: 190rpx;
+  margin-right: 30rpx;
 }
 .tui-full__imgbox {
   width: 240rpx !important;
@@ -132,7 +133,7 @@ export default {
 }
 .tui-goods__img {
   max-width: 100%;
-  max-height: 300rpx;
+  max-height: 190rpx;
   display: block;
   border-radius: 8rpx;
 }
@@ -185,6 +186,7 @@ export default {
   color: #eb0909;
 }
 .tui-price__small {
+	color:#999;
   font-size: 24rpx;
   line-height: 24rpx;
 }

@@ -60,15 +60,21 @@
 			// 	this.time = val
 			// 	this.show_time()
 			// },
-			datatime: {
-				immediate: true,
-				handler (val) {
-					clearInterval(this.timeInterval)
-					this.time = val
-					this.show_time()
-				},
-				deep: true
-			}
+			// datatime: {
+			// 	immediate: true,
+			// 	handler (val) {
+			// 		clearInterval(this.timeInterval)
+			// 		this.time = val
+			// 		this.show_time()
+			// 	},
+			// 	deep: true
+			// }
+		},
+		computed() {
+			console.log(1111111)
+			clearInterval(this.timeInterval)
+			this.time = this.datatime
+			this.show_time()
 		},
 		mounted: function() {},
 		methods: {

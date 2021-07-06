@@ -402,7 +402,7 @@
     {
       "path": "pages/activity/GoodsSeckill/index",
       "style": {
-        "navigationBarTitleText": "秒杀"
+        "navigationBarTitleText": "限时抢购"
       }
     },
     {

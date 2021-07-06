@@ -24,7 +24,7 @@
           <view class="title acea-row row-center-wrapper" ref="title">
             <view class="line"></view>
             <view class="name">{{ item.cateName }}</view>
-            <view class="line"></view>
+            <view class="line right"></view>
           </view>
           <view class="list acea-row">
             <view

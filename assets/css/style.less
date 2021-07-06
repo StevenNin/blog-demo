@@ -4325,10 +4325,11 @@ page {
 
 /*金品推荐*/
 .quality-recommend .title {
-  height: 1.2 * 100rpx;
-  font-size: 0.32 * 100rpx;
-  color: #282828;
-  background-color: #f5f5f5;
+  // height: 1.2 * 100rpx;
+  font-size: 0.36 * 100rpx;
+  font-weight: bold;
+  color: #000;
+  // background-color: #f5f5f5;
 }
 
 .quality-recommend .title .line {
@@ -6115,8 +6116,8 @@ page {
 }
 
 .collectionGoods .item {
-  margin:0 0.3 * 100rpx;
-  // padding-right: 0.3 * 100rpx;
+  margin:0 0.3 * 100rpx;	
+  margin-top: 0.3 * 100rpx;
   // border-bottom: 1px solid #eee;
   // height: 1.8 * 100rpx;
 }
@@ -6141,10 +6142,13 @@ page {
 
 .collectionGoods .item .text .infor {
   width: 100%;
+  font-size: 26rpx;
+  font-weight: bold;
 }
 
 .collectionGoods .item .text .money {
   font-size: 0.32 * 100rpx;
+  font-weight: bold;
 }
 
 .collectionGoods .item .text .delete {
@@ -7069,8 +7073,8 @@ page {
 
 .tui-goods__item .progress {
   overflow: hidden;
-  background-color: #fff;
-  width: 100%;
+  background-color: #FFC4BC;
+  width: 60%;
   border-radius: 0.2 * 100rpx;
   height: 0.34 * 100rpx;
   position: relative;
@@ -7091,7 +7095,8 @@ page {
   top: 49%;
   font-size: 0.22 * 100rpx;
   word-wrap: normal;
-  text-align: center;
+  text-indent: 16rpx;
+  // text-align: center;
 }
 
 .tui-goods__item .grab {
@@ -7099,7 +7104,7 @@ page {
   color: #fff;
   width: 1.4 * 100rpx;
   height: 0.54 * 100rpx;
-  border-radius: 0.04 * 100rpx;
+  border-radius: 0.5* 100rpx;
   text-align: center;
   line-height: 0.54 * 100rpx;
   position: absolute;
@@ -7647,9 +7652,10 @@ page {
 .productSort .aside .item.on {
   background-color: #fff;
   border-left: 0.04 * 100rpx solid #eb3729;
+  border-image: linear-gradient(#FF8331,#FF0E00)10 10; 
   width: 100%;
   text-align: center;
-  color: #eb3729;
+  color: #FF6304;
   font-weight: bold;
 }
 
@@ -7660,18 +7666,25 @@ page {
 }
 
 .productSort .conter .listw {
-  padding-top: 0.2 * 100rpx;
+  padding-top: 1.10 * 100rpx;
 }
 
 .productSort .conter .listw .title {
   height: 0.9 * 100rpx;
 }
 
-.productSort .conter .listw .title .line {
-  width: 1 * 100rpx;
-  height: 0.02 * 100rpx;
-  background-color: #999;
+.productSort .conter .listw .title  {
+	.line {
+	  width: 1 * 100rpx;
+	  height: 0.04 * 100rpx;
+	  background-image: linear-gradient(to right, #fff 50%, #FF6304 100%);
+	}
+	.right {
+		background-image: linear-gradient(to right, #FF6304 0%, #FFF 50%);
+	}
 }
+
+
 
 .productSort .conter .listw .title .name {
   font-size: 0.28 * 100rpx;
