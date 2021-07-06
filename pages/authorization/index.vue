@@ -200,16 +200,18 @@ export default {
     }
 
     .author-btn {
-      width: 630rpx;
-      height: 80rpx;
-      background: linear-gradient(to right, #f35447 0%, #ff8e3c 100%);
-      background: -moz-linear-gradient(to right, #f35447 0%, #ff8e3c 100%);
+      width: 172rpx;
+      height: 64rpx;
+	  background: #593ce5;
+      // background: linear-gradient(to right, #f35447 0%, #ff8e3c 100%);
+      // background: -moz-linear-gradient(to right, #f35447 0%, #ff8e3c 100%);
       // box-shadow: 0px 7rpx 6rpx 0px rgba(229, 138, 0, 0.22);
       border-radius: 40rpx;
       font-size: 30rpx;
       font-family: PingFang SC;
       font-weight: 500;
       color: rgba(255, 255, 255, 1);
+	  line-height: 64rpx;
     }
 
     .close-btn {

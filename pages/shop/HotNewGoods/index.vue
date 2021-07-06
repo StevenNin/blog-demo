@@ -54,7 +54,7 @@ export default {
     titleInfo: function() {
       let type = this.$yroute.query.type;
       if (type === "1") {
-        this.name = "精品推荐";
+        this.name = "超值热卖";
         this.icon = "icon-jingpintuijian";
         // document.title = "精品推荐";
       } else if (type === "2") {

@@ -88,4 +88,20 @@ export default {
 @import './assets/css/base.less';
 @import './assets/css/reset.less';
 @import './assets/css/style.less';
+
+		/* #ifdef H5 */
+		uni-checkbox .uni-checkbox-input {
+			border-radius: 20rpx;
+		}
+		
+		uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked {
+			color: #FF6903;
+		}
+		
+		.uni-checkbox-input.uni-checkbox-input-checked {
+			border: none !important;
+			background: #6144eb;
+		}
+		/* #endif */
+
 </style>

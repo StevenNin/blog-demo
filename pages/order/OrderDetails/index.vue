@@ -227,7 +227,7 @@
     <view class="footer acea-row row-right row-middle" v-if="!refundOrder && offlineStatus">
       <template v-if="status.type == 0">
         <view class="bnt cancel" @click="cancelOrder">取消订单</view>
-        <view class="bnt bg-transform-purple" @click="toPay">立即付款</view>
+        <view class="bnt bg-transform-purple" @click="keyboard=true">立即付款</view>
       </template>
       <template v-if="status.type == 1">
         <view class="bnt cancel" @click="goGoodsReturn(orderInfo)">申请退款</view>
@@ -295,6 +295,7 @@
     },
     data: function () {
       return {
+		  password:'',
 		  keyboard: false,
         offlinePayStatus: 2,
         orderTypeName: "普通订单",
@@ -352,6 +353,8 @@
 	            position: "bottom",
 	            title: title.toString(),
 	          });
+			  this.password = title
+			  this.toPay()
 	          this.getBack();
 	        },
 	  
@@ -531,12 +534,13 @@
           });
       },
       async toPay() {
-		  this.keyboard  = true
+		this.keyboard  = true
         var that = this;
+		const type = 'coin'
         // console.log(type, "支付方式");
-        // await payOrderHandle(this.orderInfo.orderId, type, that.from);
+        await payOrderHandle(this.orderInfo.orderId, type,that.from,this.password);
 		
-		console.log('this.orderInfo.orderId:',this.orderInfo.orderId,'that.from:', that.from,'支付方式:',type)
+		console.log('this.orderInfo.orderId:',this.orderInfo.orderId,'that.from:', this.from,'支付方式:',this.password)
         that.getDetail();
       },
     },

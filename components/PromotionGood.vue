@@ -1,7 +1,7 @@
 <template>
 	<view>
-		<view class="title-box x-bc" @tap="$yrouter.push({ path: '/pages/shop/HotNewGoods/index',query:{type:2} })">
-		    <!-- <text class="title">热门榜单</text> -->
+		<view class="title-box x-bc" @tap="$yrouter.push({ path: '/pages/shop/HotNewGoods/index',query:{type:1} })">
+		    <!-- <text class="title">超值热卖</text> -->
 			<image class="hotSaleImg" src="../static/index/valueSale.png" mode="widthFix"></image>
 		    <view class="group-people x-f">
 		        <text class="tip">进去逛逛></text>

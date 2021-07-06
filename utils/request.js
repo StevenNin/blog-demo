@@ -63,14 +63,14 @@ function baseRequest(options) {
 
   options.headers = {
     ...options.headers,
-	// linguisticType: 'cn',
+	linguisticType: 'idn',
   }
 
   if (options.login === true) {
     options.headers = {
       ...options.headers,
       Authorization: 'Bearer ' + token,
-	  // linguisticType: 'cn'
+	  linguisticType: 'idn'
     }
   }
 

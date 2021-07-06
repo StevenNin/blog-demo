@@ -94,13 +94,13 @@ export function delOrderHandle(orderId) {
 }
 
 // 使用订单号进行支付
-export async function payOrderHandle(orderId, type, from) {
+export async function payOrderHandle(orderId, type, from,payPwd) {
 	return new Promise((resolve, reject) => {
 		uni.showLoading({
 			title: "支付中",
 			mask: true
 		});
-		payOrder(orderId, type, from)
+		payOrder(orderId, type, from,payPwd)
 			.then(async res => {
 				console.log(res)
 				await handleOrderPayResults(res.data, type)

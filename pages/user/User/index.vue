@@ -14,7 +14,7 @@
                 <text>{{ userInfo.vipName }}</text>
               </view>
             </view>
-            <view @click="goPersonalData()" class="id" v-if="userInfo.phone">
+            <view @click="goPersonalData()" class="id" >
               <text>ID：{{ userInfo.uid || 0 }}</text>
               <text class="iconfont icon-bianji1"></text>
             </view>
@@ -34,7 +34,7 @@
         <text class="iconfont icon-shezhi" @click="goPersonalData()"></text>
       </view>
       <view class="wrapper">
-        <view class="nav acea-row row-middle">
+        <!-- <view class="nav acea-row row-middle">
           <view @click="goUserAccount()" class="item">
             <text>我的余额</text>
             <text class="num">{{ userInfo.nowMoney || 0 }}</text>
@@ -51,7 +51,7 @@
             <text>优惠券</text>
             <text class="num">{{ userInfo.couponCount || 0 }}</text>
           </view>
-        </view>
+        </view> -->
         <view class="myOrder">
           <view class="title acea-row row-between-wrapper">
             <text>我的订单</text>
@@ -63,35 +63,35 @@
           <view class="orderState acea-row row-middle">
             <view @click="goMyOrder(0)" class="item">
               <view class="pictrue">
-                <image :src="`${$VUE_APP_RESOURCES_URL}/images/dfk.png`" />
+                <image src="../../../static/dfk.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.unpaidCount > 0">{{ userInfo.orderStatusNum.unpaidCount }}</text>
               </view>
               <view>待付款</view>
             </view>
             <view @click="goMyOrder(1)" class="item">
               <view class="pictrue">
-                <image :src="`${$VUE_APP_RESOURCES_URL}/images/dfh.png`" />
+                <image src="../../../static/dfh.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.unshippedCount > 0">{{ userInfo.orderStatusNum.unshippedCount }}</text>
               </view>
               <view>待发货</view>
             </view>
             <view @click="goMyOrder(2)" class="item">
               <view class="pictrue">
-                <image :src="`${$VUE_APP_RESOURCES_URL}/images/dsh.png`" />
+                <image src="../../../static/dsh.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.receivedCount > 0">{{ userInfo.orderStatusNum.receivedCount }}</text>
               </view>
               <text>待收货</text>
             </view>
             <view @click="goMyOrder(3)" class="item">
               <view class="pictrue">
-                <image :src="`${$VUE_APP_RESOURCES_URL}/images/dpj.png`" />
+                <image src="../../../static/dpj.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.evaluatedCount > 0">{{ userInfo.orderStatusNum.evaluatedCount }}</text>
               </view>
               <text>待评价</text>
             </view>
             <view @click="goReturnList()" class="item">
               <view class="pictrue">
-                <image :src="`${$VUE_APP_RESOURCES_URL}/images/sh.png`" />
+                <image src="../../../static/sh.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.refundCount > 0">{{ userInfo.orderStatusNum.refundCount }}</text>
               </view>
               <text>售后/退款</text>
@@ -363,15 +363,15 @@ export default {
 
 .order-status-num {
   min-width: 0.33 * 100rpx;
-  background-color: #fff;
-  color: #eb3729;
+  background-color: #FF4E21;
+  color: #FFFFFF;
   border-radius: 15px;
   position: absolute;
-  right: -0.14 * 100rpx;
+  right: -0.24 * 100rpx;
   top: -0.15 * 100rpx;
   font-size: 0.2 * 100rpx;
   padding: 0 0.08 * 100rpx;
-  border: 1px solid #eb3729;
+  border: 1rpx solid #FFFFFF;
 }
 
 .pictrue {

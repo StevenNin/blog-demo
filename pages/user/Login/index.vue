@@ -46,7 +46,7 @@
         </view>
       </view>
       <view class="logon" @click="loginMobile" :hidden="current !== 1">登录</view>
-      <view class="logon" @click="submit" :hidden="current === 1">登录</view>
+      <view class="logon" @click="submit" :hidden="current === 1">立即登录</view>
       <!-- <view class="tip">
         没有账号?
         <text @click="formItem = 2" class="font-color-red">立即注册</text>

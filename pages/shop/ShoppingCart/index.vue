@@ -12,15 +12,17 @@
           <text class="iconfont icon-xuanzhong"></text>售后无忧
         </view>
       </view>
-      <view class="nav acea-row row-between-wrapper">
-        <view>
-          购物数量
-          <text class="num font-color-red">{{ count }}</text>
-        </view>
-        <view v-if="cartList.valid.length > 0" class="administrate acea-row row-center-wrapper" @click="manage">
-          {{ footerswitch ? '取消' : '管理' }}</view>
-      </view>
-      <view v-if="validList.length > 0 || cartList.invalid.length > 0">
+      
+      <view class="adminCartBox" v-if="validList.length > 0 || cartList.invalid.length > 0">
+		<view class="validGoods">
+		  <view class="nav acea-row row-between-wrapper">
+			<view>
+			  购物数量：
+			  <text class="num font-color-money">{{ count }}</text>
+			</view>
+			<view v-if="cartList.valid.length > 0" class="administrate acea-row row-center-wrapper" @click="manage">
+			  {{ footerswitch ? '取消' : '管理' }}</view>
+		  </view>
         <view class="list">
           <view class="item acea-row row-between-wrapper" v-for="(item, cartListValidIndex) in validList"
             :key="cartListValidIndex">
@@ -28,7 +30,7 @@
               <view class="checkbox-wrapper">
                 <checkbox-group @change="switchSelect(cartListValidIndex)">
                   <label class="well-check">
-                    <checkbox color="#eb3729" value :checked="item.checked"></checkbox>
+                    <checkbox color="#FFFFFF" value :checked="item.checked"></checkbox>
                   </label>
                 </checkbox-group>
               </view>
@@ -40,8 +42,8 @@
               </view>
               <view class="text">
                 <view class="line1">{{ item.productInfo.storeName }}</view>
-                <view class="infor line1" v-if="item.productInfo.attrInfo">属性：{{ item.productInfo.attrInfo.sku }}</view>
-                <view class="money">￥{{ item.truePrice }}</view>
+                <view class="infor line1" v-if="item.productInfo.attrInfo">规格：{{ item.productInfo.attrInfo.sku }}</view>
+                <view class="money font-color-money">{{ item.truePrice }}<text class='font-color-priceUnit'>UVX</text></view>
               </view>
               <view class="carnum acea-row row-center-wrapper">
                 <view class="reduce" :class="validList[cartListValidIndex].cartNum <= 1 ? 'on' : ''"
@@ -57,14 +59,14 @@
             </view>
           </view>
         </view>
-        <view class="invalidGoods" v-if="cartList.invalid.length > 0">
+        </view>
+		
+		<view class="invalidGoods" v-if="cartList.invalid.length > 0">
           <view class="goodsNav acea-row row-between-wrapper">
             <view @click="goodsOpen">
               <text class="iconfont" :class="goodsHidden === true ? 'icon-xiangyou' : 'icon-xiangxia'"></text>失效商品
             </view>
-            <view class="del" @click="delInvalidGoods">
-              <text class="iconfont icon-shanchu1"></text>清空
-            </view>
+            <view class="del" @click="delInvalidGoods">清空</view>
           </view>
           <view class="goodsList" :hidden="goodsHidden">
             <view v-for="(item, cartListinvalidIndex) in cartList.invalid" :key="cartListinvalidIndex">
@@ -113,7 +115,7 @@
 
               <checkbox-group @change="allChecked">
                 <label class="well-check">
-                  <checkbox color="#eb3729" value="allSelect" :checked="isAllSelect && cartCount > 0"></checkbox>
+                  <checkbox color="#FFFFFF" value="allSelect" :checked="isAllSelect && cartCount > 0"></checkbox>
                   <text class="checkAll">全选 ({{ cartCount }})</text>
                 </label>
               </checkbox-group>
@@ -121,8 +123,8 @@
           </view>
         </view>
         <view class="money acea-row row-middle" v-if="footerswitch === false">
-          <text class="font-color-red">￥{{ countmoney }}</text>
-          <view class="placeOrder bg-transform-purple" @click="placeOrder">立即下单</view>
+          <text class="font-color-money">{{ countmoney }}<text class="font-color-priceUnit">UVX</text></text>
+          <view class="placeOrder bg-transform-money" @click="placeOrder">立即下单</view>
         </view>
         <view class="button acea-row row-middle" v-else>
           <!-- <view class="bnt cart-color" @click="collectAll">收藏</view> -->
@@ -514,11 +516,20 @@
   };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   .footer-h5 {
     bottom: 50px
   }
   .shoppingCart{
 	  position: relative;
+  }
+  .num {
+	  font-size: 28rpx;
+  }
+  .adminCartBox {
+	  margin: 0 32rpx;
+  }
+  .validGoods{
+	  border-radius: 20rpx;
   }
 </style>

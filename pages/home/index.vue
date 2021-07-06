@@ -56,7 +56,7 @@
       <Live v-if="item.type == 'live'" :detail="live"></Live>
       <!-- #endif -->
       <!-- 超值热卖 -->
-      <PromotionGood v-if="item.type == 'promotionGood'" :benefit="benefit"></PromotionGood>
+      <PromotionGood v-if="item.type == 'promotionGood'" :benefit="bastList"></PromotionGood>
       <Coupon-window :coupon-list="couponList" v-if="showCoupon" @checked="couponClose" @close="couponClose"> </Coupon-window>
     </view>
   </view>

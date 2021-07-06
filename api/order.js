@@ -125,11 +125,12 @@ export function express(params) {
  * 订单查询物流信息
  * @returns {*}
  */
-export function payOrder(uni, paytype, from) {
+export function payOrder(uni, paytype, from,payPwd) {
 	return request.post("order/pay", {
 		uni,
 		paytype,
-		from
+		from,
+		payPwd
 	});
 }
 /**

@@ -138,17 +138,17 @@
       </view>
       <!-- <view class="item acea-row row-between-wrapper" v-if="orderPrice.couponPrice > 0 && !isIntegral"> -->
 	  
-      <view class="item acea-row row-between-wrapper" v-if="orderPrice.deductionPrice > 0 && !isIntegral">
+      <!-- <view class="item acea-row row-between-wrapper" v-if="orderPrice.deductionPrice > 0 && !isIntegral">
         <view>积分抵扣：</view>
         <view class="money">-￥{{ orderPrice.deductionPrice }}</view>
-      </view>
+      </view> -->
     </view>
     <view style="height: 120rpx"></view>
     <view class="footer acea-row row-between-wrapper">
       <view>
         合计:
-        <text class="font-color-red" v-if="!isIntegral">￥{{ orderPrice.payPrice }}</text>
-        <text class="font-color-red" v-if="isIntegral">{{ orderPrice.payIntegral }}积分</text>
+        <text class="font-color-red" >￥{{ orderPrice.payPrice }}</text>
+        <!-- <text class="font-color-red" v-if="isIntegral">{{ orderPrice.payIntegral }}积分</text> -->
       </view>
       <view class="settlement bg-transform-purple" @click="createOrder">立即结算</view>
     </view>
@@ -557,7 +557,7 @@ export default {
         addressId: this.addressInfo.id,
         useIntegral: this.useIntegral ? 1 : 0,
         couponId: this.usableCoupon.id || 0,
-        payType: this.active,
+        payType: 'coin',
 		coinId : this.coinId,
 		coinName: this.coinName,
 		price: this.price,
