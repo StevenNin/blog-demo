@@ -816,7 +816,7 @@ page {
 .goodWrapper .item {
   margin-left: 0.3 * 100rpx;
   padding-right: 0.3 * 100rpx;
-  border-bottom: 0.02 * 100rpx solid #f0f0f0;
+  // border-bottom: 0.02 * 100rpx solid #f0f0f0;
   height: 1.8 * 100rpx;
 }
 
@@ -860,11 +860,11 @@ page {
 
 .goodWrapper .item .text .evaluate {
   position: absolute;
-  width: 1.14 * 100rpx;
-  height: 0.46 * 100rpx;
-  border: 1px solid #e93323;
-  color: #e93323;
-  border-radius: 0.04 * 100rpx;
+  width: 1.28 * 100rpx;
+  height: 0.56 * 100rpx;
+  border: 1px solid #6548EF;
+  color: #6548EF;
+  border-radius: 0.5 * 100rpx;
   text-align: center;
   line-height: 0.46 * 100rpx;
   right: 0;
@@ -1012,12 +1012,12 @@ page {
 /**/
 .goodsStyle {
   background-color: #fff;
-  padding: 0.22 * 100rpx 0.3 * 100rpx;
+  padding: 0.22 * 100rpx 0.55 * 100rpx;
 }
 
 .goodsStyle .pictrue {
-  width: 1.2 * 100rpx;
-  height: 1.2 * 100rpx;
+  width: 1.68 * 100rpx;
+  height: 1.68 * 100rpx;
 }
 
 .goodsStyle .pictrue .image {
@@ -1027,22 +1027,26 @@ page {
 }
 
 .goodsStyle .text {
-  width: 5.45 * 100rpx;
+  width: 4.37 * 100rpx;
   font-size: 0.28 * 100rpx;
   color: #999;
 }
 
 .goodsStyle .text .name {
-  width: 3.6 * 100rpx;
+  width: 4 * 100rpx;
   color: #282828;
+  font-size: 0.35*100rpx;
+	font-weight: bold;
 }
 
-.goodsStyle .text .money {
+.goodsStyle .text .money1 {
+font-size: 0.35*100rpx;
+  font-weight: bold;
   text-align: right;
 }
 
 .goodsStyle .text .money .num {
-  margin-top: 0.07 * 100rpx;
+  // margin-top: 0.07 * 100rpx;
 }
 
 /*所有推广头部样式*/
@@ -2418,7 +2422,7 @@ page {
 .user .wrapper .myService .title {
   height: 0.88 * 100rpx;
   padding: 0 0.3 * 100rpx;
-  border-bottom: 1px dashed #eee;
+  // border-bottom: 1px dashed #eee;
   font-size: 0.3 * 100rpx;
   color: #282828;
 }
@@ -2489,7 +2493,7 @@ page {
     left: 0.3 * 100rpx;
     right: 0;
     bottom: 0;
-    border-bottom: 1rpx solid #f5f5f5;
+    // border-bottom: 1rpx solid #f5f5f5;
     z-index: 99;
     height: 1rpx;
   }
@@ -3174,6 +3178,9 @@ page {
 .my-order .header {
   height: 2.6 * 100rpx;
   padding: 0 0.3 * 100rpx;
+  background-image: url(../../static/order-bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .my-order .header .picTxt {
@@ -3207,20 +3214,21 @@ page {
   background-color: #fff;
   width: 6.9 * 100rpx;
   height: 1.4 * 100rpx;
-  border-radius: 0.06 * 100rpx;
+  border-radius: 0.2 * 100rpx;
   margin: -0.73 * 100rpx auto 0 auto;
 }
 
 .my-order .nav .item {
   text-align: center;
   font-size: 0.26 * 100rpx;
-  color: #282828;
+  color: #ADB1B5;
   padding: 0.29 * 100rpx 0 0.2 * 100rpx 0;
 }
 
 .my-order .nav .item.on {
-  font-weight: bold;
-  border-bottom: 0.05 * 100rpx solid #eb3729;
+  // font-weight: bold;
+  color: #6548EF;
+  // border-bottom: 0.05 * 100rpx solid #eb3729;
 }
 
 .my-order .nav .item .num {
@@ -3234,7 +3242,7 @@ page {
 
 .my-order .list .item {
   background-color: #fff;
-  border-radius: 0.06 * 100rpx;
+  border-radius: 0.2 * 100rpx;
   margin-bottom: 0.14 * 100rpx;
 }
 
@@ -3259,8 +3267,8 @@ page {
 }
 
 .my-order .list .item .item-info .pictrue {
-  width: 1.2 * 100rpx;
-  height: 1.2 * 100rpx;
+  width: 1.68 * 100rpx;
+  height: 1.68 * 100rpx;
 }
 
 .my-order .list .item .item-info .pictrue image {
@@ -3270,7 +3278,8 @@ page {
 }
 
 .my-order .list .item .item-info .text {
-  width: 4.86 * 100rpx;
+  width: 4.38 * 100rpx;
+  height: 1.68 * 100rpx;
   font-size: 0.28 * 100rpx;
   color: #999;
   margin-top: 0.06 * 100rpx;
@@ -3279,6 +3288,8 @@ page {
 .my-order .list .item .item-info .text .name {
   width: 3.06 * 100rpx;
   color: #282828;
+  font-size: 0.35*100rpx;
+  font-weight: bold;
 }
 
 .my-order .list .item .item-info .text .money {
@@ -3297,6 +3308,7 @@ page {
 .my-order .list .item .totalPrice .money {
   font-size: 0.28 * 100rpx;
   font-weight: bold;
+  margin-left: 10rpx;
 }
 
 .my-order .list .item .bottom {
@@ -3374,6 +3386,7 @@ page {
   font-size: 0.26 * 100rpx;
   color: #282828;
   padding: 0.25 * 100rpx 0;
+  border-radius: 20rpx;
 }
 
 .order-details .nav .navCon {
@@ -3409,6 +3422,7 @@ page {
 .order-details .address {
   font-size: 0.26 * 100rpx;
   color: #868686;
+  border-radius: 20rpx;
   background-color: #fff;
   padding: 0.25 * 100rpx 0.3 * 100rpx 0.3 * 100rpx 0.3 * 100rpx;
 }
@@ -3438,6 +3452,8 @@ page {
   background-color: #fff;
   margin-top: 0.12 * 100rpx;
   padding: 0.3 * 100rpx;
+  margin: 30rpx;
+  border-radius: 20rpx;
 }
 
 .order-details .wrapper .item {
@@ -3451,8 +3467,8 @@ page {
 
 .order-details .wrapper .item .conter {
   color: #868686;
-  width: 5 * 100rpx;
-  text-align: right;
+  width: 4.4 * 100rpx;
+  text-align: left;
 }
 
 .order-details .wrapper .item .conter .copy {
@@ -3703,10 +3719,20 @@ page {
 }
 
 /*个人资料*/
+.personal-data {
+	background-image: url(../../static/user-bg.png);
+	background-repeat: no-repeat;
+	background-size:100% 50%;
+	padding-top: 20rpx;
+}
+
 .personal-data .wrapper {
-  margin: 0.1 * 100rpx 0;
-  background-color: #fff;
-  padding: 0.36 * 100rpx 0.3 * 100rpx 0.13 * 100rpx 0.3 * 100rpx;
+  // margin: 0.1 * 100rpx 0;
+  // background-color: #fff;
+  // padding: 0.36 * 100rpx 0.3 * 100rpx 0.13 * 100rpx 0.3 * 100rpx;
+  width: 6.9 * 100rpx;
+  margin: 0.10*100rpx  auto;
+  // margin: 0 0.20*100rpx;
 }
 
 .personal-data .wrapper .title {
@@ -3718,7 +3744,7 @@ page {
 .personal-data .wrapper .wrapList .item {
   width: 100%;
   /*height: 1.6rem;*/
-  background-color: #f8f8f8;
+  // background-color: #f8f8f8;
   border-radius: 20rpx;
   position: relative;
   // border: 0.02rem solid #f8f8f8;
@@ -3726,7 +3752,7 @@ page {
 
 .personal-data .wrapper .wrapList .item.on {
   background-size: 100% 100%;
-  background-color: #fff;
+  // background-color: #fff;
 }
 
 .personal-data .wrapper .wrapList .item .picTxt {
@@ -3798,11 +3824,14 @@ page {
 
 .personal-data .list {
   background-color: #fff;
+  width: 6.9 * 100rpx;
+  margin: 0.60*100rpx  auto;
+  border-radius: 20rpx;
 }
 
 .personal-data .list .item {
   padding: 0.3 * 100rpx 0.3 * 100rpx 0.3 * 100rpx 0;
-  border-bottom: 1px solid #f2f2f2;
+  // border-bottom: 1px solid #f2f2f2;
   margin-left: 0.3 * 100rpx;
   font-size: 0.32 * 100rpx;
   color: #282828;
@@ -3859,6 +3888,7 @@ page {
   font-size: 0.32 * 100rpx;
   text-align: center;
   width: 6.9 * 100rpx;
+  color: #fff;
   height: 0.9 * 100rpx;
   border-radius: 0.45 * 100rpx;
   margin: 0.3 * 100rpx auto 0.7 * 100rpx auto;
@@ -5569,8 +5599,11 @@ page {
   padding: 0.48 * 100rpx 0.3 * 100rpx 0.65 * 100rpx 0.3 * 100rpx;
 }
 
-.evaluate-con .score .item ~ .item {
-  margin-top: 0.25 * 100rpx;
+.evaluate-con .score .item {
+  margin-left: 0.25 * 100rpx;
+  ~ .item {
+	margin-top: 0.25 * 100rpx;
+  }
 }
 
 .evaluate-con .score .item .starsList {
@@ -5600,7 +5633,7 @@ page {
 
 .evaluate-con .score .textarea textarea {
   font-size: 0.28 * 100rpx;
-  padding: 0.38 * 100rpx 0.3 * 100rpx 0 0.3 * 100rpx;
+  // padding: 0.38 * 100rpx 0.3 * 100rpx 0 0.3 * 100rpx;
   width: 100%;
   height: 1.6 * 100rpx;
 }

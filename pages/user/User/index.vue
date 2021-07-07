@@ -1,7 +1,7 @@
 <template>
   <view class="user">
     <view v-if="$store.getters.token || userInfo.uid">
-      <view class="header headerbg-color-purple acea-row row-between-wrapper">
+      <view class="header acea-row row-between-wrapper">
         <view class="picTxt acea-row row-between-wrapper">
           <view class="pictrue">
             <image :src="userInfo.avatar" />
@@ -357,6 +357,13 @@ export default {
 </script>
 
 <style lang="less">
+
+.user {
+	background-image: url(../../../static/user-bg.png);
+	background-repeat: no-repeat;
+	background-size:100% 30%;
+}
+
 .footer-line-height {
   height: 1 * 100rpx;
 }

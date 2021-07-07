@@ -7,9 +7,11 @@
       <view class="text acea-row row-between">
         <view class="name line2">{{ orderCon.productInfo.storeName }}</view>
         <view class="money">
-          <view>￥{{ orderCon.productInfo.price }}</view>
           <view class="num">x{{ orderCon.cartNum }}</view>
         </view>
+		<view class="money1 font-color-money" style="align-self: flex-end;">
+		  <view>{{ orderCon.productInfo.price }}<text class="font-color-priceUnit">uvx</text></view>
+		</view>
       </view>
     </view>
     <view class="score">
@@ -25,13 +27,13 @@
             v-for="(itemn, starsIndexn) in item.stars"
             :key="starsIndexn"
             class="iconfont"
-            :class="item.index >= starsIndexn ? 'icon-shitixing font-color-red': 'icon-kongxinxing'"
+            :class="item.index >= starsIndexn ? 'icon-shitixing font-color-star': 'icon-kongxinxing'"
           ></text>
         </view>
         <text class="evaluate">{{item.index === -1 ? "" : item.index + 1 + "分"}}</text>
       </view>
       <view class="textarea">
-        <textarea placeholder="商品满足你的期待么？说说你的想法，分享给想买的他们吧~" v-model="expect"></textarea>
+        <textarea placeholder="商品满足你的期待么？说说你的想法" v-model="expect"></textarea>
         <view class="list acea-row row-middle">
           <view
             class="pictrue"
@@ -40,13 +42,16 @@
           >
             <image :src="item" />
             <text
-              class="iconfont icon-guanbi1 font-color-red"
+              class="iconfont icon-guanbi1 font-color-black"
               @click="uploadPictures.splice(uploadPicturesIndex, 1)"
             ></text>
           </view>
           <view class="pictrue uploadBnt acea-row row-center-wrapper row-column" @tap="chooseImage">
             <text class="iconfont icon-icon25201"></text>
-            <view>上传图片</view>
+			<view class="pictur">
+				<image src="" mode=""></image>
+			</view>
+            <view>拍买家秀</view>
           </view>
         </view>
       </view>

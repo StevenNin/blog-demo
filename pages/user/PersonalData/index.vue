@@ -53,10 +53,10 @@
         </view>
       -->
     </view>
-    <view class="modifyBnt bg-color-red" @click="submit">保存修改</view>
+    <!-- <view class="modifyBnt bg-color-red" @click="submit">保存修改</view> -->
     <!-- #ifndef MP-WEIXIN -->
     <view
-      class="logOut cart-color acea-row row-center-wrapper"
+      class="logOut bg-color-red acea-row row-center-wrapper"
       @click="logout"
     >退出登录</view>
     <!-- #endif -->
@@ -210,3 +210,6 @@ export default {
   },
 };
 </script>
+<style scoped lang="less">
+	
+</style>

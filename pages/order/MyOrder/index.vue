@@ -1,10 +1,10 @@
 <template>
   <view class="my-order" ref="container">
-    <view class="header bg-color-red">
+    <view class="header">
       <view class="picTxt acea-row row-between-wrapper">
         <view class="text">
           <view class="name">订单信息</view>
-          <view>累计订单：{{ orderData.orderCount || 0 }} 总消费：￥{{ orderData.sumPrice || 0 }}</view>
+          <view>累计订单：{{ orderData.orderCount || 0 }} 总消费：{{ orderData.sumPrice || 0 }} UVX</view>
         </view>
       </view>
     </view>
@@ -34,13 +34,13 @@
       <view class="item" v-for="(order, orderListIndex) in orderList" :key="orderListIndex">
         <view class="title acea-row row-between-wrapper">
           <view class="acea-row row-middle">
-            <span class="sign cart-color acea-row row-center-wrapper" v-if="order.combinationId > 0">拼团</span>
+            <!-- <span class="sign cart-color acea-row row-center-wrapper" v-if="order.combinationId > 0">拼团</span>
             <span class="sign cart-color acea-row row-center-wrapper" v-if="order.seckillId > 0">秒杀</span>
             <span class="sign cart-color acea-row row-center-wrapper" v-if="order.bargainId > 0">砍价</span>
-            <span class="sign cart-color acea-row row-center-wrapper" v-if="order.storeId > 0">门店</span>
+            <span class="sign cart-color acea-row row-center-wrapper" v-if="order.storeId > 0">门店</span> -->
             {{ order.createTime }}
           </view>
-          <view class="font-color-red">{{ getStatus(order) }}</view>
+          <view class="font-color-money">{{ getStatus(order) }}</view>
         </view>
         <view @click="goOrderDetails(order)">
           <view class="item-info acea-row row-between row-top" v-for="(cart, cartInfoIndex) in order.cartInfo" :key="cartInfoIndex">
@@ -80,17 +80,22 @@
             <view class="text acea-row row-between">
               <view class="name line2">{{ cart.productInfo.storeName }}</view>
               <view class="money">
-                <view v-if="order.payType != 'integral'"> ￥{{ cart.productInfo.attrInfo ? cart.productInfo.attrInfo.price : cart.productInfo.price }} </view>
-                <view v-if="order.payType == 'integral'"> {{ order.payIntegral }}积分 </view>
+                <!-- <view v-if="order.payType != 'integral'"> {{ cart.productInfo.attrInfo ? cart.productInfo.attrInfo.price : cart.productInfo.price }} uvx</view> -->
+                <!-- <view v-if="order.payType == 'integral'"> {{ order.payIntegral }}积分 </view> -->
                 <view>x{{ cart.cartNum }}</view>
               </view>
+			  <view class="goodsPrice">
+			    <view class="font-color-money"> {{ cart.productInfo.attrInfo ? cart.productInfo.attrInfo.price : cart.productInfo.price }}
+				<text class="font-color-priceUnit">uvx</text></view>
+			  </view>
             </view>
+			
           </view>
         </view>
         <view class="totalPrice">
           共{{ order.cartInfo.length || 0 }}件商品，总金额
-          <text class="money font-color-red" v-if="order.payType != 'integral'">￥{{ order.payPrice }}</text>
-          <text class="money font-color-red" v-if="order.payType == 'integral'">{{ order.payIntegral }}积分</text>
+          <text class="money font-color-money" v-if="order.payType != 'integral'">{{ order.payPrice }}<text class="font-color-priceUnit">uvx</text></text>
+          <!-- <text class="money font-color-red" v-if="order.payType == 'integral'">{{ order.payIntegral }}积分</text> -->
         </view>
         <view class="bottom acea-row row-right row-middle">
           <template v-if="order._status._type == 0">
@@ -101,7 +106,7 @@
             <view class="bnt bg-color-red" @click="goOrderDetails(order)">查看详情</view>
           </template>
           <template v-if="order._status._type == 2">
-            <view class="bnt default" @click="goLogistics(order)">查看物流</view>
+            <!-- <view class="bnt default" @click="goLogistics(order)">查看物流</view> -->
             <view class="bnt bg-color-red" @click="takeOrder(order)">确认收货</view>
           </template>
           <template v-if="order._status._type == 3">
@@ -299,5 +304,10 @@ export default {
 .noCart .pictrue image {
   width: 4 * 100rpx;
   height: 3 * 100rpx;
+}
+.goodsPrice {
+	align-self: flex-end;
+	font-size: 38rpx;
+	font-weight: bold;
 }
 </style>
