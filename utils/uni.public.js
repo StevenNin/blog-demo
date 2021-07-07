@@ -74,7 +74,7 @@ const setStorage = (key,data)=>{
 	uni.setStorage({
 	    key,
 	    data,
-	    success: function () {
+	    success() {
 	        console.log('success');
 	    }
 	});

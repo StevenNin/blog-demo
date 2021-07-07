@@ -16,6 +16,7 @@ import store from '../store'
 import { handleLoginFailure } from '@/utils'
 import { VUE_APP_API_URL } from '@/config'
 import cookie from '@/utils/store/cookie'
+import {getStorage} from './uni.public.js'
 
 const fly = new Fly()
 fly.config.baseURL = VUE_APP_API_URL
@@ -61,16 +62,18 @@ function baseRequest(options) {
   // 合并传参过来的 headers
   // 如果接口需要登录，携带 token 去请求
 
+// 当前语言类型
+const linguisticType = getStorage('language').data
   options.headers = {
     ...options.headers,
-	linguisticType: 'cn',
+	linguisticType
   }
 
   if (options.login === true) {
     options.headers = {
       ...options.headers,
       Authorization: 'Bearer ' + token,
-	  linguisticType: 'cn'
+	 linguisticType
     }
   }
 

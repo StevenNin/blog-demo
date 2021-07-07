@@ -37,4 +37,8 @@ const i18n = new VueI18n({
 		'id_ID': id_ID
 	}
 })
+
+const id = i18n.locale === 'cn' ? 0 :i18n.locale === 'en' ? 1 : 2;
+setStorage('language',{data:i18n.locale,index:id})
+
 export default i18n
