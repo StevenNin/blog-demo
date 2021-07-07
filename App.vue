@@ -89,19 +89,22 @@ export default {
 @import './assets/css/reset.less';
 @import './assets/css/style.less';
 
-		/* #ifdef H5 */
-		uni-checkbox .uni-checkbox-input {
-			border-radius: 20rpx;
-		}
-		
-		uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked {
-			color: #FF6903;
-		}
-		
-		.uni-checkbox-input.uni-checkbox-input-checked {
-			border: none !important;
-			background: #6144eb;
-		}
-		/* #endif */
+/* #ifdef H5 */
+uni-checkbox .uni-checkbox-input {
+	border-radius: 100rpx;
+}
+
+uni-checkbox .uni-checkbox-input.uni-checkbox-input-checked {
+	color: #FF6903;
+}
+
+.uni-checkbox-input.uni-checkbox-input-checked {
+	border: 1px solid #fff !important;
+	background: #6144eb;
+}
+.uni-picker-container .uni-picker-item {
+	// color: #6548EF;
+}
+/* #endif */
 
 </style>

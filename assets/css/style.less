@@ -840,6 +840,7 @@ page {
   font-size: 0.28 * 100rpx;
   color: #282828;
   width: 3.93 * 100rpx;
+  font-weight: bold;
 }
 
 .goodWrapper .item .text .num {
@@ -2085,7 +2086,7 @@ font-size: 0.35*100rpx;
 }
 
 .shoppingCart .list .item .picTxt {
-  width: 5.77 * 100rpx;
+  width: 5.55 * 100rpx;
   position: relative;
 }
 
@@ -2161,6 +2162,7 @@ font-size: 0.35*100rpx;
 .shoppingCart .validGoods {
   background-color: #fff;
   border-radius: 20rpx;
+  margin-bottom: 0.3*100rpx;
 }
 
 .shoppingCart .invalidGoods {
@@ -2744,7 +2746,8 @@ font-size: 0.35*100rpx;
 .product-con .footer .item {
   font-size: 0.18 * 100rpx;
   color: #666;
-  margin-top: 0.07 * 100rpx;
+  // margin-top: 0.07 * 100rpx;
+  text-align: center;
 }
 
 .product-con .footer .item .iconfont {
@@ -2758,13 +2761,17 @@ font-size: 0.35*100rpx;
   position: relative;
 }
 
-.product-con .footer .item .iconfont.icon-gouwuche1 .num {
+.product-con .footer .item .gouwuche1 {
+  position: relative;
+}
+
+.product-con .footer .item .gouwuche1 .num {
   color: #fff;
   position: absolute;
   font-size: 0.18 * 100rpx;
   border-radius: 2 * 100rpx;
   top: -0.1 * 100rpx;
-  right: 0;
+  right: -0.08*100rpx;
   height: 0.3 * 100rpx;
   line-height: 0.3 * 100rpx;
   padding: 0 0.08 * 100rpx;
@@ -3023,6 +3030,8 @@ font-size: 0.35*100rpx;
   background-color: #fff;
   padding: 0 0.3 * 100rpx;
   margin-bottom: 0.12 * 100rpx;
+  margin: 0.2*100rpx 0.3*100rpx;
+  border-radius: 20rpx;
 }
 
 .address-management .item .address {
@@ -3102,22 +3111,23 @@ font-size: 0.35*100rpx;
 /*添加地址*/
 .addAddress .list {
   background-color: #fff;
+  margin: 0.2*100rpx 0.3*100rpx ;
+  border-radius: 20rpx;
 }
 
 .addAddress .list .item {
   padding: 0 0.3 * 100rpx;
   min-height: 0.9 * 100rpx;
-  border-top: 0.01 * 100rpx solid #eee;
   font-size: 0.3 * 100rpx;
 }
 
 .addAddress .list .item .name {
-  width: 1.95 * 100rpx;
+  width: 1.25 * 100rpx;
   color: #333;
 }
 
 .addAddress .list .item input {
-  width: 4.75 * 100rpx;
+  width: 4.55 * 100rpx;
   font-size: 0.3 * 100rpx;
 }
 
@@ -3126,7 +3136,7 @@ font-size: 0.35*100rpx;
 }
 
 .addAddress .list .item .picker {
-  width: 4.75 * 100rpx;
+  width: 4.55 * 100rpx;
 }
 
 .addAddress .list .item .address {
@@ -3139,9 +3149,11 @@ font-size: 0.35*100rpx;
 
 .addAddress .default {
   padding: 0 0.3 * 100rpx;
+  border-top: 0.01 * 100rpx solid #eee;
   height: 0.9 * 100rpx;
   background-color: #fff;
-  margin-top: 0.23 * 100rpx;
+  // margin-top: 0.23 * 100rpx;
+  border-radius: 0.2*100rpx;
 }
 
 .addAddress .default .def {
@@ -5995,16 +6007,31 @@ font-size: 0.35*100rpx;
 }
 
 /*申请退货*/
+.apply-return .goodsStyle {
+	margin: 0 30rpx;
+	border-radius: 20rpx;
+	padding: 0.3*100rpx ;
+}
+.apply-return .goodsStyle .text .name {
+	width: 3.4*100rpx;
+}
+
+.apply-return .money1 {
+	align-self: flex-end;
+}
+
 .apply-return .list {
   background-color: #fff;
   margin-top: 0.18 * 100rpx;
+  margin: 0.3*100rpx;
+  border-radius: 20rpx;
 }
 
 .apply-return .list .item {
   margin-left: 0.3 * 100rpx;
   padding-right: 0.3 * 100rpx;
   min-height: 0.9 * 100rpx;
-  border-bottom: 1px solid #eee;
+  // border-bottom: 1px solid #eee;
   font-size: 0.3 * 100rpx;
   color: #333;
 }
@@ -6012,7 +6039,8 @@ font-size: 0.35*100rpx;
 .apply-return .list .item .num {
   color: #282828;
   flex: 1;
-  text-align: right;
+  padding-left: 40rpx;
+  // text-align: left;
   position: relative;
 }
 
@@ -6112,6 +6140,8 @@ font-size: 0.35*100rpx;
 /*退货列表*/
 .return-list .goodWrapper {
   background-color: #fff;
+  margin: 0 0.3*100rpx;
+  border-radius: 20RPX;
   margin-bottom: 0.13 * 100rpx;
   position: relative;
 }
@@ -6163,8 +6193,7 @@ font-size: 0.35*100rpx;
 }
 
 .collectionGoods .item {
-  margin:0 0.3 * 100rpx;	
-  margin-top: 0.3 * 100rpx;
+  padding:0.25*100rpx  0.3 * 100rpx;	
   // border-bottom: 1px solid #eee;
   // height: 1.8 * 100rpx;
 }
@@ -6182,7 +6211,7 @@ font-size: 0.35*100rpx;
 
 .collectionGoods .item .text {
   width: 4.05 * 100rpx;
-  height: 1.3 * 100rpx;
+  height: 1.9 * 100rpx;
   font-size: 0.28 * 100rpx;
   color: #282828;
 }

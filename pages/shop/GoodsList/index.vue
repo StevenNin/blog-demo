@@ -40,7 +40,7 @@
 			    <text class="num">{{ item.price }}</text>
 			  </view>
             <!-- <view class="vip-money">￥{{ item.otPrice }}</view> -->
-            <view>剩余{{ item.sales }}件</view>
+            <view>剩余{{ item.stock }}件</view>
           </view>
         </view>
       </view>
@@ -57,7 +57,7 @@
           </view>
           <view class="vip acea-row row-between-wrapper" :class="Switch === true ? '' : 'on'">
             <!-- <view class="vip-money">￥{{ item.otPrice }}</view> -->
-            <view>剩余{{ item.sales }}件</view>
+            <view>剩余{{ item.stock }}件</view>
           </view>
         </view>
       </view>

@@ -9,6 +9,7 @@ export default {
 		verifyN: 'Account or password cannot be empty',
 	},
 	index: {
+		title:'Reward City',
 		// language: ['Simplified Chinese', 'English', 'Indonesian'],
 		language: ['简体中文', 'English', 'bahasa Indonesia'],
 		typeLabel: ['all', 'Join groupon', 'Special zone'],

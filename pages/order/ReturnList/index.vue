@@ -23,7 +23,7 @@
             v-if="cart.productInfo.attrInfo"
           >{{ cart.productInfo.attrInfo.sku }}</view>
           <view class="attr line1" v-else>{{ cart.productInfo.storeName }}</view>
-          <view class="money">￥{{ cart.productInfo.price }}</view>
+          <view class="money">{{ cart.productInfo.price }}<text class="font-color-priceUnit">uvx</text></view>
         </view>
       </view>
       <view class="totalSum">

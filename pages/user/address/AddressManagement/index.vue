@@ -4,9 +4,9 @@
     :class="addressList.length < 1 && page > 1 ? 'on' : ''"
     ref="container"
   >
-    <view class="line" v-if="addressList.length > 0">
+    <!-- <view class="line" v-if="addressList.length > 0">
       <image :src="`${$VUE_APP_RESOURCES_URL}/images/line.jpg`" />
-    </view>
+    </view> -->
     <view class="item" v-for="(item, addressListIndex) in addressList" :key="addressListIndex">
       <view class="address">
         <view class="consignee">
@@ -23,7 +23,7 @@
           <view class="checkbox-wrapper">
             <checkbox-group @change="radioChange(item.id)">
               <label class="well-check">
-                <checkbox :value="item.isDefault==1?'checked':''" :checked="item.isDefault||item.isDefault=='1' ? true : false"></checkbox>
+                <checkbox color="#FFFFFF" :value="item.isDefault==1?'checked':''" :checked="item.isDefault||item.isDefault=='1' ? true : false"></checkbox>
                 <text class="default">设为默认</text>
               </label>
             </checkbox-group>

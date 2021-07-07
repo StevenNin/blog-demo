@@ -136,12 +136,11 @@
 	.time .styleAll {
 		color: #FFFFFF;
 		background-color: #333333;
-		text-align: center;
+		// text-align: center;
 		border-radius: 5rpx;
 		box-sizing: border-box;
 		padding: 8rpx;
 		height: 40rpx;
 		width: 40rpx;
-		display: inline-block;
 	}
 </style>

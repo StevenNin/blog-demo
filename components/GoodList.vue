@@ -15,7 +15,7 @@
 					</view>
 					<view class="vip-money acea-row row-middle">
 						<!-- <view class="vip">{{ item.otPrice || 0 }}</view> -->
-						<text class="num">剩余{{ item.sales }}{{ item.unitName }}</text>
+						<text class="num">剩余{{ item.stock }}{{ item.unitName }}</text>
 					</view>
 				</view>
 			</view> 

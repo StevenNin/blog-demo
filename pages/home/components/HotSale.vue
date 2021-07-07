@@ -25,7 +25,7 @@
 						<!-- <view class="tip one-t">{{ item.storeName }}</view> -->
 						<view class="title more-t">{{ item.storeName }}</view>
 						<view class="price-box">
-							<view class="sales miso-font">已售：{{ item.stock }}{{ item.unitName }}</view>
+							<view class="sales miso-font">已售：{{ item.sales }}{{ item.unitName }}</view>
 							<view class="flex x-bc align-end">
 								<view class="current">{{ item.activity_type === 'groupon' ? item.price : item.otPrice }}
 								</view>
@@ -93,7 +93,7 @@
 		.tip {
 		    font-size: 28rpx;
 		    padding-left: 30rpx;
-		    color: #666;
+		    color: #EDE9FF;
 		}
 	}
 

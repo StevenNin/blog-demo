@@ -1,9 +1,9 @@
 <template>
-	<view class="banner-swiper-box mx20 mb10">
+	<view class="banner-swiper-box">
 		<canvas canvas-id="colorThief" class="hide-canvas"></canvas>
 		<swiper class="banner-carousel Shop-selector-rect" circular @change="swiperChange" :autoplay="true">
 			<swiper-item v-for="(item, index) in detail" :key="index" class="carousel-item">
-				<image class="swiper-image "  :src="item.pic" @click="goRoll(item)" mode="widthFix"  lazy-load>
+				<image class="swiper-image "  :src="item.pic" @click="goRoll(item)" mode=""  lazy-load>
 				</image>
 			</swiper-item>
 		</swiper>
@@ -100,8 +100,10 @@
 	// 轮播
 	.banner-swiper-box {
 		// box-sizing: border-box;
-		background: #fff;
+		background-image: linear-gradient(to bottom, #FEFCD0 0%, #F2C95F 100%);
+		background-image: -moz-linear-gradient(to bottom,  #FEFCD0 0%, #F2C95F 100%);
 		border-radius: 20rpx;
+		margin: 0.3*100rpx;
 	}
 
 	.banner-swiper-box,
@@ -114,13 +116,13 @@
 			box-sizing: border-box;
 			width: 100%;
 			height: 100%;
-			padding: 2%;
+			// padding: 2%;
 			overflow: hidden;
 		}
 
 		.swiper-image {
 			width: 100%;
-			height: 100%;
+			height: 3.6*100upx;
 			// border-radius: 10upx;
 			// background: #ccc;
 		}

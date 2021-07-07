@@ -53,10 +53,11 @@
       </view>
 
       <!-- 联系我们 -->
-      <view class="store-info" v-if="systemStore">
+      <view class="store-info" >
         <view class="title acea-row row-between-wrapper">
           <view>联系我们</view>
-		  <a class="iconfont icon-dadianhua01 font-color-red phone" @click="telPhone(systemStore.phone)"></a>
+		  <!-- <a class="iconfont icon-dadianhua01 font-color-red phone" @click="telPhone(systemStore.phone)"></a> -->
+		  <a class="iconfont icon-dadianhua01 font-color-red phone" @click="telPhone('18523333333')"></a>
           <!-- <text @click="goStoreList()" class="praise">
             更多
             <text class="iconfont icon-jiantou"></text>
@@ -141,26 +142,26 @@
         </view>
         <!-- #endif -->
         <view class="item" @click="goHome">
-          <view class="iconfont icon-shouye-xianxing"></view>
+          <view ><image src="../../../static/icon-home.png" style="width: 50rpx;height: 50rpx;" mode=""></image></view>
           <text>首页</text>
         </view>
         <view class="item" @click="setCollect" v-if="storeInfo.userCollect">
-          <view class="iconfont icon-shoucang1"></view>
+          <view ><image src="../../../static/goods-collect.png" style="width: 50rpx;height: 50rpx;" mode=""></image></view>
           <text>收藏</text>
         </view>
         <view class="item" @click="setCollect" v-if="!storeInfo.userCollect">
-          <view class="iconfont icon-shoucang"></view>
+          <view ><image src="../../../static/goods-collect1.png" style="width: 50rpx;height: 50rpx;" mode=""></image></view>
           <text>收藏</text>
         </view>
         <view @click="goShoppingCart()" v-if="animated" class="item animated bounceIn">
-          <view class="iconfont icon-gouwuche1">
+          <view class="gouwuche1"><image src="../../../static/icon-cart.png" style="width: 50rpx;height: 50rpx;" mode=""></image>
             <text class="num bg-color-red" v-if="CartCount > 0">{{ CartCount }}</text>
           </view>
           <text>购物车</text>
         </view>
         <view @click="goShoppingCart()" class="item animated" v-if="!animated">
-          <view class="iconfont icon-gouwuche1">
-            <text class="num bg-color-red" v-if="CartCount > 0">{{ CartCount }}</text>
+          <view class="gouwuche1"><image src="../../../static/icon-cart.png" style="width: 50rpx;height: 50rpx;" mode=""></image>
+            <text class="num bg-color-money" v-if="CartCount > 0">{{ CartCount }}</text>
           </view>
           <text>购物车</text>
         </view>

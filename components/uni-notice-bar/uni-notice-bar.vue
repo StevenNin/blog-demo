@@ -284,8 +284,8 @@
 		/* #endif */
 		flex-direction: row;
 		align-items: center;
-		padding: 6px 12px;
-		margin-bottom: 10px;
+		margin: 0.4*100rpx 0.3*100rpx;
+		// margin-bottom: 10px;
 	}
 
 	.uni-noticebar-close {

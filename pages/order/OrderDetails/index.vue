@@ -207,7 +207,7 @@
       </view>
       <view class="item acea-row row-between" v-if="orderInfo.couponPrice > 0">
         <view>优惠券抵扣：</view>
-        <view class="conter">-￥{{ orderInfo.couponPrice }}</view>
+        <view class="conter">-{{ orderInfo.couponPrice }}uvx</view>
       </view>
       <!-- <view class="item acea-row row-between" v-if="orderInfo.useIntegral > 0">
         <view>积分抵扣：</view>

@@ -78,11 +78,11 @@
     <view class="wrapper">
       <view class="item acea-row row-between">
         <view>支付金额：</view>
-        <view class="conter">￥{{ orderInfo.totalPrice }}</view>
+        <view class="conter">{{ orderInfo.totalPrice }}uvx</view>
       </view>
       <view class="item acea-row row-between">
         <view>优惠券抵扣：</view>
-        <view class="conter">-￥{{ orderInfo.couponPrice }}</view>
+        <view class="conter">-{{ orderInfo.couponPrice }}uvx</view>
       </view>
       <view class="actualPay acea-row row-right">
         实付款：

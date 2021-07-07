@@ -18,7 +18,7 @@
 		</view>
 		<view class="tui-body">
 			<block v-for="(item, index) in timeList" :key="index">
-				<view class="tui-status__box acea-row row-between-base" v-if="active == index">
+				<view class="tui-status__box acea-row row-between-wrapper" v-if="active == index">
 					<!-- <view class="tui-full__width" v-if="item.status == 0">
 						<tui-divider gradual width="80%" backgroundColor="#fff" :height="34">
 							<view class="tui-divider__status">
@@ -298,8 +298,8 @@
 			z-index: -4;
 			content: '';
 			position: absolute;
-			height: 100upx;
-			width: 100upx;
+			height: 110upx;
+			width: 110upx;
 			border-radius: 10upx;
 			background-color: #FFFFFF;
 			// background-image: linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
@@ -323,8 +323,8 @@
 			z-index: -4;
 			content: '';
 			position: absolute;
-			height: 100upx;
-			width: 100upx;
+			height: 120upx;
+			width: 120upx;
 			border-radius: 10upx;
 			background-color: #FFFFFF;
 			background-image: linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
@@ -391,7 +391,7 @@
 		color: #333;
 		font-size: 24rpx;
 		font-weight: 400;
-		margin-top: 16rpx;
+		// margin-top: 16rpx;
 	}
 
 	.tui-countdown__box text {

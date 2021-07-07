@@ -22,18 +22,18 @@
         <view class="name">详细地址</view>
         <input type="text" placeholder="请填写具体地址" v-model="userAddress.detail" required />
       </view>
-    </view>
-    <view class="default acea-row row-middle">
-      <view class="select-btn">
-        <view class="checkbox-wrapper">
-          <checkbox-group @change="ChangeIsDefault">
-            <label class="well-check">
-              <checkbox :value="userAddress.isDefault==1?'checked':''" :checked="userAddress.isDefault ? true : false"></checkbox>
-              <text class="def">设置为默认地址</text>
-            </label>
-          </checkbox-group>
-        </view>
-      </view>
+		<view class="default acea-row row-middle">
+		  <view class="select-btn">
+			<view class="checkbox-wrapper">
+			  <checkbox-group @change="ChangeIsDefault">
+				<label class="well-check">
+				  <checkbox :value="userAddress.isDefault==1?'checked':''" :checked="userAddress.isDefault ? true : false"></checkbox>
+				  <text class="def">设置为默认地址</text>
+				</label>
+			  </checkbox-group>
+			</view>
+		  </view>
+		</view>
     </view>
     <view></view>
     <view class="keepBnt bg-color-red" @tap="submit">立即保存</view>

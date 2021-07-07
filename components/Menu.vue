@@ -11,10 +11,10 @@
 			:duration="1000"
 		>
 			<swiper-item class="menu-swiper-item" v-for="(itemList, index) in carousel" :key="index" :style="list.length <= menu ? `height:200rpx` : `height:340rpx`">
-				<view class="menu-tab-box">
-					<view class="tab-list y-f" :style="{ width: 690 / menu + 'rpx' }" v-for="item in itemList" :key="item.name" @tap="routerTo(item)">
-						<image class="tab-img Shop-selector-circular" :style="{ width: imgW + 'rpx', height: imgW + 'rpx' }" :src="item.pic"></image>
-						<text class="Shop-selector-rect">{{ item.name }}</text>
+				<view class="menu-tab-box" style="justify-content:space-between;">
+					<view class="tab-list y-f"  v-for="item in itemList" :key="item.name" @tap="routerTo(item)">
+						<image class="tab-img Shop-selector-circular" :style="{ width: imgW + 'rpx', height: imgH + 'rpx' }" :src="item.pic"></image>
+						<text class="Shop-selector-rect" style="color: #FFFFFF;font-size: 24rpx;">{{ item.name }}</text>
 					</view>
 				</view>
 			</swiper-item>
@@ -43,7 +43,11 @@ export default {
 		},
 		imgW: {
 			type: Number,
-			default: 88
+			default: 123
+		},
+		imgH: {
+			type: Number,
+			default: 114
 		}
 	},
 	computed: {
@@ -102,7 +106,8 @@ export default {
 	}
 
 .menu-category-box {
-	padding: 30rpx 30rpx 0 30rpx;
+	// padding: 30rpx 30rpx 0 30rpx;
+	margin: 0.3*100rpx;
 	background: transparent;
 	box-sizing: border-box;
 }

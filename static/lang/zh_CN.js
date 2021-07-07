@@ -9,6 +9,7 @@ export default {
 		verifyN: '账户或密码不能为空',
 	},
 	index: {
+		title: '荣耀星球商城',
 		language: ['简体中文', 'English', 'bahasa Indonesia'],
 		typeLabel: ['所有', '我的参团', '专区'],
 		placeholder: {

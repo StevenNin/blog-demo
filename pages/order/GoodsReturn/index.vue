@@ -7,14 +7,16 @@
 			<view class="text acea-row row-between">
 				<view class="name line2">{{ cart.productInfo.storeName }}</view>
 				<view class="money">
-					<view>
-						￥{{
-            cart.productInfo.attrInfo
-            ? cart.productInfo.attrInfo.price
-            : cart.productInfo.price
-            }}
-					</view>
 					<view class="num">x{{ cart.cartNum }}</view>
+				</view>
+				<view class="money1 font-color-money">
+					<view>
+						{{
+							cart.productInfo.attrInfo
+							? cart.productInfo.attrInfo.price
+							: cart.productInfo.price
+						}}<text class="font-color-priceUnit">uvx</text>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -25,7 +27,7 @@
 			</view>
 			<view class="item acea-row row-between-wrapper">
 				<view>退款金额</view>
-				<view class="num">￥{{ orderInfo.payPrice }}</view>
+				<view class="num">{{ orderInfo.payPrice }} uvx</view>
 			</view>
 			<picker :value="reason" :range="reasonList" @change="changeReason">
 				<view class="item acea-row row-between-wrapper">
@@ -82,7 +84,7 @@
 			imageuploaded(res) {
 				if (res.status !== 200) {
 					uni.showToast({
-						title: err.msg || err.response.data.msg|| err.response.data.message,
+						title: err.msg || err.response.data.msg || err.response.data.message,
 						icon: 'none',
 						duration: 2000
 					});
@@ -97,7 +99,7 @@
 					})
 					.catch(err => {
 						uni.showToast({
-							title: err.msg || err.response.data.msg|| err.response.data.message,
+							title: err.msg || err.response.data.msg || err.response.data.message,
 							icon: 'none',
 							duration: 2000
 						});
@@ -137,7 +139,7 @@
 					})
 					.catch(err => {
 						uni.showToast({
-							title: err.msg || err.response.data.msg|| err.response.data.message,
+							title: err.msg || err.response.data.msg || err.response.data.message,
 							icon: 'none',
 							duration: 2000
 						});

@@ -23,9 +23,9 @@
 					搜索商品
 				</view>
 				<!-- #ifndef H5 -->
-				<view class="qr" @click="startQr()" v-if="$deviceType !== 'weixin'">
+				<!-- <view class="qr" @click="startQr()" v-if="$deviceType !== 'weixin'">
 					<image :src="`${$VUE_APP_RESOURCES_URL}/images/qr.png`" />
-				</view>
+				</view> -->
 				<!-- #endif -->
 			</view>
 			<Banner v-if="item.type == 'banner'" :detail="bannerData" @getbgcolor="getbgcolor"></Banner>
@@ -40,9 +40,7 @@
 			<!-- 广告 -->
 			<!-- <Adv v-if="item.type == 'adv' && item.componentContent.detail" :detail="item.componentContent.detail" /> -->
 			<!-- 广告图片 -->
-			<view v-if="item.type == 'adv'" class="advertiseImg">
-				<image src="../../static/index/advertise.png" mode="widthFix"></image>
-			</view>
+			<view v-if="item.type == 'adv'" class="advertiseImg"></view>
 			<!-- 热门榜单 -->
 			<!-- <HotCommodity v-if="item.type == 'hotCommodity'" :detail="likeInfo"></HotCommodity> -->
 			<HotSale v-if="item.type == 'hotCommodity'" :showTitle="true" :benefit="likeInfo"></HotSale>
@@ -442,27 +440,33 @@
 	}
 
 	.home_content_box {
-		margin-top: -20rpx;
+		// margin-top: -20rpx;
 	}
 
 	.head_box {}
 
 	.nav-title {
 		line-height: 40px;
+		color: #fff;
 	}
 
 	.toggleImg {
 		position: fixed;
 		right: 2%;
-		top: 1%;
+		top: 1.4%;
 		width: 40rpx;
 		height: 40rpx;
 	}
 
 	.advertiseImg {
 		box-sizing: border-box;
-		width: 100%;
-		height: 100%;
+		width: 690rpx;
+		height: 234rpx;
+		margin: 0 30rpx;
 		text-align: center;
+		background-image: url(../../static/index/advertise.png);
+		background-repeat:no-repeat;
+		background-size:100% 100%;
+		-moz-background-size:100% 100%;
 	}
 </style>

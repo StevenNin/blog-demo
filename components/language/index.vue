@@ -3,7 +3,7 @@
 	<view class="boxconet" @click="languageFunc">
 		<!-- 语言切换 S -->
 		<view class="language">
-			<view class="triangle-up"></view>
+			<!-- <view class="triangle-up"></view> -->
 			<view class='type' v-for="item,index in language" :key='index' @click="languageFunc(item,index)"
 				:style="{borderBottom: (index === 2 && 'none')}" :class="{picth:index == picthIndex}">
 				{{item}}
@@ -106,29 +106,31 @@
 
 		position: fixed;
 		// #ifdef H5
-		top: 8%;
+		top: 6%;
 		// #endif
 		// #ifndef H5
-		top: 10%;
+		top: 6%;
+		
 		// #endif
 		right: 30rpx;
-		width: 330rpx;
-		height: auto;
-		background-color: #fff;
-		border-radius: 20rpx;
-		color: rgb(67, 67, 67);
-
+		width: 125rpx;
+		height: 156rpx;
+		background-color: rgba(0,0,0,0.8);;
+		border-radius: 20rpx 0 20rpx 20rpx;
+		color: #FFFFFF;
+		font-size: 18rpx;
+		
 		view {
 
-			text-align: start;
-			line-height: 80rpx;
+			text-align: center;
+			line-height: 35rpx;
 			border-bottom: 4rpx solid #C0C0C0;
-			border-bottom: 4rpx solid rgba(216, 215, 215, 0.5);
+			border-bottom: 1rpx solid rgba(216, 215, 215, 0.5);
 
 		}
 
 		.type {
-			padding-left: 20rpx;
+			// padding-left: 20rpx;
 		}
 
 		.triangle-up {

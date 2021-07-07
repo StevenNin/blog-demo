@@ -9,6 +9,7 @@ export default {
     verifyN: 'Akun atau kata sandi tidak boleh kosong',
   },
   index: {
+	  title: 'Reward City',
     // language: ['bahasa Cina', 'Inggris', 'bahasa Indonesia'],
     language: ['简体中文', 'English', 'bahasa Indonesia'],
     typeLabel: ['semua', 'Ikut serta dalam groupon', 'Zona khusus'],
