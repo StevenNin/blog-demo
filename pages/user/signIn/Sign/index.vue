@@ -53,9 +53,9 @@
 			</view>
 		</view>
 		<view class="signTip acea-row row-center-wrapper" :class="active === true ? 'on' : ''">
-			<view class="signTipLight loadingpic">
+			<!-- <view class="signTipLight loadingpic">
 				<image :src="`${$VUE_APP_RESOURCES_URL}/images/light.png`" />
-			</view>
+			</view> -->
 			<view class="signTipCon">
 				<view class="state">签到成功</view>
 				<view class="integral">获得{{ integral }}积分</view>

@@ -40,7 +40,7 @@
       </view>
       <view class="advert acea-row row-between-wrapper"></view>
     </view>
-    <Recommend></Recommend>
+    <!-- <Recommend></Recommend> -->
   </view>
 </template>
 <script>

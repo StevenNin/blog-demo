@@ -22,7 +22,7 @@
 		data() {
 			return {
 				language: [],
-				picthIndex: '',
+				picthIndex: '0',
 			}
 		},
 		computed: {
@@ -31,11 +31,17 @@
 			},
 		},
 		created() {
-			const {
-				index
-			} = getStorage('language')
+			const {index} = getStorage('language')
 			this.picthIndex = index
 			const system_info = getStorage('system_info')
+			if (!system_info) {
+				// 获取设备信息
+				uni.getSystemInfo({
+					success: function(res) {
+						setStorage('system_info', res);
+					}
+				})
+			}
 			this.$data.system_lenguage = system_info.language;
 			this.language = this.i18n.language;
 
@@ -43,18 +49,18 @@
 		methods: {
 			// 语言切换
 			languageFunc(data, index) {
+				console.log(index,'11111')
 				if (index >= 0) {
 					const system_info = getStorage('system_info');
 					this.$data.system_lenguage = system_info.language;
 					const language = ['简体中文', '英语', '印尼', 'Simplified Chinese', 'English', 'Indonesian', 'bahasa Cina',
 						'Inggris', 'bahasa Indonesia'
 					]
-
 					if (language.includes(data) && index >= 0) {
 						this.picthIndex = index;
 						switch (index) {
 							case 0:
-								system_info.language = this._i18n.locale = 'cn'
+								system_info.language = this._i18n.locale = 'zh_CN'
 								break;
 							case 1:
 								system_info.language = this._i18n.locale = 'en'
@@ -66,9 +72,9 @@
 						const {
 							language,
 							typeLabel,
-							placeholder: {
-								home
-							}
+							// placeholder: {
+							// 	home
+							// }
 						} = this.i18n
 
 						this.language = language
@@ -117,12 +123,13 @@
 		height: 156rpx;
 		background-color: rgba(0,0,0,0.8);;
 		border-radius: 20rpx 0 20rpx 20rpx;
-		color: #FFFFFF;
+		color: #F0F1F3;
 		font-size: 18rpx;
 		
+			padding: 10rpx;
+		
 		view {
-
-			text-align: center;
+			text-align: left;
 			line-height: 35rpx;
 			border-bottom: 4rpx solid #C0C0C0;
 			border-bottom: 1rpx solid rgba(216, 215, 215, 0.5);

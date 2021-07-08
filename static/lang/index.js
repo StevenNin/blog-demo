@@ -16,14 +16,15 @@ if (!system_info) {
 }
 
 let cur_lang = 'zh_CN';
+console.log(system_info,'语言类型')
 switch (system_info.language) {
 	case 'en':
-		cur_lang = 'en'
+		cur_lang = 'LangEn'
 		break;
 	case 'zh_CN':
 		cur_lang = 'zh_CN'
 		break;
-	case 'id_ID':
+	case 'idn':
 		cur_lang = 'id_ID'
 		break;
 
@@ -34,11 +35,12 @@ const i18n = new VueI18n({
 	messages: {
 		'en': LangEn,
 		'zh_CN': zh_CN,
-		'id_ID': id_ID
+		'idn': id_ID
 	}
 })
 
-const id = i18n.locale === 'cn' ? 0 :i18n.locale === 'en' ? 1 : 2;
+// console.log(i18n.locale,'语言类型')
+const id = i18n.locale === 'zh_CN' ? 0 :i18n.locale === 'LangEn' ? 1 : 2;
 setStorage('language',{data:i18n.locale,index:id})
 
 export default i18n

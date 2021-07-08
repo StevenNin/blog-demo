@@ -57,7 +57,8 @@
         <view class="title acea-row row-between-wrapper">
           <view>联系我们</view>
 		  <!-- <a class="iconfont icon-dadianhua01 font-color-red phone" @click="telPhone(systemStore.phone)"></a> -->
-		  <a class="iconfont icon-dadianhua01 font-color-red phone" @click="telPhone('18523333333')"></a>
+		  <image class="phoneImg" src="../../../static/phone.png" mode="widthFix" @click="telPhone('18523333333')"></image>
+		  <!-- <a class="iconfont  font-color-red phone" ></a> -->
           <!-- <text @click="goStoreList()" class="praise">
             更多
             <text class="iconfont icon-jiantou"></text>
@@ -86,9 +87,9 @@
       <!-- 用户评价 -->
       <view class="userEvaluation" v-if="replyCount">
         <view class="title acea-row row-between-wrapper">
-          <view>用户评价({{ replyCount }})</view>
+          <view style="margin-left: 20rpx;">用户评价({{ replyCount }})</view>
           <text @click="goEvaluateList(id)" class="praise">
-            <text class="font-color-red">{{ replyChance }}%</text>好评率
+            <text class="font-color-reply">{{ replyChance }}%</text>好评率
             <text class="iconfont icon-jiantou"></text>
           </text>
         </view>
@@ -146,20 +147,20 @@
           <text>首页</text>
         </view>
         <view class="item" @click="setCollect" v-if="storeInfo.userCollect">
-          <view ><image src="../../../static/goods-collect.png" style="width: 50rpx;height: 50rpx;" mode=""></image></view>
-          <text>收藏</text>
-        </view>
-        <view class="item" @click="setCollect" v-if="!storeInfo.userCollect">
           <view ><image src="../../../static/goods-collect1.png" style="width: 50rpx;height: 50rpx;" mode=""></image></view>
           <text>收藏</text>
         </view>
-        <view @click="goShoppingCart()" v-if="animated" class="item animated bounceIn">
+        <view class="item" @click="setCollect" v-if="!storeInfo.userCollect">
+          <view ><image src="../../../static/goods-collect.png" style="width: 50rpx;height: 50rpx;" mode=""></image></view>
+          <text>收藏</text>
+        </view>
+        <!-- <view @click="goShoppingCart()" v-if="animated" class="item animated bounceIn">
           <view class="gouwuche1"><image src="../../../static/icon-cart.png" style="width: 50rpx;height: 50rpx;" mode=""></image>
             <text class="num bg-color-red" v-if="CartCount > 0">{{ CartCount }}</text>
           </view>
           <text>购物车</text>
-        </view>
-        <view @click="goShoppingCart()" class="item animated" v-if="!animated">
+        </view> -->
+        <view @click="goShoppingCart()" class="item animated" >
           <view class="gouwuche1"><image src="../../../static/icon-cart.png" style="width: 50rpx;height: 50rpx;" mode=""></image>
             <text class="num bg-color-money" v-if="CartCount > 0">{{ CartCount }}</text>
           </view>
@@ -784,6 +785,11 @@ export default {
 </script>
 
 <style scoped lang="less">
+.phoneImg {
+	width: 40rpx;
+	height: 40rpx;
+}
+	
 .geoPage {
   position: fixed;
   width: 100%;

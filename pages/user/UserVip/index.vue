@@ -62,7 +62,7 @@
         </view>
       </view>
     </view>
-    <Recommend></Recommend>
+    <!-- <Recommend></Recommend> -->
     <view class="growthValue" :class="growthValue === false ? 'on' : ''">
       <view class="pictrue">
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/value.jpg`" />

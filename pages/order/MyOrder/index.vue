@@ -129,7 +129,7 @@
     </view>
     <view class="noCart" v-if="orderList.length === 0 && page > 1">
       <view class="pictrue">
-        <image :src="`${$VUE_APP_RESOURCES_URL}/images/noOrder.png`" />
+        <image src="../../../static/blank.png" />
       </view>
     </view>
     <Loading :loaded="loaded" :loading="loading"></Loading>

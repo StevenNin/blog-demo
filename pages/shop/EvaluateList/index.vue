@@ -8,7 +8,7 @@
 		  <uni-rate :readonly="true" size="10" :value=" replyData.replyChance/20 || 4.5 "  />
         </view>
         <view>
-          <text class="font-color-red">{{ replyData.replyChance || 0 }}%</text>
+          <text class="font-color-reply">{{ replyData.replyChance || 0 }}%</text>
 		  <text>好评率</text>
         </view>
       </view>

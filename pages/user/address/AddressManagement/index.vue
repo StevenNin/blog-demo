@@ -53,7 +53,7 @@
     <Loading :loaded="loadend" :loading="loading"></Loading>
     <view class="noCommodity" v-if="addressList.length < 1 && page > 1">
       <view class="noPictrue">
-        <image :src="`${$VUE_APP_RESOURCES_URL}/images/noAddress.png`" class="image" />
+        <image src="../../../../static/blank.png" class="image" />
       </view>
     </view>
     <view style="height:100rpx;"></view>

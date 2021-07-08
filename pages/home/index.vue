@@ -126,6 +126,7 @@
 		data: function() {
 			return {
 				homeData: [],
+				tabBarItems: ['homeindex','types','cart','my'],
 				islanguageShow: false,
 				CustomBar: this.CustomBar,
 				StatusBar: this.StatusBar,
@@ -152,7 +153,6 @@
 				info: {
 					fastList: [],
 					bastBanner: [],
-
 					bastList: [],
 				},
 				likeInfo: [],
@@ -220,6 +220,7 @@
 			// 多语言
 			i18n() {
 				return this.$t('index')
+				console.log(this.i18n.homeindex,'首页1111111')
 			},
 			singNew() {
 				return this.roll.length > 0 ? this.roll[0] : '你还没添加通知哦！'
@@ -233,6 +234,16 @@
 				}
 				return style
 			},
+			setTabBarItem() {
+				let tabBarOptions = {
+					index: 0,  //要修改的下标
+					// text: this.i18n.homeindex //文字
+					text: '1111' //文字
+					
+					};
+					//uniapp的api，传入上面写好的对象
+				uni.setTabBarItem(tabBarOptions);				
+			}
 		},
 		onLoad: function() {
 			this.getLocation()
@@ -246,7 +257,7 @@
 					this.homeData = JSON.parse(error.data.json)
 					console.log(this.homeData)
 					console.log(222)
-					console.log(this, '多语言')
+					// console.log(this, '多语言')
 				})
 			// 首页数据调用
 			this.getHTTPHomeData();
@@ -389,8 +400,12 @@
 			languagechange() {
 				this.getHTTPHomeData()
 				this.islanguageShow = !this.islanguageShow
-
+				this.tabBarItems.map((i,e)=>{
+					uni.setTabBarItem({index:e, text:this.i18n[i]});
+				})
 			}
+			// 切换tab 
+			
 		},
 		created: async function() {
 			// await this.doColorThief();

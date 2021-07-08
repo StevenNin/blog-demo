@@ -32,7 +32,7 @@
         <view class="title acea-row row-between-wrapper">
           <view>用户评价({{ replyCount }})</view>
           <text @click="goEvaluateList(id)" class="praise">
-            <text class="font-color-red">{{ replyChance }}%</text>好评率
+            <text class="font-color-reply">{{ replyChance }}%</text>好评率
             <text class="iconfont icon-jiantou"></text>
           </text>
         </view>

@@ -11,7 +11,7 @@
 				<view class="name line1">{{ item.nickname }}</view>
 				<!-- <view class="start" :class="'star' + item.star"></view> -->
 				<view class="example-body">
-					<uni-rate :readonly="true" size="10" :value=" item.score || 4.5 " @change="onChange" />
+					<uni-rate :readonly="true" size="10" :value=" item.productScore || 4.5 " @change="onChange" />
 				</view>
 			  </view>
 			</view>

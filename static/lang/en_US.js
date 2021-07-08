@@ -8,37 +8,26 @@ export default {
 		nPMsg: 'Input password',
 		verifyN: 'Account or password cannot be empty',
 	},
+	hotsale: {
+		more: 'learn more' ,
+		rest: 'Remaining'
+	},
 	index: {
-		title:'Reward City',
+		title:'Reward City En',
 		// language: ['Simplified Chinese', 'English', 'Indonesian'],
 		language: ['简体中文', 'English', 'bahasa Indonesia'],
-		typeLabel: ['all', 'Join groupon', 'Special zone'],
-		placeholder: {
-			home: 'Please enter the group number'
-		},
-		userContent: {
-			group: 'My group',
-			mymsg: 'Group description'
-		},
-		drawAPrize: {
-			menghadiri: 'Participated',
-			hasil: 'The prize has been won',
-			look: 'learn more',
-			opnetime:'start time'
-		},
-		specialZone: {
-			launch: 'set up a group',
-			become: 'To become the leader'
-		},
-		pup: {
-			home: {
-				title: 'To become the leader',
-				bnt: 'To become the leader'
-			}
-		},
-		lotteryTime: 'start time',
+		homeindex : 'Home',
+		types: 'sort',
+		cart: 'Shopping Cart',
+		my: 'Personal',
 		month: 'month',
 		day: 'day'
+	},
+	goodsClass: {
+		title: 'sort',
+	},
+	goodsList: {
+		title: 'all',
 	},
 	toastMsg: {
 		Loading: 'Loading',

@@ -298,9 +298,9 @@
 			z-index: -4;
 			content: '';
 			position: absolute;
-			height: 110upx;
-			width: 110upx;
-			border-radius: 10upx;
+			height: 120upx;
+			width: 120upx;
+			border-radius: 20upx;
 			background-color: #FFFFFF;
 			// background-image: linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
 			// background-image: -moz-linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
@@ -323,9 +323,9 @@
 			z-index: -4;
 			content: '';
 			position: absolute;
-			height: 120upx;
-			width: 120upx;
-			border-radius: 10upx;
+			height: 128upx;
+			width: 128upx;
+			border-radius: 20upx;
 			background-color: #FFFFFF;
 			background-image: linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
 			background-image: -moz-linear-gradient(to right, #FFCD6A 0%, #FF4600 100%);
@@ -349,6 +349,7 @@
 	.tui-status__box {
 		width: 100%;
 		height: 80rpx;
+		margin-top: 16rpx;
 		// background: #fff;
 		// border-radius: 20rpx;
 		// box-shadow: 0 3rpx 20rpx rgba(183, 183, 183, 0.1);

@@ -10,34 +10,24 @@ export default {
 	},
 	index: {
 		title: '荣耀星球商城',
+		homeindex : '首页',
+		types: '分类',
+		cart: '购物车',
+		my: '我的',
 		language: ['简体中文', 'English', 'bahasa Indonesia'],
-		typeLabel: ['所有', '我的参团', '专区'],
-		placeholder: {
-			home: '请输入拼团编号'
-		},
-		userContent: {
-			group: '我的开团',
-			mymsg: '拼团说明'
-		},
-		drawAPrize: {
-			menghadiri: '已参团',
-			hasil: '已开奖',
-			look: '查看',
-			opnetime:'开团时间'
-		},
-		specialZone: {
-			launch: '我要开团',
-			become: '成为团长'
-		},
-		pup: {
-			home: {
-				title: '成为团长',
-				bnt: '成为团长'
-			}
-		},
-		lotteryTime: '开团时间',
 		month: '月',
 		day: '日'
+	},
+	goodsClass: {
+		title: '分类',
+	},
+	goodsList: {
+		title: '全部商品',
+	},
+	
+	hotsale: {
+		more: '进去逛逛' ,
+		rest: '剩余'
 	},
 	toastMsg: {
 		Loading: '加载中',

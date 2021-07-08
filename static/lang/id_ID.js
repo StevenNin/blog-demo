@@ -8,37 +8,26 @@ export default {
     nPMsg: 'Masukkan kata sandi',
     verifyN: 'Akun atau kata sandi tidak boleh kosong',
   },
+  hotsale: {
+  	more: 'lebih lanjut' ,
+  	rest: 'sisa'
+  },
   index: {
-	  title: 'Reward City',
+	  title: 'Reward City Idn',
     // language: ['bahasa Cina', 'Inggris', 'bahasa Indonesia'],
     language: ['简体中文', 'English', 'bahasa Indonesia'],
-    typeLabel: ['semua', 'Ikut serta dalam groupon', 'Zona khusus'],
-    placeholder: {
-      home: 'Silakan masukkan nomor grup'
-    },
-    userContent: {
-      group: 'Grup saya',
-      mymsg: 'Deskripsi grup'
-    },
-    drawAPrize: {
-      menghadiri: 'Berpartisipasi',
-      hasil: 'hadiah yang telah dimenangi',
-      look: 'lebih lanjut',
-      opnetime: 'Waktu mulai'
-    },
-    specialZone: {
-      launch: 'membuat grup',
-      become: 'menjadi seorang pemimpin'
-    },
-    pup: {
-      home: {
-        title: 'menjadi seorang pemimpin',
-        bnt: 'menjadi seorang pemimpin'
-      }
-    },
-    lotteryTime: 'Waktu mulai',
+    homeindex : 'Halaman Utama',
+	types: 'klasifikasi',
+	cart: 'keranjang belanja',
+	my: 'milikku',
     month: 'bulan',
     day: 'hari'
+  },
+  goodsClass: {
+  	title:'klasifikasi',
+  },
+  goodsList: {
+  	title: 'semua',
   },
   toastMsg: {
     Loading: 'Memuat',

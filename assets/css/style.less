@@ -585,14 +585,14 @@ page {
 }
 
 .product-window .textpic {
-  padding: 0 1.3 * 100rpx 0 0.3 * 100rpx;
+  padding: 0 0.9 * 100rpx 0 0.3 * 100rpx;
   margin-top: 0.29 * 100rpx;
   position: relative;
 }
 
 .product-window .textpic .pictrue {
-  width: 1.5 * 100rpx;
-  height: 1.5 * 100rpx;
+  width: 2.1 * 100rpx;
+  height: 2.1 * 100rpx;
 }
 
 .product-window .textpic .pictrue .image {
@@ -659,9 +659,9 @@ page {
 }
 
 .product-window .productWinList .item .listn .itemn.on {
-  color: #fff;
-  background-color: #eb3729;
-  border-color: #eb3729;
+  color: #593CE4;
+  background-color: #f1eeff;
+  border-color: #593CE4;
 }
 
 .product-window .cart {
@@ -821,8 +821,8 @@ page {
 }
 
 .goodWrapper .item .pictrue {
-  width: 1.3 * 100rpx;
-  height: 1.3 * 100rpx;
+  width: 1.6 * 100rpx;
+  height: 1.6 * 100rpx;
 }
 
 .goodWrapper .item .pictrue .image {
@@ -832,7 +832,8 @@ page {
 }
 
 .goodWrapper .item .text {
-  width: 4.77 * 100rpx;
+  width: 4.47 * 100rpx;
+  height: 1.6 * 100rpx;
   position: relative;
 }
 
@@ -855,21 +856,22 @@ page {
 }
 
 .goodWrapper .item .text .money {
-  font-size: 0.26 * 100rpx;
+  font-size: 0.36 * 100rpx;
   margin-top: 0.17 * 100rpx;
 }
 
 .goodWrapper .item .text .evaluate {
   position: absolute;
-  width: 1.28 * 100rpx;
-  height: 0.56 * 100rpx;
+  width: 1.1 * 100rpx;
+  height: 0.4 * 100rpx;
   border: 1px solid #6548EF;
   color: #6548EF;
   border-radius: 0.5 * 100rpx;
   text-align: center;
-  line-height: 0.46 * 100rpx;
+  line-height: 0.38* 100rpx;
   right: 0;
-  bottom: -0.1 * 100rpx;
+  bottom: 0.1 * 100rpx;
+  font-size: 24rpx;
 }
 
 .goodWrapper .item .text .evaluate.userEvaluated {
@@ -2050,7 +2052,7 @@ font-size: 0.35*100rpx;
 
 .shoppingCart .nav .administrate {
   font-size: 0.26 * 100rpx;
-  color: #282828;
+  color: #666;
   width: 1.1 * 100rpx;
   height: 0.46 * 100rpx;
   border-radius: 0.5 * 100rpx;
@@ -2102,10 +2104,15 @@ font-size: 0.35*100rpx;
 }
 
 .shoppingCart .list .item .picTxt .text {
-  width: 3.9 * 100rpx;
+  width: 3.6 * 100rpx;
   font-size: 0.28 * 100rpx;
   color: #282828;
   text-align: left;
+}
+
+.shoppingCart .list .item .picTxt .text .line1 {
+	font-size: 26rpx;
+	font-weight: bold;
 }
 
 .shoppingCart .list .item .picTxt .text .infor {
@@ -2187,7 +2194,7 @@ font-size: 0.35*100rpx;
 
 .shoppingCart .invalidGoods .goodsNav .del {
   font-size: 0.26 * 100rpx;
-    color: #282828;
+    color: #666;
     width: 1.1 * 100rpx;
     height: 0.46 * 100rpx;
     border-radius: 0.5 * 100rpx;
@@ -2213,7 +2220,8 @@ font-size: 0.35*100rpx;
   width: 0.7 * 100rpx;
   height: 0.36 * 100rpx;
   background-color: #aaa;
-  border-radius: 0.03 * 100rpx;
+  background-image: linear-gradient(to right ,#babcc9 0%, #d9dae0 100%  );
+  border-radius: 0.1 * 100rpx;
 }
 
 .shoppingCart .invalidGoods .goodsList .item .pictrue {
@@ -2228,7 +2236,7 @@ font-size: 0.35*100rpx;
 }
 
 .shoppingCart .invalidGoods .goodsList .item .text {
-  width: 4.33 * 100rpx;
+  width: 3.9 * 100rpx;
   font-size: 0.28 * 100rpx;
   color: #999;
   height: 1.4 * 100rpx;
@@ -2316,8 +2324,8 @@ font-size: 0.35*100rpx;
 }
 
 .user .header .picTxt .pictrue {
-  width: 1.2 * 100rpx;
-  height: 1.2 * 100rpx;
+  width: 1 * 100rpx;
+  height: 1 * 100rpx;
 }
 
 .user .header .picTxt .pictrue image {
@@ -2567,7 +2575,7 @@ font-size: 0.35*100rpx;
 .product-con .wrapper .introduce {
   font-size: 0.32 * 100rpx;
   font-weight: bold;
-  margin: 0.1 * 100rpx 0.3 * 100rpx 0 0.3 * 100rpx;
+  margin: 0.1 * 100rpx 0.3 * 100rpx 0 0;
 }
 
 .product-con .wrapper .label {
@@ -2667,6 +2675,17 @@ font-size: 0.35*100rpx;
   color: #282828;
   margin-left: 0.3 * 100rpx;
   padding-right: 0.3 * 100rpx;
+  position: relative;
+}
+
+.product-con .userEvaluation .title::before {
+	position: absolute;
+	content: '';
+	height: 15px;
+	width: 5px;
+	border-radius: 11px;
+	background-color: #593ce4;
+	margin-right: 2px;
 }
 
 .product-con .userEvaluation .title .praise {
@@ -2683,6 +2702,8 @@ font-size: 0.35*100rpx;
 
 .product-con .product-intro {
   margin-top: 0.2 * 100rpx;
+  background: #FFFFFF;
+  padding: 0.3*100rpx;
 }
 
 .product-con .product-intro .title {
@@ -2698,25 +2719,24 @@ font-size: 0.35*100rpx;
   margin: 1.5em auto;
   line-height: 1.5em;
   font-size: 30rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  &:after {
-    content: ' ';
-    position: absolute;
-    border-bottom: 0.5px solid #e5e5e5;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-    width: 100%;
-    top: 9px;
-    left: 0;
-    z-index: -1;
+  position: relative;
+  // display: -webkit-box;
+  // display: -webkit-flex;
+  // display: flex;
+  // -webkit-box-pack: center;
+  // -webkit-justify-content: center;
+  // justify-content: center;
+  &:before {
+	  position: absolute;
+	  content: '';
+	  top: 8rpx;
+	  height: 15px;
+	  width: 5px;
+	  border-radius: 11px;
+	  background-color: #593ce4;
+	  margin-right: 2px;
   }
   text {
-    background: #f5f5f5;
     padding: 0 20rpx;
   }
 }
@@ -2783,6 +2803,7 @@ font-size: 0.35*100rpx;
   height: 0.76 * 100rpx;
   color: #fff;
   font-size: 0.28 * 100rpx;
+  padding-left: 20rpx;
 }
 
 .product-con .footer .bnt > view {
@@ -3300,7 +3321,7 @@ font-size: 0.35*100rpx;
 .my-order .list .item .item-info .text .name {
   width: 3.06 * 100rpx;
   color: #282828;
-  font-size: 0.35*100rpx;
+  font-size: 0.3*100rpx;
   font-weight: bold;
 }
 
@@ -3354,7 +3375,7 @@ font-size: 0.35*100rpx;
 
 /*订单详情*/
 .order-details .header {
-  padding: 0 0.3 * 100rpx;
+  padding: 0.3*100rpx 0.3 * 100rpx 0;
   height: 1.5 * 100rpx;
 }
 
@@ -3397,7 +3418,7 @@ font-size: 0.35*100rpx;
   background-color: #fff;
   font-size: 0.26 * 100rpx;
   color: #282828;
-  padding: 0.25 * 100rpx 0;
+  padding: 0.5 * 100rpx 0 0 0 ;
   border-radius: 20rpx;
 }
 
@@ -3436,7 +3457,7 @@ font-size: 0.35*100rpx;
   color: #868686;
   border-radius: 20rpx;
   background-color: #fff;
-  padding: 0.25 * 100rpx 0.3 * 100rpx 0.3 * 100rpx 0.3 * 100rpx;
+  padding: 0.25 * 100rpx 0.4 * 100rpx 0.4 * 100rpx 0.4 * 100rpx;
 }
 
 .order-details .address .name {
@@ -3805,7 +3826,7 @@ font-size: 0.35*100rpx;
 .personal-data .wrapper .wrapList .item .picTxt .text .name {
   width: 100%;
   font-size: 0.3 * 100rpx;
-  color: #282828;
+  color: #fff;
 }
 
 .personal-data .wrapper .wrapList .item .picTxt .text .phone {
@@ -5576,6 +5597,7 @@ font-size: 0.35*100rpx;
 
 .evaluate-list .generalComment .evaluate {
   margin-right: 0.07 * 100rpx;
+  color:#333;
 }
 
 .evaluate-list .nav {
@@ -5603,6 +5625,10 @@ font-size: 0.35*100rpx;
 }
 
 /*商品评价*/
+.evaluate-con  {
+	background: #FFFFFF;
+	height: 100%;
+}
 .evaluate-con .score {
   background-color: #fff;
   border-top: 1px solid #f5f5f5;
@@ -5640,7 +5666,8 @@ font-size: 0.35*100rpx;
   width: 6.9 * 100rpx;
   background-color: #fafafa;
   border-radius: 0.1 * 100rpx;
-  margin-top: 0.48 * 100rpx;
+  margin-top: 0.48 * 100rpx; 
+  padding: 0.2*100rpx;
 }
 
 .evaluate-con .score .textarea textarea {

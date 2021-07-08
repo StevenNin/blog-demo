@@ -108,7 +108,7 @@
       <view class="title acea-row row-between-wrapper">
         <view v-text="'用户评价(' + replyCount + ')'"></view>
         <view class="praise" @click="goReply">
-          <text class="font-color-red" v-text="replyChance + '%'"></text>好评率
+          <text class="font-color-reply" v-text="replyChance + '%'"></text>好评率
           <text class="iconfont icon-jiantou"></text>
         </view>
       </view>

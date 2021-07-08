@@ -47,11 +47,8 @@
             ></text>
           </view>
           <view class="pictrue uploadBnt acea-row row-center-wrapper row-column" @tap="chooseImage">
-            <text class="iconfont icon-icon25201"></text>
-			<view class="pictur">
-				<image src="" mode=""></image>
-			</view>
-            <view>拍买家秀</view>
+            <!-- <text class="iconfont icon-icon25201"></text> -->
+            <view class="commentText">拍买家秀</view>
           </view>
         </view>
       </view>
@@ -62,6 +59,13 @@
 <style scoped lang="less">
 .evaluate-con .score .textarea .list .pictrue.uploadBnt {
   border: 1px solid #ddd;
+  background-image: url(../../../static/comments.png);
+  background-size: 100% 100%;
+  position: relative;
+}
+.commentText {
+	position: absolute;
+	bottom: 30rpx;
 }
 </style>
 <script>

@@ -201,13 +201,13 @@
         <view>支付金额：</view>
         <view class="conter">{{ orderInfo.totalPrice }}uvx</view>
       </view>
-      <view class="item acea-row row-between" v-if="isIntegral">
+      <!-- <view class="item acea-row row-between" v-if="isIntegral">
         <view>支付积分：</view>
         <view class="conter">{{ orderInfo.payIntegral }}积分</view>
-      </view>
-      <view class="item acea-row row-between" v-if="orderInfo.couponPrice > 0">
-        <view>优惠券抵扣：</view>
-        <view class="conter">-{{ orderInfo.couponPrice }}uvx</view>
+      </view> -->
+      <view class="item acea-row row-between" v-if="orderInfo.salesPrice > 0">
+        <view>满减优惠：</view>
+        <view class="conter">-{{ orderInfo.salesPrice }}uvx</view>
       </view>
       <!-- <view class="item acea-row row-between" v-if="orderInfo.useIntegral > 0">
         <view>积分抵扣：</view>

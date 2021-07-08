@@ -3,18 +3,18 @@
 	<view class="menu-category-box mb10" v-if="carousel" :style="list.length <= menu ? `height:200rpx` : `height:360rpx`">
 		<swiper
 			class="menu-swiper-box"
-			:style="list.length <= menu ? `height:160rpx` : `height:320rpx`"
 			@change="onSwiper"
 			circular
 			:autoplay="false"
 			:interval="3000"
 			:duration="1000"
+			style="text-align: center;"
 		>
 			<swiper-item class="menu-swiper-item" v-for="(itemList, index) in carousel" :key="index" :style="list.length <= menu ? `height:200rpx` : `height:340rpx`">
 				<view class="menu-tab-box" style="justify-content:space-between;">
 					<view class="tab-list y-f"  v-for="item in itemList" :key="item.name" @tap="routerTo(item)">
 						<image class="tab-img Shop-selector-circular" :style="{ width: imgW + 'rpx', height: imgH + 'rpx' }" :src="item.pic"></image>
-						<text class="Shop-selector-rect" style="color: #FFFFFF;font-size: 24rpx;">{{ item.name }}</text>
+						<text class="Shop-selector-rect" style="color: #FFFFFF;font-size: 24rpx;max-width: 120rpx;">{{ item.name }}</text>
 					</view>
 				</view>
 			</swiper-item>

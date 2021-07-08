@@ -19,7 +19,7 @@
         <view class="addressCon" v-else>
           <view class="setaddress">设置收货地址</view>
         </view>
-        <view class="iconfont icon-jiantou"></view>
+        <view class="iconfont icon-jiantou" style="margin-right: 18rpx;"></view>
       </view>
       <div class="address acea-row row-between-wrapper" v-if="shipping_type === 1" @click="showStoreList">
         <div class="addressCon" v-if="storeItems">
@@ -36,7 +36,7 @@
           </div>
           <div>{{ systemStore.address }}</div>
         </div>
-        <div class="iconfont icon-jiantou"></div>
+        <div class="iconfont icon-jiantou" style="margin-right: 18rpx;"></div>
       </div>
       <!-- <view class="line">
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/line.jpg`" />
@@ -99,8 +99,8 @@
       <view  class="item">
 			支付方式 
 	  </view>
-	  <view>{{payType}}</view>
-	  <view class="iconfont icon-jiantou"></view>
+	  <view style="margin-left: 230rpx;">{{payType}}</view>
+	  <view class="iconfont icon-jiantou" style="margin-right: 18rpx;"></view>
         <!-- <view > -->
         <!-- <view class="list">
           <view class="payItem acea-row row-middle" v-if="!isIntegral" :class="active === 'weixin' ? 'on' : ''" @click="payItem('weixin')" v-show="isWeixin">
@@ -125,16 +125,16 @@
     <view class="wrapper">
       <view class="item acea-row row-between-wrapper" v-if="orderPrice.totalPrice !== undefined">
         <view>商品总价：</view>
-        <view class="money" v-if="!isIntegral">￥{{ orderPrice.totalPrice }}</view>
+        <view class="money" v-if="!isIntegral">{{ orderPrice.totalPrice }}<text >uvx</text></view>
         <view class="money" v-if="isIntegral">{{ orderPrice.payIntegral }}积分</view>
       </view>
 	  <view class="item acea-row row-between-wrapper" >
 	    <view>满减优惠：</view>
-	    <view class="money">-{{ orderPrice.couponPrice }}</view>
+	    <view class="money">-{{ orderPrice.salesPrice||0 }}<text >uvx</text></view>
 	  </view>
-      <view class="item acea-row row-between-wrapper" v-if="orderPrice.payPostage > 0 && !isIntegral">
+      <view class="item acea-row row-between-wrapper" >
         <view>运费：</view>
-        <view class="money">￥{{ orderPrice.payPostage }}</view>
+        <view class="money">{{ orderPrice.payPostage||0 }}<text >uvx</text></view>
       </view>
       <!-- <view class="item acea-row row-between-wrapper" v-if="orderPrice.couponPrice > 0 && !isIntegral"> -->
 	  
@@ -147,7 +147,7 @@
     <view class="footer acea-row row-between-wrapper">
       <view>
         合计:
-        <text class="font-color-red" >￥{{ orderPrice.payPrice }}</text>
+        <text class="font-color-money" >{{ orderPrice.payPrice }}<text class="font-color-priceUnit">UVX</text></text>
         <!-- <text class="font-color-red" v-if="isIntegral">{{ orderPrice.payIntegral }}积分</text> -->
       </view>
       <view class="settlement bg-transform-purple" @click="createOrder">立即结算</view>
@@ -306,6 +306,7 @@ export default {
       useIntegral: false,
       orderPrice: {
         payPrice: '计算中',
+		salesId: 0,
       },
       mark: '',
       systemStore: {},
@@ -483,15 +484,15 @@ export default {
     },
     createOrder() {
       if (this.isIntegral) {
-        // 积分支付
-        if (this.userInfo.integral < this.orderPrice.payIntegral) {
-          uni.showToast({
-            title: '积分不足',
-            icon: 'none',
-            duration: 2000,
-          })
-          return
-        }
+        // // 积分支付
+        // if (this.userInfo.integral < this.orderPrice.payIntegral) {
+        //   uni.showToast({
+        //     title: '积分不足',
+        //     icon: 'none',
+        //     duration: 2000,
+        //   })
+        //   return
+        // }
         this.active = 'integral'
       }
       let shipping_type = this.shipping_type
@@ -569,6 +570,8 @@ export default {
         mark: this.mark || '',
         shippingType: parseInt(shipping_type) + 1,
         storeId: this.storeItems ? this.storeItems.id : this.systemStore.id,
+		salesId: this.orderPrice.salesId,
+		salesPrice :this.orderPrice.salesPrice,
         ...from,
       })
         .then(res => {

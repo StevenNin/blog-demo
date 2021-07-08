@@ -18,9 +18,9 @@
     <Loading :loaded="loadend" :loading="loading"></Loading>
     <view class="noCommodity" style="background-color:#fff;" v-if="collectProductList.length < 1 && page > 1">
       <view class="noPictrue">
-        <image :src="`${$VUE_APP_RESOURCES_URL}/images/noCollection.png`" class="image" />
+        <image src="../../../static/blank.png" class="image" />
       </view>
-      <Recommend></Recommend>
+      <!-- <Recommend></Recommend> -->
     </view>
   </view>
 </template>

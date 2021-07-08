@@ -15,7 +15,7 @@
           <view class="address">
             <CitySelect ref="cityselect" :defaultValue="addressText" @callback="result" :items="district"></CitySelect>
           </view>
-          <view class="iconfont icon-dizhi font-color-red"></view>
+          <!-- <view class="iconfont icon-dizhi font-color-red"></view> -->
         </view>
       </view>
       <view class="item acea-row row-between-wrapper">
@@ -27,7 +27,7 @@
 			<view class="checkbox-wrapper">
 			  <checkbox-group @change="ChangeIsDefault">
 				<label class="well-check">
-				  <checkbox :value="userAddress.isDefault==1?'checked':''" :checked="userAddress.isDefault ? true : false"></checkbox>
+				  <checkbox color="#FFFFFF" :value="userAddress.isDefault==1?'checked':''" :checked="userAddress.isDefault ? true : false"></checkbox>
 				  <text class="def">设置为默认地址</text>
 				</label>
 			  </checkbox-group>

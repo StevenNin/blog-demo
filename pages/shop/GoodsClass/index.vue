@@ -68,9 +68,18 @@ export default {
       }
     }
   },
-  mounted: function() {
+  computed: {
+    // 多语言
+    i18n() {
+      return this.$t('goodsClass')
+    }
+  },
+  mounted() {
     // document.addEventListener("scroll", this.onScroll, false);
     this.loadCategoryData();
+	uni.setNavigationBarTitle({
+	  title: this.i18n.title
+	});
   },
   methods: {
     goGoodSearch() {
@@ -121,7 +130,13 @@ export default {
   },
   beforeDestroy: function() {
     // document.removeEventListener("scroll", this.onScroll, false);
-  }
+  },
+  onShow() {
+	// console.log(1)
+  	uni.setNavigationBarTitle({
+  	  title: this.i18n.title
+  	});
+  },
 };
 </script>
 

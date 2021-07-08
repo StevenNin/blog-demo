@@ -65,7 +65,7 @@
     <Loading :loaded="loadend" :loading="loading"></Loading>
     <view class="noCommodity" style="background-color: #fff" v-if="productList.length === 0 && where.page > 1">
       <view class="noPictrue">
-        <image :src="`${$VUE_APP_RESOURCES_URL}/images/noGood.png`" class="image" />
+        <image src="../../../static/blank.png" class="image" />
       </view>
     </view>
     <Recommend v-if="productList.length === 0 && where.page > 1" :recommendLoading="recommendLoading" @changeRecommendLoading="changeRecommendLoading"></Recommend>
@@ -147,6 +147,12 @@ export default {
       // }
     },
   },
+  computed: {
+      // 多语言
+      i18n() {
+        return this.$t('goodsList')
+      }
+  },
   mounted: function() {
     const { s = '', id = 0, title = '', isIntegral = false } = this.$yroute.query
 
@@ -155,6 +161,10 @@ export default {
     this.isIntegral = isIntegral
     this.updateTitle()
     this.getProductList()
+	uni.setNavigationBarTitle({
+		title: this.i18n.title
+		// title: 'xinxinxi'
+	  });
   },
   onReachBottom() {
     this.recommendLoading = true

@@ -132,7 +132,7 @@
     {
       "path": "pages/shop/HotNewGoods/index",
       "style": {
-        "navigationBarTitleText": "热门商品"
+        "navigationBarTitleText": "超值热卖"
       }
     },
     {
@@ -439,7 +439,7 @@
   },
   "tabBar": {
     "color": "#282828",
-    "selectedColor": "#eb3729",
+    "selectedColor": "#6548eF",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "height": "50px",

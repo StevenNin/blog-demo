@@ -339,6 +339,7 @@ export default {
     },
   },
   onShow() {
+	  console.log('进入用户中心')
     if (this.$store.getters.token) {
       //
       uni.showLoading({

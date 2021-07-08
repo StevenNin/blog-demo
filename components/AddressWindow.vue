@@ -13,7 +13,8 @@
           @click="tapAddress(addressIndex)"
           :key="addressIndex"
         >
-          <text class="iconfont icon-ditu" :class="item.id === checked ? 'font-color-red' : ''"></text>
+          <!-- <text class="iconfont icon-ditu" :class="item.id === checked ? 'font-color-red' : ''"></text> -->
+		  <checkbox color="#FFFFFF"  :checked="item.id === checked"></checkbox>
           <view class="addressTxt">
             <view class="name" :class="item.id === checked ? 'font-color-red' : ''">
               {{ item.realName }}
@@ -24,11 +25,11 @@
               }}{{ item.detail }}
             </view>
           </view>
-          <text class="iconfont icon-complete" :class="item.id === checked ? 'font-color-red' : ''"></text>
+          <text ></text>
         </view>
       </view>
       <view class="pictrue" v-if="addressList.length < 1">
-        <image :src="`${$VUE_APP_RESOURCES_URL}/images/noAddress.png`" class="image" />
+        <image src="../static/blank.png" class="image" />
       </view>
       <view class="addressBnt bg-color-red" @click="goAddressPages">新加地址</view>
     </view>

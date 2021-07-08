@@ -8,9 +8,10 @@
 		</view> -->
 		<view v-if="showTitle" class="title-box x-bc" @tap="$yrouter.push({ path: '/pages/shop/HotNewGoods/index',query:{type:2} })">
 		    <!-- <text class="title">热门榜单</text> -->
-			<image class="hotSaleImg" src="../../../static/index/hotSaleImg.png" mode="widthFix"></image>
+			<!-- <image class="hotSaleImg" src="../../../static/index/hotSaleImg.png" mode="widthFix"></image> -->
+			<view class="hotSaleImg">热门榜单</view>
 		    <view class="group-people x-f">
-		        <text class="tip">进去逛逛></text>
+		        <text class="tip">{{ i18n.more }}></text>
 		        <text class="cuIcon-right"></text>
 		    </view>
 		</view>
@@ -25,7 +26,7 @@
 						<!-- <view class="tip one-t">{{ item.storeName }}</view> -->
 						<view class="title more-t">{{ item.storeName }}</view>
 						<view class="price-box">
-							<view class="sales miso-font">已售：{{ item.sales }}{{ item.unitName }}</view>
+							<view class="sales miso-font">{{ i18n.rest }}：{{ item.sales }}{{ item.unitName }}</view>
 							<view class="flex x-bc align-end">
 								<view class="current">{{ item.activity_type === 'groupon' ? item.price : item.otPrice }}
 								</view>
@@ -49,6 +50,12 @@
 		props: ['benefit','showTitle'],
 		data: function () {
 			return {};
+		},
+		computed: {
+			// 多语言
+			i18n() {
+				return this.$t('hotsale')
+			}
 		},
 		methods: {
 			routerGo(item) {
@@ -230,7 +237,14 @@
 		}
 	}
 	.hotSaleImg{
+		color: #FFFFFF;
+		font-weight: bold;
+		text-indent: 40rpx;
+		font-size: 30rpx;
 		width: 170rpx;
+		background-image: url(../../../static/index/hotSaleImg.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
 	}
 	.forward-Icon{
 		width: 40rpx;
