@@ -9,7 +9,7 @@
 				<view class="money">
 					<view class="num">x{{ cart.cartNum }}</view>
 				</view>
-				<view class="money1 font-color-money">
+				<view class="money1 font-color-money32">
 					<view>
 						{{
 							cart.productInfo.attrInfo

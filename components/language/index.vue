@@ -1,10 +1,10 @@
 <template>
 
-	<view class="boxconet" @click="languageFunc">
+	<view class="boxconet" @click.stop="languageFunc">
 		<!-- 语言切换 S -->
 		<view class="language">
 			<!-- <view class="triangle-up"></view> -->
-			<view class='type' v-for="item,index in language" :key='index' @click="languageFunc(item,index)"
+			<view class='type' v-for="item,index in language" :key='index' @click.stop="languageFunc(item,index)"
 				:style="{borderBottom: (index === 2 && 'none')}" :class="{picth:index == picthIndex}">
 				{{item}}
 			</view>
@@ -12,17 +12,13 @@
 		<!-- 语言切换 E -->
 	</view>
 </template>
-
 <script>
-	import {
-		setStorage,
-		getStorage
-	} from '@/utils/uni.public.js'
+	import {setStorage,getStorage } from '@/utils/uni.public.js'
 	export default {
 		data() {
 			return {
 				language: [],
-				picthIndex: '0',
+				picthIndex:'',
 			}
 		},
 		computed: {
@@ -34,66 +30,59 @@
 			const {index} = getStorage('language')
 			this.picthIndex = index
 			const system_info = getStorage('system_info')
-			if (!system_info) {
-				// 获取设备信息
-				uni.getSystemInfo({
-					success: function(res) {
-						setStorage('system_info', res);
-					}
-				})
-			}
+			// console.log('当前系统语言', system_info)
+			
 			this.$data.system_lenguage = system_info.language;
 			this.language = this.i18n.language;
-
+			// console.log(this.language);
+			
+			
 		},
 		methods: {
 			// 语言切换
 			languageFunc(data, index) {
-				console.log(index,'11111')
-				if (index >= 0) {
-					const system_info = getStorage('system_info');
-					this.$data.system_lenguage = system_info.language;
-					const language = ['简体中文', '英语', '印尼', 'Simplified Chinese', 'English', 'Indonesian', 'bahasa Cina',
-						'Inggris', 'bahasa Indonesia'
-					]
-					if (language.includes(data) && index >= 0) {
-						this.picthIndex = index;
-						switch (index) {
-							case 0:
-								system_info.language = this._i18n.locale = 'zh_CN'
-								break;
-							case 1:
-								system_info.language = this._i18n.locale = 'en'
-								break;
-							case 2:
-								system_info.language = this._i18n.locale = 'idn'
-								break;
-						}
-						const {
-							language,
-							typeLabel,
-							// placeholder: {
-							// 	home
-							// }
-						} = this.i18n
-
-						this.language = language
-						this.typeLabel = typeLabel
-						setStorage('language', {
-							data: system_info.language,
-							index
-						});
 				
+				const system_info = getStorage('system_info');
+				this.$data.system_lenguage = system_info.language;
+				const language =  ['简体中文', '英语', '印尼','Simplified Chinese', 'English', 'Indonesian','bahasa Cina', 'Inggris', 'bahasa Indonesia']
+				
+				if (language.includes(data) && index >=0 ) {
+					
+					this.picthIndex = index
+					
+					switch (index) {
+						case 0:
+							system_info.language = this._i18n.locale = 'cn'
+							break;
+						case 1:
+							system_info.language = this._i18n.locale = 'en'
+							break;
+						case 2:
+							system_info.language = this._i18n.locale = 'idn'
+							break;
 					}
-
-					this.$emit('languagechange')
+					const {
+						language,
+						typeLabel,
+						placeholder: {
+							home
+						}
+					} = this.i18n
+					
+					this.language = language
+					this.typeLabel = typeLabel
+					setStorage('language',{data:system_info.language,index});
+					//切换时 再跳转至当前页面(此方式路由不会堆栈)
+					uni.navigateTo({
+							url:"../../ivew/index/index"
+						})
 				}
-
+				
+				this.$emit('languagechange')
 			},
 		}
 	}
 </script>
-
 <style scoped lang="less">
 	.boxconet {
 		position: fixed;
@@ -119,18 +108,18 @@
 		
 		// #endif
 		right: 30rpx;
-		width: 125rpx;
-		height: 156rpx;
+		width: 170rpx;
+		height: 240rpx;
 		background-color: rgba(0,0,0,0.8);;
 		border-radius: 20rpx 0 20rpx 20rpx;
 		color: #F0F1F3;
-		font-size: 18rpx;
-		
-			padding: 10rpx;
+		font-size: 26rpx;
+		padding: 30rpx;
 		
 		view {
 			text-align: left;
-			line-height: 35rpx;
+			line-height: 38rpx;
+			height: 56rpx;
 			border-bottom: 4rpx solid #C0C0C0;
 			border-bottom: 1rpx solid rgba(216, 215, 215, 0.5);
 

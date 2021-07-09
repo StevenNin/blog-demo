@@ -1,5 +1,5 @@
 <template>
-	<view class="index">
+	<view class="index" v-if="showIndex">
 		<view v-for="(item, index) in homeData" :key="index">
 			<view class="head_box" v-if="item.type == 'header'" :style="{ background: bgcolor1 }"
 				:class="{ active: bgcolor1 }">
@@ -30,8 +30,8 @@
 			</view>
 			<Banner v-if="item.type == 'banner'" :detail="bannerData" @getbgcolor="getbgcolor"></Banner>
 			<uni-notice-bar v-if="item.type == 'noticeBar'" scrollable="true"
-				@click="goRoll(item.componentContent.roll[0])" single="true" :backgroundColor="bgcolor2" :speed="10"
-				showIcon="true" :text="rolls[0].info"></uni-notice-bar>
+				 single="true" :backgroundColor="bgcolor2" :speed="10"
+				showIcon="true" :text="rolls[0]?rolls[0].info:''"></uni-notice-bar>
 			<view class="content_box home_content_box" v-if="item.type == 'menu' && item.componentContent.menus">
 				<!-- 菜单 -->
 				<Menu :list="menus"></Menu>
@@ -95,13 +95,18 @@
 		isWeixin,
 		handleUrlParam
 	} from '@/utils/index'
-
+	import {
+	  login
+	} from "@/api/user";
 	import {
 		openShareAll
 	} from '@/libs/wechat'
-
+	import {
+		setStorage,
+		getStorage
+	} from '@/utils/uni.public.js'
 	const HAS_COUPON_WINDOW = 'has_coupon_window'
-
+	import dayjs from "dayjs";
 	export default {
 		name: 'Index',
 		components: {
@@ -125,6 +130,7 @@
 		props: {},
 		data: function() {
 			return {
+				showIndex: false,
 				homeData: [],
 				tabBarItems: ['homeindex','types','cart','my'],
 				islanguageShow: false,
@@ -220,7 +226,6 @@
 			// 多语言
 			i18n() {
 				return this.$t('index')
-				console.log(this.i18n.homeindex,'首页1111111')
 			},
 			singNew() {
 				return this.roll.length > 0 ? this.roll[0] : '你还没添加通知哦！'
@@ -245,9 +250,59 @@
 				uni.setTabBarItem(tabBarOptions);				
 			}
 		},
-		onLoad: function() {
+		onLoad: function(data) {
+			console.log(data,'书库。。。。。。。。。。。。。。')
+			let token = getStorage('login_status')
+			if(token){
+				//
+				this.showIndex = true
+			}else{
+				 const { password, username, languagetype } = data;
+				 login({
+				     username,
+				     password,
+				     // spread: cookie.get("spread")
+				   })
+				   .then(({
+				     data
+				   }) => {
+				     this.$store.commit("login", data.token, dayjs(data.expires_time));
+				     // handleGetUserInfo();
+				     // let replace=this.$yroute.query.replace
+				     // if(replace){
+				 
+				     // }
+				     // this.$yrouter.replace({
+				     // 	path: this.$yroute.query.replace || '/pages/home/index'
+				     // });
+				   })
+				   
+				   
+				   
+				  console.log('languagetype' in data);					
+				  if ('languagetype' in data) {
+					// 设置语言类型
+					this._i18n.locale = languagetype;
+			
+					let languageindex = '';
+					let languageType = ['cn', 'en', 'idn'];
+					for (let i = 0; i < languageType.length; i++) {
+					  if (languageType[i] === languagetype) {
+						languageindex = i;
+						break;
+					  }
+					}
+					setStorage('language', {
+					  data: languagetype,
+					  index: languageindex,
+					});
+				  }
+				  
+				  this.showIndex = true
+			}
+			  
+			
 			this.getLocation()
-
 			// uni.showLoading({
 			//   title: "加载中",
 			// });
@@ -418,7 +473,7 @@
 	}
 
 	.index {
-		background-color: #fff;
+		background-color: #f3f2f2;
 		background-image: url(../../static/index-bg.png);
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
@@ -483,5 +538,8 @@
 		background-repeat:no-repeat;
 		background-size:100% 100%;
 		-moz-background-size:100% 100%;
+	}
+	.uni-noticebar {
+		width: auto;
 	}
 </style>

@@ -5,7 +5,7 @@
         <view class="input acea-row row-between-wrapper">
           <text class="iconfont icon-sousuo2"></text>
           <!-- <form @submit.prevent="submit"></form> -->
-          <input type="text" placeholder="点击搜索商品" v-model="search" />
+          <input type="text" placeholder="点击搜索商品" v-model="search" @confirm="submit" />
         </view>
         <view class="bnt" @click="submit">搜索</view>
       </view>

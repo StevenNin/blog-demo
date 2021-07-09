@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import App from './App'
 import i18n from './static/lang/index' 
-import en from './api/lang_en.js'
-import zh from './api/lang_zh.js'
-import idn from './api/lang_idn.js'
 
 
 // import router from "./router";

@@ -17,11 +17,11 @@
 		<view class="validGoods">
 		  <view class="nav acea-row row-between-wrapper">
 			<view>
-			  购物数量：
-			  <text class="num font-color-money">{{ count }}</text>
+			  {{ i18n.count }}：
+			  <text class="num font-color-money32">{{ count }}</text>
 			</view>
 			<view v-if="cartList.valid.length > 0" class="administrate acea-row row-center-wrapper" @click="manage">
-			  {{ footerswitch ? '取消' : '管理' }}</view>
+			  {{ footerswitch ?  i18n.cancle  :  i18n.manage  }}</view>
 		  </view>
         <view class="list">
           <view class="item acea-row row-between-wrapper" v-for="(item, cartListValidIndex) in validList"
@@ -42,8 +42,8 @@
               </view>
               <view class="text">
                 <view class="line1">{{ item.productInfo.storeName }}</view>
-                <view class="infor line1" v-if="item.productInfo.attrInfo">规格：{{ item.productInfo.attrInfo.sku }}</view>
-                <view class="money font-color-money">{{ item.truePrice }}<text class='font-color-priceUnit'>UVX</text></view>
+                <view class="infor line1" v-if="item.productInfo.attrInfo">{{ i18n.specifications }}：{{ item.productInfo.attrInfo.sku }}</view>
+                <view class="money font-color-money32">{{ item.truePrice }}<text class='font-color-priceUnit'>UVX</text></view>
               </view>
               <view class="carnum acea-row row-center-wrapper">
                 <view class="reduce" :class="validList[cartListValidIndex].cartNum <= 1 ? 'on' : ''"
@@ -64,24 +64,23 @@
 		<view class="invalidGoods" v-if="cartList.invalid.length > 0">
           <view class="goodsNav acea-row row-between-wrapper">
             <view @click="goodsOpen">
-              <text class="iconfont" :class="goodsHidden === true ? 'icon-xiangyou' : 'icon-xiangxia'"></text>失效商品
+              <text class="iconfont" :class="goodsHidden === true ? 'icon-xiangyou' : 'icon-xiangxia'"></text>{{ i18n.invalidPro }}
             </view>
-            <view class="del" @click="delInvalidGoods">清空</view>
+            <view class="del" @click="delInvalidGoods">{{ i18n.clear }}</view>
           </view>
           <view class="goodsList" :hidden="goodsHidden">
             <view v-for="(item, cartListinvalidIndex) in cartList.invalid" :key="cartListinvalidIndex">
               <view @click="goGoodsCon(item)" class="item acea-row row-between-wrapper" v-if="item.productInfo">
-                <view class="invalid acea-row row-center-wrapper">失效</view>
+                <view class="invalid acea-row row-center-wrapper">{{ i18n.invalid }}</view>
                 <view class="pictrue">
                   <image :src="item.productInfo.attrInfo.image" v-if="item.productInfo.attrInfo" />
                   <image :src="item.productInfo.image" v-else />
                 </view>
                 <view class="text acea-row row-column-between">
                   <view class="line1">{{ item.productInfo.storeName }}</view>
-                  <view class="infor line1" v-if="item.productInfo.attrInfo">属性：{{ item.productInfo.attrInfo.sku }}
-                  </view>
+                  <!-- <view class="infor line1" v-if="item.productInfo.attrInfo">属性：{{ item.productInfo.attrInfo.sku }}</view> -->
                   <view class="acea-row row-between-wrapper">
-                    <view class="end">该商品已下架</view>
+                    <view class="end">{{ i18n.invaldTip }}</view>
                   </view>
                 </view>
               </view>
@@ -116,19 +115,19 @@
               <checkbox-group @change="allChecked">
                 <label class="well-check">
                   <checkbox color="#FFFFFF" value="allSelect" :checked="isAllSelect && cartCount > 0"></checkbox>
-                  <text class="checkAll">全选 ({{ cartCount }})</text>
+                  <text class="checkAll">{{ i18n.allSelect }} ({{ cartCount }})</text>
                 </label>
               </checkbox-group>
             </view>
           </view>
         </view>
         <view class="money acea-row row-middle" v-if="footerswitch === false">
-          <text class="font-color-money">{{ countmoney }}<text class="font-color-priceUnit">UVX</text></text>
-          <view class="placeOrder bg-transform-money" @click="placeOrder">立即下单</view>
+          <text class="font-color-money32">{{ countmoney }}<text class="font-color-priceUnit">UVX</text></text>
+          <view class="placeOrder bg-transform-money" @click="placeOrder">{{ i18n.submit }}</view>
         </view>
         <view class="button acea-row row-middle" v-else>
           <!-- <view class="bnt cart-color" @click="collectAll">收藏</view> -->
-          <view class="bnt" @click="delgoods">删除</view>
+          <view class="bnt" @click="delgoods">{{ i18n.delete }}</view>
         </view>
       </view>
     </view>
@@ -184,7 +183,13 @@
         loaded: false
       };
     },
-    computed: mapGetters(["userInfo", "token"]),
+	computed: {
+	    // 多语言
+		...mapGetters(["userInfo", "token"]),
+	    i18n() {
+	      return this.$t('shoppingCart')
+	    }
+	},
     //   watch: {
     //     $yroute(n) {
     //       if (n.name === "ShoppingCart") {
@@ -232,6 +237,9 @@
         this.getCartList();
         this.gainCount();
       }
+	  uni.setNavigationBarTitle({
+		  title: this.i18n.title
+		});
     },
     methods: {
       goGoodsCon(item) {
@@ -522,6 +530,7 @@
   }
   .shoppingCart{
 	  position: relative;
+	  background: #fff;
   }
   .num {
 	  font-size: 28rpx;

@@ -100,10 +100,10 @@
 	// 轮播
 	.banner-swiper-box {
 		// box-sizing: border-box;
-		background-image: linear-gradient(to bottom, #FEFCD0 0%, #F2C95F 100%);
-		background-image: -moz-linear-gradient(to bottom,  #FEFCD0 0%, #F2C95F 100%);
+		// background-image: linear-gradient(to bottom, #FEFCD0 0%, #F2C95F 100%);
+		// background-image: -moz-linear-gradient(to bottom,  #FEFCD0 0%, #F2C95F 100%);
 		border-radius: 20rpx;
-		margin: 0.3*100rpx;
+		// margin: 0.3*100rpx;
 	}
 
 	.banner-swiper-box,

@@ -147,7 +147,7 @@
     <view class="footer acea-row row-between-wrapper">
       <view>
         合计:
-        <text class="font-color-money" >{{ orderPrice.payPrice }}<text class="font-color-priceUnit">UVX</text></text>
+        <text class="font-color-money32" >{{ orderPrice.payPrice }}<text class="font-color-priceUnit">UVX</text></text>
         <!-- <text class="font-color-red" v-if="isIntegral">{{ orderPrice.payIntegral }}积分</text> -->
       </view>
       <view class="settlement bg-transform-purple" @click="createOrder">立即结算</view>
@@ -238,7 +238,7 @@
 
 .order-submission .allAddress .address {
   width: 6.91 * 100rpx;
-  height: 1.5 * 100rpx;
+  // height: 1.5 * 100rpx;
   margin: 0 auto;
   box-sizing: border-box;
   border-radius: 20rpx;

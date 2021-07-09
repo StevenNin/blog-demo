@@ -23,11 +23,43 @@ export default {
 		month: 'month',
 		day: 'day'
 	},
+	
+	// 购物车
+	shoppingCart: {
+		title:'Shopping Cart',
+		count: '购物数量',
+		manage: '管理',
+		cancle: '取消',
+		specifications: '规格',
+		clear: '清空',
+		invalid: '失效',
+		invalidPro: '失效商品',
+		invaldTip: '该商品已下架',
+		allSelect: '全选',
+		submit: '立即下单',
+		delete: '删除',
+	},
+	// 用户
+	userIndex: {
+		title: 'Personal',
+		myOrder: '我的订单',
+		allOrder: '全部订单',
+		dfk: '待付款',
+		dfh: '待发货',
+		dsh: '待收货',
+		dpj: '待评价',
+		sh: '售后/退款'
+	},
 	goodsClass: {
 		title: 'sort',
 	},
 	goodsList: {
 		title: 'all',
+		placeHolder: 'Please search for product name',
+		price: '价格',
+		stock: '销量',
+		newPro: '新品',
+		rest: '剩余'
 	},
 	toastMsg: {
 		Loading: 'Loading',

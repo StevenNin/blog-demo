@@ -54,9 +54,9 @@
         </view> -->
         <view class="myOrder">
           <view class="title acea-row row-between-wrapper">
-            <text>我的订单</text>
+            <text>{{ i18n.myOrder }}</text>
             <text @click="goMyOrder()" class="allOrder">
-              <text>全部订单</text>
+              <text>{{ i18n.allOrder }}</text>
               <text class="iconfont icon-jiantou"></text>
             </text>
           </view>
@@ -66,35 +66,35 @@
                 <image src="../../../static/dfk.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.unpaidCount > 0">{{ userInfo.orderStatusNum.unpaidCount }}</text>
               </view>
-              <view>待付款</view>
+              <view>{{ i18n.dfk }}</view>
             </view>
             <view @click="goMyOrder(1)" class="item">
               <view class="pictrue">
                 <image src="../../../static/dfh.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.unshippedCount > 0">{{ userInfo.orderStatusNum.unshippedCount }}</text>
               </view>
-              <view>待发货</view>
+              <view>{{ i18n.dfh }}</view>
             </view>
             <view @click="goMyOrder(2)" class="item">
               <view class="pictrue">
                 <image src="../../../static/dsh.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.receivedCount > 0">{{ userInfo.orderStatusNum.receivedCount }}</text>
               </view>
-              <text>待收货</text>
+              <text>{{ i18n.dsh }}</text>
             </view>
             <view @click="goMyOrder(3)" class="item">
               <view class="pictrue">
                 <image src="../../../static/dpj.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.evaluatedCount > 0">{{ userInfo.orderStatusNum.evaluatedCount }}</text>
               </view>
-              <text>待评价</text>
+              <text>{{ i18n.dpj }}</text>
             </view>
             <view @click="goReturnList()" class="item">
               <view class="pictrue">
                 <image src="../../../static/sh.png" />
                 <text class="order-status-num" v-if="userInfo.orderStatusNum.refundCount > 0">{{ userInfo.orderStatusNum.refundCount }}</text>
               </view>
-              <text>售后/退款</text>
+              <text>{{ i18n.sh }}</text>
             </view>
           </view>
         </view>
@@ -150,7 +150,13 @@ export default {
       isWeixin: false,
     }
   },
-  computed: mapGetters(['userInfo']),
+  computed: {  
+	...mapGetters(['userInfo']),
+	// 多语言
+	i18n() {
+	  return this.$t('userIndex')
+	}
+  },
   methods: {
     ...mapMutations(['updateAuthorizationPage']),
     goReturnList() {
@@ -339,7 +345,6 @@ export default {
     },
   },
   onShow() {
-	  console.log('进入用户中心')
     if (this.$store.getters.token) {
       //
       uni.showLoading({
@@ -349,9 +354,11 @@ export default {
       this.MenuUser()
       this.isWeixin = isWeixin()
     }
+	uni.setNavigationBarTitle({
+		title: this.i18n.title
+	  });
   },
   onHide() {
-    console.log('离开用户中心')
     this.updateAuthorizationPage(false)
   },
 }

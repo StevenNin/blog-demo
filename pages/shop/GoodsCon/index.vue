@@ -18,7 +18,7 @@
         <view class="label acea-row row-between-wrapper">
           <!-- <text v-if="!isIntegral">原价:￥{{ storeInfo.otPrice }}</text> -->
 		  <view class="money" v-if="!isIntegral">
-		    <text class="num itemPrice font-color-money">{{ attr.productSelect.price || storeInfo.price }}</text>
+		    <text class="num itemPrice font-color-money32">{{ attr.productSelect.price || storeInfo.price }}</text>
 		    <text>uvx</text>
 		    <!-- <text class="vip-money" v-if="storeInfo.vipPrice && storeInfo.vipPrice > 0">￥{{ attr.productSelect.vipPrice || storeInfo.vipPrice }}</text>
 		    <image :src="`${$VUE_APP_RESOURCES_URL}/images/vip.png`" class="image" v-if="storeInfo.vipPrice && storeInfo.vipPrice > 0" /> -->

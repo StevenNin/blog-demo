@@ -133,6 +133,7 @@ export default {
   },
   onShow() {
 	// console.log(1)
+	this.loadCategoryData();
   	uni.setNavigationBarTitle({
   	  title: this.i18n.title
   	});

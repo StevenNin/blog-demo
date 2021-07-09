@@ -9,7 +9,7 @@
 		<view v-if="showTitle" class="title-box x-bc" @tap="$yrouter.push({ path: '/pages/shop/HotNewGoods/index',query:{type:2} })">
 		    <!-- <text class="title">热门榜单</text> -->
 			<!-- <image class="hotSaleImg" src="../../../static/index/hotSaleImg.png" mode="widthFix"></image> -->
-			<view class="hotSaleImg">热门榜单</view>
+			<view class="hotSaleImg">{{ i18n.text }}</view>
 		    <view class="group-people x-f">
 		        <text class="tip">{{ i18n.more }}></text>
 		        <text class="cuIcon-right"></text>
@@ -248,5 +248,6 @@
 	}
 	.forward-Icon{
 		width: 40rpx;
-	}
+		height: 40rpx;
+	}	
 </style>

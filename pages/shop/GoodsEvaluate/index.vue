@@ -9,7 +9,7 @@
         <view class="money">
           <view class="num">x{{ orderCon.cartNum }}</view>
         </view>
-		<view class="money1 font-color-money" style="align-self: flex-end;">
+		<view class="money1 font-color-money32" style="align-self: flex-end;">
 		  <view>{{ orderCon.productInfo.price }}<text class="font-color-priceUnit">uvx</text></view>
 		</view>
       </view>

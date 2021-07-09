@@ -23,14 +23,14 @@
             v-if="cart.productInfo.attrInfo"
           >{{ cart.productInfo.attrInfo.sku }}</view>
           <view class="attr line1" v-else>{{ cart.productInfo.storeName }}</view>
-          <view class="money">{{ cart.productInfo.price }}<text class="font-color-priceUnit">uvx</text></view>
+          <view class="money font-color-money ">{{ cart.productInfo.price }}<text class="font-color-priceUnit">UVX</text></view>
         </view>
       </view>
       <view class="totalSum">
         共{{ order.cartInfo.length || 0 }}件商品，总金额
         <text
-          class="font-color-red price"
-        >￥{{ order.payPrice }}</text>
+          class="font-color-money price"
+        >{{ order.payPrice }}<text class="font-color-priceUnit">uvx</text></text>
       </view>
     </view>
     <view class="noCart" v-if="orderList.length === 0 && page > 1">

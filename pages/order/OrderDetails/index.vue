@@ -219,7 +219,7 @@
       </view>
       <view class="actualPay acea-row row-right">
         实付款：
-        <text class="money font-color-money" v-if="!isIntegral">{{ orderInfo.payPrice }}<text class="font-color-priceUnit">uvx</text></text>
+        <text class="money font-color-money32" v-if="!isIntegral">{{ orderInfo.payPrice }}<text class="font-color-priceUnit">uvx</text></text>
         <!-- <text class="money font-color-red" v-if="isIntegral">{{ orderInfo.payIntegral }}积分</text> -->
       </view>
     </view>

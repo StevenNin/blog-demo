@@ -40,7 +40,7 @@
             <span class="sign cart-color acea-row row-center-wrapper" v-if="order.storeId > 0">门店</span> -->
             {{ order.createTime }}
           </view>
-          <view class="font-color-money">{{ getStatus(order) }}</view>
+          <view class="font-color-money32">{{ getStatus(order) }}</view>
         </view>
         <view @click="goOrderDetails(order)">
           <view class="item-info acea-row row-between row-top" v-for="(cart, cartInfoIndex) in order.cartInfo" :key="cartInfoIndex">
@@ -85,7 +85,7 @@
                 <view>x{{ cart.cartNum }}</view>
               </view>
 			  <view class="goodsPrice">
-			    <view class="font-color-money"> {{ cart.productInfo.attrInfo ? cart.productInfo.attrInfo.price : cart.productInfo.price }}
+			    <view class="font-color-money32"> {{ cart.productInfo.attrInfo ? cart.productInfo.attrInfo.price : cart.productInfo.price }}
 				<text class="font-color-priceUnit">uvx</text></view>
 			  </view>
             </view>
@@ -94,7 +94,7 @@
         </view>
         <view class="totalPrice">
           共{{ order.cartInfo.length || 0 }}件商品，总金额
-          <text class="money font-color-money" v-if="order.payType != 'integral'">{{ order.payPrice }}<text class="font-color-priceUnit">uvx</text></text>
+          <text class="money font-color-money32" v-if="order.payType != 'integral'">{{ order.payPrice }}<text class="font-color-priceUnit">uvx</text></text>
           <!-- <text class="money font-color-red" v-if="order.payType == 'integral'">{{ order.payIntegral }}积分</text> -->
         </view>
         <view class="bottom acea-row row-right row-middle">

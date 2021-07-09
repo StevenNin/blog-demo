@@ -13,8 +13,8 @@
 		<!-- #ifndef MP-ALIPAY -->
 		<uni-icons v-if="showClose === true || showClose === 'true'" class="uni-noticebar-close" type="closeempty" :color="color"
 		 size="12" @click="close" />
-		 <image src="../../static/index/notice.png" class="noticeImg" mode=""></image>
-		 <text class="divider-line mx20" > | </text>
+		 <image src="../../static/index/notice.png" class="noticeImg" mode="widthFix"></image>
+		 <!-- <text class="divider-line mx20" > | </text> -->
 		<!-- <uni-icons v-if="showIcon === true || showIcon === 'true'" class="uni-noticebar-icon" type="sound" :color="color"
 		 size="14" /> -->
 		 
@@ -400,6 +400,16 @@
 	.noticeImg{
 		width: 150rpx;
 		height: 30rpx;
+		position: relative;
+		// &:after{
+		// 	content:'';
+		// 	background: red;
+		// 	width: 1rpx;
+		// 	height: 10rpx;
+		// 	right: 20rpx;
+		// 	position: absolute;
+			
+		// }
 	}
 	.divider-line{
 		color: #B7B9CE;

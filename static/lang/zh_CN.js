@@ -8,6 +8,7 @@ export default {
 		nPMsg: '输入密码',
 		verifyN: '账户或密码不能为空',
 	},
+	// 主页
 	index: {
 		title: '荣耀星球商城',
 		homeindex : '首页',
@@ -18,17 +19,68 @@ export default {
 		month: '月',
 		day: '日'
 	},
+	// 分类
 	goodsClass: {
 		title: '分类',
 	},
-	goodsList: {
-		title: '全部商品',
+	
+	// 购物车
+	shoppingCart: {
+		title:'购物车',
+		count: '购物数量',
+		manage: '管理',
+		cancle: '取消',
+		specifications: '规格',
+		clear: '清空',
+		invalid: '失效',
+		invalidPro: '失效商品',
+		invaldTip: '该商品已下架',
+		allSelect: '全选',
+		submit: '立即下单',
+		delete: '删除',
+	},
+	// 用户
+	userIndex: {
+		title: '我的',
+		myOrder: '我的订单',
+		allOrder: '全部订单',
+		dfk: '待付款',
+		dfh: '待发货',
+		dsh: '待收货',
+		dpj: '待评价',
+		sh: '售后/退款'
 	},
 	
-	hotsale: {
-		more: '进去逛逛' ,
+	// 全部
+	goodsList: {
+		title: '全部商品',
+		placeHolder: '搜索商品信息',
+		price: '价格',
+		stock: '销量',
+		newPro: '新品',
 		rest: '剩余'
 	},
+	// 热门榜单
+	hotsale: {
+		more: '进去逛逛' ,
+		rest: '剩余',
+		text: '热门榜单',
+	},
+	// 超值热卖
+	superHot: {
+		more: '进去逛逛' ,
+		rest: '剩余',
+		text: '超值热卖'
+	},
+	
+	
+	// 组件
+	// 商品列表
+	compGoodsList: {
+		rest: '剩余'
+	},
+	
+	
 	toastMsg: {
 		Loading: '加载中',
 		loginOk: '登录成功',

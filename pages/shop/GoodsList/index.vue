@@ -3,31 +3,31 @@
     <form @submit.prevent="submitForm">
       <view class="search bg-color-white acea-row row-between-wrapper">
         <view class="input acea-row row-between-wrapper">
-          <input placeholder="搜索商品信息" v-model="where.keyword" />
           <text class="iconfont icon-sousuo" @click="submitForm"></text>
+          <input :placeholder="i18n.placeHolder" v-model="where.keyword" @confirm="submitForm" />
         </view>
         <!-- <view class="iconfont" :class="Switch === true ? 'icon-pailie' : 'icon-tupianpailie'" @click="switchTap"></view> -->
       </view>
     </form>
 	
     <view class="nav acea-row row-middle">
-      <view class="item" :class="title ? 'font-color-red' : ''" @click="set_where(0)">{{ title ? title : '' }}</view>
-      <view class="item" @click="set_where(1)">
-        价格
+      <view class="item" :class="title ? 'font-color-money' : ''" @click="set_where(0)">{{ title ? title : '' }}</view>
+      <view class="item" :class="price === 1||price === 2 ? 'font-color-money' : ''" @click="set_where(1)">
+        {{ i18n.price }}
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/horn.png`" v-if="price === 0" />
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/up.png`" v-if="price === 1" />
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/down.png`" v-if="price === 2" />
       </view>
-      <view class="item" @click="set_where(2)">
-        销量
+      <view class="item" :class="stock === 1||stock === 2 ? 'font-color-money' : ''"  @click="set_where(2)">
+        {{ i18n.stock }}
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/horn.png`" v-if="stock === 0" />
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/up.png`" v-if="stock === 1" />
         <image :src="`${$VUE_APP_RESOURCES_URL}/images/down.png`" v-if="stock === 2" />
       </view>
       <!-- down -->
-      <view class="item" :class="nows ? 'font-color-red' : ''" @click="set_where(3)">新品</view>
+      <view class="item" :class="nows ? 'font-color-money' : ''" @click="set_where(3)">{{ i18n.newPro }}</view>
     </view>
-    <view class="list acea-row row-between-wrapper" :class="Switch === true ? '' : 'on'" ref="container" v-if="!isIntegral">
+    <view class="list acea-row row-between-wrapper" :class="Switch === true ? '' : 'on'" ref="container" >
       <view @click="goGoodsCon(item)" class="item" :class="Switch === true ? '' : 'on'" v-for="(item, productListIndex) in productList" :key="productListIndex" :title="item.storeName">
         <view class="pictrue" :class="Switch === true ? '' : 'on'">
           <image :src="item.image" :class="Switch === true ? '' : 'on'" />
@@ -36,39 +36,23 @@
           <view class="name line1">{{ item.storeName }}</view>
           
           <view class="vip acea-row row-between-base" :class="Switch === true ? '' : 'on'">
-			  <view class="money font-color-money" :class="Switch === true ? '' : 'on'">
+			  <view class="money font-color-money32" :class="Switch === true ? '' : 'on'">
 			    <text class="num">{{ item.price }}</text>
 			  </view>
             <!-- <view class="vip-money">￥{{ item.otPrice }}</view> -->
-            <view>剩余{{ item.stock }}件</view>
+            <view>{{ i18n.rest }}{{ item.stock }}{{ item.unitName }}</view>
           </view>
         </view>
       </view>
     </view>
-    <view class="list acea-row row-between-wrapper" :class="Switch === true ? '' : 'on'" ref="container" v-if="isIntegral == 'true'">
-      <view @click="goIntegralGoodsCon(item)" class="item" :class="Switch === true ? '' : 'on'" v-for="(item, productListIndex) in productList" :key="productListIndex" :title="item.storeName">
-        <view class="pictrue" :class="Switch === true ? '' : 'on'">
-          <image :src="item.image" :class="Switch === true ? '' : 'on'" />
-        </view>
-        <view class="text" :class="Switch === true ? '' : 'on'">
-          <view class="name line1">{{ item.storeName }}</view>
-          <view class="money font-color-red" :class="Switch === true ? '' : 'on'">
-            <text class="num">{{ item.integral }}积分</text>
-          </view>
-          <view class="vip acea-row row-between-wrapper" :class="Switch === true ? '' : 'on'">
-            <!-- <view class="vip-money">￥{{ item.otPrice }}</view> -->
-            <view>剩余{{ item.stock }}件</view>
-          </view>
-        </view>
-      </view>
-    </view>
+    
     <Loading :loaded="loadend" :loading="loading"></Loading>
     <view class="noCommodity" style="background-color: #fff" v-if="productList.length === 0 && where.page > 1">
       <view class="noPictrue">
         <image src="../../../static/blank.png" class="image" />
       </view>
     </view>
-    <Recommend v-if="productList.length === 0 && where.page > 1" :recommendLoading="recommendLoading" @changeRecommendLoading="changeRecommendLoading"></Recommend>
+    <!-- <Recommend v-if="productList.length === 0 && where.page > 1" :recommendLoading="recommendLoading" @changeRecommendLoading="changeRecommendLoading"></Recommend> -->
   </view>
 </template>
 <script>

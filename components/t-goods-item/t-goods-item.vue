@@ -13,7 +13,7 @@
       <view class="tui-box__bottom">
         <view class="tui-price__box">
           <view class="tui-price">
-            <view class="tui-price__large font-color-money">{{ item.price || '' }}</view>
+            <view class="tui-price__large font-color-money32">{{ item.price || '' }}</view>
             <view class="tui-price__small">uvx</view>
             <!-- <view class="tui-price__small">.{{ decimalPrice }}</view> -->
           </view>

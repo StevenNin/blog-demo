@@ -1,6 +1,6 @@
-import LangEn from './en_US.js'
-import zh_CN from './zh_CN.js'
-import id_ID from './id_ID.js'
+import en  from './en_US.js'
+import cn from './zh_CN.js'
+import idn from './id_ID.js'
 import Vue from 'vue'
 import {setStorage,getStorage} from '../../utils/uni.public.js'
 import VueI18n from './vue-i18n'
@@ -15,32 +15,31 @@ if (!system_info) {
 	})
 }
 
-let cur_lang = 'zh_CN';
-console.log(system_info,'语言类型')
+let cur_lang = 'cn';
 switch (system_info.language) {
 	case 'en':
-		cur_lang = 'LangEn'
+		cur_lang = 'en'
 		break;
-	case 'zh_CN':
-		cur_lang = 'zh_CN'
+	case 'cn':
+		cur_lang = 'cn'
 		break;
 	case 'idn':
-		cur_lang = 'id_ID'
+		cur_lang = 'idn'
 		break;
 
 }
 
 const i18n = new VueI18n({
-	locale: cur_lang || 'zh_CN', // 默认选择的语言
+	locale: cur_lang || 'cn', // 默认选择的语言
 	messages: {
-		'en': LangEn,
-		'zh_CN': zh_CN,
-		'idn': id_ID
+		'en': en,
+		'cn': cn,
+		'idn': idn
 	}
 })
 
-// console.log(i18n.locale,'语言类型')
-const id = i18n.locale === 'zh_CN' ? 0 :i18n.locale === 'LangEn' ? 1 : 2;
+
+const id = i18n.locale === 'cn' ? 0 :i18n.locale === 'en' ? 1 : 2;
 setStorage('language',{data:i18n.locale,index:id})
 
 export default i18n

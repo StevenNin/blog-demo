@@ -2,13 +2,14 @@
 	<view>
 		<view class="title-box x-bc" @tap="$yrouter.push({ path: '/pages/shop/HotNewGoods/index',query:{type:1} })">
 		    <!-- <text class="title">超值热卖</text> -->
-			<image class="hotSaleImg" src="../static/index/valueSale.png" mode="widthFix"></image>
+			<!-- <image class="hotSaleImg" src="../static/index/valueSale.png" mode="widthFix"></image> -->
+			<view class="hotSaleImg">{{ i18n.text }}</view>
 		    <view class="group-people x-f">
-		        <text class="tip">进去逛逛></text>
+		        <text class="tip">{{ i18n.more }}></text>
 		        <text class="cuIcon-right"></text>
 		    </view>
 		</view>
-		<view class="hot-goods mx20 mb10" v-if="benefit.length">
+		<view class="hot-goods mx20 mb10" style="background: transparent;" v-if="benefit.length">
 			<GoodList :good-list="benefit" :is-sort="false" ></GoodList>
 		</view>
 	</view>
@@ -22,6 +23,12 @@
 		props: ['benefit'],
 		data: function () {
 			return {};
+		},
+		computed: {
+		    // 多语言
+		    i18n() {
+		      return this.$t('superHot')
+		    }
 		},
 		methods: {
 			routerGo(item) {
@@ -76,7 +83,14 @@
 		}
 	}
 	.hotSaleImg{
+		// color: #FFFFFF;
+		font-weight: bold;
+		text-indent: 40rpx;
+		font-size: 30rpx;
 		width: 170rpx;
+		background-image: url(../static/index/valueSale.png);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
 	}
 	.forward-Icon{
 		width: 40rpx;
