@@ -96,7 +96,16 @@ const serverHandle = (req,res) => {
                 }
                 res.end(JSON.stringify(userData))            
             })
+            return
         }
     })
 
+    // 未知路由 返回404
+    res.writeHead(404,{
+        'content-type' :'text/plain'
+    })
+    res.end('404 Not Found\n')
 }
+
+
+module.exports = serverHandle
